@@ -12,7 +12,7 @@ from PyroUbot import *
 
 async def cukimay(client, message):
     if message.from_user.id != OWNER_ID:
-        await message.reply_text(f"\nmau ngapain anjenk?\n")
+        await message.reply(f"\nmau ngapain anjenk?\n")
         return
     command = get_arg(message)
     msg = await message.reply("memproses...", quote=True)
@@ -90,11 +90,11 @@ async def send_large_output(message, output):
 @PY.UBOT("eval")
 async def _(client, message):
     if message.from_user.id != OWNER_ID:
-        await message.reply_text(f"mau ngapain anjenk?")
+        await message.reply(f"mau ngapain anjenk?")
         return
     if not get_arg(message):
         return
-    TM = await message.reply_text("sebentar proses...")
+    TM = await message.reply("sebentar proses...")
     cmd = message.text.split(" ", maxsplit=1)[1]
     reply_to_ = message.reply_to_message or message
     old_stderr = sys.stderr
@@ -131,7 +131,7 @@ async def _(client, message):
                 quote=True,
             )
     else:
-        await reply_to_.reply_text(final_output, quote=True)
+        await reply_to_.reply(final_output, quote=True)
     await TM.delete()
 
 

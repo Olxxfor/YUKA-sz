@@ -19,7 +19,7 @@ __HELP__ = """
 @PY.UBOT("cuttly")
 async def _(client, message):
     if len(message.command) < 2:
-        await message.reply_text("<blockquote><b>**Gunakan perintah:** `/cuttly url`\n\nContoh: `/cuttly https://www.google.co.id`</blockquote></b>")
+        await message.reply("<blockquote><b>**Gunakan perintah:** `/cuttly url`\n\nContoh: `/cuttly https://www.google.co.id`</blockquote></b>")
         return
 
     url = " ".join(message.command[1:])
@@ -44,8 +44,8 @@ async def _(client, message):
             )
 
 
-            await message.reply_text(reply_text)
+            await message.reply(reply_text)
         else:
-            await message.reply_text(f"<blockquote><b>❌ Maaf, Title dari **{title}** tidak ditemukan.</blockquote></b>")
+            await message.reply(f"<blockquote><b>❌ Maaf, Title dari **{title}** tidak ditemukan.</blockquote></b>")
     except Exception as e:
-        await message.reply_text(f"<blockquote><b>⚠️ Terjadi kesalahan saat mengambil data:\n`{str(e)}`</blockquote></b>")
+        await message.reply(f"<blockquote><b>⚠️ Terjadi kesalahan saat mengambil data:\n`{str(e)}`</blockquote></b>")

@@ -52,11 +52,11 @@ async def process_image_command(client, message, api_url, command_name):
     """
     args = message.text.split(" ", 1)
     if len(args) < 2:
-        await message.reply_text(f"<b><i>Gunakan perintah /{command_name} <teks> untuk membuat gambar.</i></b>")
+        await message.reply(f"<b><i>Gunakan perintah /{command_name} <teks> untuk membuat gambar.</i></b>")
         return
 
     request_text = args[1]
-    await message.reply_text("<b><i>Sedang memproses, mohon tunggu...</i></b>")
+    await message.reply("<b><i>Sedang memproses, mohon tunggu...</i></b>")
 
     image_content = fetch_image(api_url, request_text)
     if image_content:
@@ -66,7 +66,7 @@ async def process_image_command(client, message, api_url, command_name):
         await message.reply_photo(photo=temp_file)
         os.remove(temp_file)
     else:
-        await message.reply_text("Gagal membuat gambar. Coba lagi nanti.")
+        await message.reply("Gagal membuat gambar. Coba lagi nanti.")
 
 # Handler untuk setiap perintah
 @PY.UBOT("glossy")

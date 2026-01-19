@@ -135,9 +135,9 @@ async def download_thumbnail(url: str):
 async def vsong_cmd(client, message):
     # validate arguments
     if len(message.command) < 2:
-        return await message.reply_text("❌ Video tidak ditemukan, masukkan judul.")
+        return await message.reply("❌ Video tidak ditemukan, masukkan judul.")
 
-    infomsg = await message.reply_text("🔍 Pencarian...", quote=False)
+    infomsg = await message.reply("🔍 Pencarian...", quote=False)
     # get query safely
     try:
         query = message.text.split(None, 1)[1]
@@ -243,9 +243,9 @@ async def song_cmd(client, message):
     prs = await EMO.PROSES(client)
 
     if len(message.command) < 2:
-        return await message.reply_text(f"{ggl} Audio tidak ditemukan! Masukkan judul.")
+        return await message.reply(f"{ggl} Audio tidak ditemukan! Masukkan judul.")
 
-    infomsg = await message.reply_text(f"{prs} Pencarian...", quote=False)
+    infomsg = await message.reply(f"{prs} Pencarian...", quote=False)
     try:
         query = message.text.split(None, 1)[1]
     except Exception:

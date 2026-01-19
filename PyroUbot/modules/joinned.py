@@ -115,7 +115,7 @@ async def _(client, message):
     prs = await EMO.PROSES(client)
     ggl = await EMO.GAGAL(client)
     done = 0
-    Haku = await message.reply_text(f"{prs}proccesing...")
+    Haku = await message.reply(f"{prs}proccesing...")
     async for dialog in client.get_dialogs():
         if dialog.chat.type in (ChatType.SUPERGROUP, ChatType.GROUP):
             chat_id = dialog.chat.id

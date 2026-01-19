@@ -32,9 +32,9 @@ async def quotes_anime(client, message):
                 result += f"<emoji id=6203978081800033988>💜</emoji><emoji id=6206004318521267252>💜</emoji> **Quotes :** `{quotes['quotes']}`\n"
                 result += f"<emoji id=6206193146758435609>💜</emoji><emoji id=6203731219964761845>💜</emoji> [**Link :**]({quotes['link']})\n</blockquote>"
             
-            await message.reply_text(result)
+            await message.reply(result)
         else:
-            await message.reply_text("Gagal mengambil data Quotes.")
+            await message.reply("Gagal mengambil data Quotes.")
     
     except Exception as e:
-        await message.reply_text(f"Terjadi kesalahan: {e}")
+        await message.reply(f"Terjadi kesalahan: {e}")

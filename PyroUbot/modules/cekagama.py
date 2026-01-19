@@ -22,7 +22,7 @@ AGAMA_LIST = [
 async def cek_agama(client, message):
     args = message.text.split(maxsplit=1)
     if len(args) < 2:
-        return await message.reply_text("<blockquote><b>⚠️ Gunakan format: .cekagama [nama]</blockquote></b>")
+        return await message.reply("<blockquote><b>⚠️ Gunakan format: .cekagama [nama]</blockquote></b>")
 
     nama = args[1]
     agama = random.choice(AGAMA_LIST)
@@ -36,4 +36,4 @@ async def cek_agama(client, message):
     ɴᴏᴛᴇ ᴍᴀᴀғ ʏᴀ {nama} ᴄᴜᴍᴀ ʙᴇᴄᴀɴᴅᴀ ᴋᴏᴋ 😁
     
     </blockquote></b>'''
-    await message.reply_text(hasil)
+    await message.reply(hasil)

@@ -67,7 +67,7 @@ async def _(client, message):
 <b>{tion} ʟɪᴍɪᴛ ᴄʜᴇᴄᴋ : ᴀᴋᴜɴ ᴀɴᴅᴀ ᴛɪᴅᴀᴋ ᴅɪʙᴀᴛᴀsɪ</b>
 <b>{yubot} ᴜʙᴏᴛ : {bot.me.mention}</b></blockquote>
 
-<blockquote><b>©𝗝𝘂𝗻𝗢𝗳𝗳𝗶𝗰𝗶𝗮𝗹 🜲</b></blockquote>
+<blockquote><b>𝐄𝐋 𝐏𝐑𝐎𝐌𝐏𝐓 𝐘𝐔𝐊𝐀𝐀𝟖𝟖 [𝐋𝐀𝐒𝐓𝐄𝐑𝐀]</b></blockquote>
 """
             else:
                 text = f"""
@@ -75,7 +75,7 @@ async def _(client, message):
 <b>ʟɪᴍɪᴛ ᴄʜᴇᴄᴋ : ᴀᴋᴜɴ ᴀɴᴅᴀ ᴛɪᴅᴀᴋ ᴅɪʙᴀᴛᴀsɪ</b>
 <b>ᴜʙᴏᴛ : {bot.me.mention}</b></blockquote>
 
-<blockquote><b>©𝗝𝘂𝗻𝗢𝗳𝗳𝗶𝗰𝗶𝗮𝗹 🜲</b></blockquote>
+<blockquote><b>𝐄𝐋 𝐏𝐑𝐎𝐌𝐏𝐓 𝐘𝐔𝐊𝐀𝐀𝟖𝟖 [𝐋𝐀𝐒𝐓𝐄𝐑𝐀]</b></blockquote>
 """
             await client.send_message(message.chat.id, text)
             return await client.invoke(DeleteHistory(peer=bot_info, max_id=0, revoke=True))
@@ -86,7 +86,7 @@ async def _(client, message):
 <b>{tion} ʟɪᴍɪᴛ ᴄʜᴇᴄᴋ : ᴀᴋᴜɴ ᴀɴᴅᴀ ʙᴇʀᴍᴀsᴀʟᴀʜ</b> 
 <b>{yubot} ᴜʙᴏᴛ : {bot.me.mention}</b></blockquote>
 
-<blockquote><b>©𝗝𝘂𝗻𝗢𝗳𝗳𝗶𝗰𝗶𝗮𝗹 🜲</b></blockquote>
+<blockquote><b>𝐄𝐋 𝐏𝐑𝐎𝐌𝐏𝐓 𝐘𝐔𝐊𝐀𝐀𝟖𝟖 [𝐋𝐀𝐒𝐓𝐄𝐑𝐀]</b></blockquote>
 """
             else:
                 text = f"""
@@ -94,7 +94,7 @@ async def _(client, message):
 <b>ʟɪᴍɪᴛ ᴄʜᴇᴄᴋ : ᴀᴋᴜɴ ᴀɴᴅᴀ ʙᴇʀᴍᴀsᴀʟᴀʜ</b>
 <b>ᴜʙᴏᴛ : {bot.me.mention}</b></blockquote>
 
-<blockquote><b>©𝗝𝘂𝗻𝗢𝗳𝗳𝗶𝗰𝗶𝗮𝗹 🜲</b></blockquote>
+<blockquote><b>𝐄𝐋 𝐏𝐑𝐎𝐌𝐏𝐓 𝐘𝐔𝐊𝐀𝐀𝟖𝟖 [𝐋𝐀𝐒𝐓𝐄𝐑𝐀]</b></blockquote>
 """
             await client.send_message(message.chat.id, text)
             return await client.invoke(DeleteHistory(peer=bot_info, max_id=0, revoke=True))

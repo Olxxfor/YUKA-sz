@@ -139,7 +139,7 @@ async def _(client, message):
 async def _(client, message):
     try:
         if not message.reply_to_message or not message.reply_to_message.photo:
-            return await message.reply_text("reply ke foto untuk mengubah ke sticker")
+            return await message.reply("reply ke foto untuk mengubah ke sticker")
         sticker = await client.download_media(
             message.reply_to_message.photo.file_id,
             f"sticker_{message.from_user.id}.webp",
@@ -147,7 +147,7 @@ async def _(client, message):
         await message.reply_sticker(sticker)
         os.remove(sticker)
     except Exception as e:
-        await message.reply_text(str(e))
+        await message.reply(str(e))
 
 
 @PY.UBOT("togif")

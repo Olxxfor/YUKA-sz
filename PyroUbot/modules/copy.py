@@ -78,7 +78,7 @@ async def nyolongnih(client, message):
         else:
             await message.edit(f"{ggl}**sepertinya terjadi kesalahan**")
     except Exception as e:
-        await message.reply_text(e)
+        await message.reply(e)
 
 @PY.UBOT("copy")
 async def _(client, message):

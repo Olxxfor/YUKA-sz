@@ -30,12 +30,12 @@ async def save_contact(client, message):
     else:
         args = message.text.split(maxsplit=1)
         if len(args) < 2:
-            return await message.reply_text("❎ Mohon reply ke pengguna atau masukkan nama custom untuk menyimpan kontak.")
+            return await message.reply("❎ Mohon reply ke pengguna atau masukkan nama custom untuk menyimpan kontak.")
 
         custom_name = args[1]
         args = message.command
         if len(args) < 3:
-            return await message.reply_text("❎ Mohon reply ke pengguna atau masukkan ID pengguna/username dan nama custom untuk menyimpan kontak.")
+            return await message.reply("❎ Mohon reply ke pengguna atau masukkan ID pengguna/username dan nama custom untuk menyimpan kontak.")
 
         user_id_or_username = args[1]
 
@@ -43,10 +43,10 @@ async def save_contact(client, message):
             user = await client.get_users(user_id_or_username)
             user_id = user.id
         except Exception as e:
-            return await message.reply_text(f"❎ Terjadi kesalahan: {e}")
+            return await message.reply(f"❎ Terjadi kesalahan: {e}")
 
     if not custom_name.strip():
-        return await message.reply_text("❎ Nama custom tidak boleh kosong.")
+        return await message.reply("❎ Nama custom tidak boleh kosong.")
 
     first_name = custom_name.strip()
     chat_id = await client.resolve_peer(user_id)
@@ -61,11 +61,11 @@ async def save_contact(client, message):
             )
         )
         if response.users and response.users[0].contact:
-            await message.reply_text(f"✅ Berhasil menyimpan kontak dengan nama <code>{first_name}</code>")
+            await message.reply(f"✅ Berhasil menyimpan kontak dengan nama <code>{first_name}</code>")
         else:
-            await message.reply_text("❎ Terjadi kesalahan saat menyimpan kontak.")
+            await message.reply("❎ Terjadi kesalahan saat menyimpan kontak.")
     except RPCError as e:
-        await message.reply_text(f"❎ Terjadi kesalahan: {e}")
+        await message.reply(f"❎ Terjadi kesalahan: {e}")
 
 @PY.UBOT("delkon")
 @PY.TOP_CMD
@@ -78,7 +78,7 @@ async def delete_contact(client, message):
     else:
         args = message.text.split(maxsplit=1)
         if len(args) < 2:
-            return await message.reply_text("❎ Mohon reply ke pengguna atau masukkan ID pengguna/username untuk menghapus kontak.")
+            return await message.reply("❎ Mohon reply ke pengguna atau masukkan ID pengguna/username untuk menghapus kontak.")
 
         user_id_or_username = args[1]
 
@@ -86,13 +86,13 @@ async def delete_contact(client, message):
             user = await client.get_users(user_id_or_username)
             user_id = user.id
         except Exception as e:
-            return await message.reply_text(f"❎ Terjadi kesalahan: {e}")
+            return await message.reply(f"❎ Terjadi kesalahan: {e}")
 
     try:
         response = await client.delete_contacts([user_id])
         if response:
-            await message.reply_text(f"✅ Berhasil menghapus kontak dengan ID {user_id}")
+            await message.reply(f"✅ Berhasil menghapus kontak dengan ID {user_id}")
         else:
-            await message.reply_text("❎ Terjadi kesalahan saat menghapus kontak.")
+            await message.reply("❎ Terjadi kesalahan saat menghapus kontak.")
     except RPCError as e:
-        await message.reply_text(f"❎ Terjadi kesalahan: {e}")
+        await message.reply(f"❎ Terjadi kesalahan: {e}")

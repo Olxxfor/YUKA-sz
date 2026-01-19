@@ -65,14 +65,14 @@ async def _(client, message):
 async def extract_emoji(client, message):
     try:
         if not message.reply_to_message:
-            return await message.reply_text("Please reply to a message to extract custom emoji IDs.")
+            return await message.reply("Please reply to a message to extract custom emoji IDs.")
         
         custom_emoji_ids = [entity.custom_emoji_id for entity in message.reply_to_message.entities]
         emojis = extract_emojis_from_entities(message.reply_to_message)
         
         formatted_emojis = "".join([f"<emoji id={emoji_id}>{emoji}</emoji>" if emoji_id is not None else emoji for emoji_id, emoji in zip(custom_emoji_ids, emojis)])
         
-        await message.reply_text(f"{formatted_emojis}", parse_mode=ParseMode.DISABLED)
+        await message.reply(f"{formatted_emojis}", parse_mode=ParseMode.DISABLED)
     
     except Exception as e:
-        await message.reply_text(str(e))
+        await message.reply(str(e))

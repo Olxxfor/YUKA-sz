@@ -132,9 +132,9 @@ async def _(client, message):
             continue
         text += f"<blockquote><b>{userlist}\n</blockquote></b>"
     if not text:
-        await message.reply_text("ᴛɪᴅᴀᴋ ᴀᴅᴀ ᴘᴇɴɢɢᴜɴᴀ ʏᴀɴɢ ᴅɪᴛᴇᴍᴜᴋᴀɴ")
+        await message.reply("ᴛɪᴅᴀᴋ ᴀᴅᴀ ᴘᴇɴɢɢᴜɴᴀ ʏᴀɴɢ ᴅɪᴛᴇᴍᴜᴋᴀɴ")
     else:
-        await message.reply_text(text)
+        await message.reply(text)
 
 
 @PY.UBOT("seles")
@@ -438,7 +438,7 @@ async def _(client, message):
     ggl = await EMO.GAGAL(client)
     user = message.from_user
     if user.id != OWNER_ID:
-        return await message.reply_text(f"{ggl}mau ngapain kamu ?")
+        return await message.reply(f"{ggl}mau ngapain kamu ?")
     msg = await message.reply(f"{prs}sedang memproses...")
     user_id = await extract_user(message)
     if not user_id:
@@ -469,7 +469,7 @@ async def _(client, message):
     ggl = await EMO.GAGAL(client)
     user = message.from_user
     if user.id != OWNER_ID:
-        return await message.reply_text(f"{ggl}mau ngapain kamu ?")
+        return await message.reply(f"{ggl}mau ngapain kamu ?")
     msg = await message.reply(f"{prs}sedang memproses...")
     user_id = await extract_user(message)
     if not user_id:

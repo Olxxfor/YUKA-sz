@@ -81,6 +81,6 @@ async def _(client, message):
 {pas} **Jumlah Pasangan Masa Depan**: {pasangan}
 {anak} **Jumlah Anak Masa Depan**: {anak_status}__**</blockquote>
 """
-        await message.reply_text(response)
+        await message.reply(response)
     else:
-        await message.reply_text("{ggll} **Gagal mendeteksi pengguna...**")
+        await message.reply("{ggll} **Gagal mendeteksi pengguna...**")

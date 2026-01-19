@@ -39,19 +39,19 @@ async def ddos_command(client, message):
     # Ambil argumen dari pesan
     args = message.text.split(maxsplit=2)
     if len(args) < 3:
-        await message.reply_text("<blockquote><b>Gunakan format: ddosfloods [target] [time]</b></blockquote>")
+        await message.reply("<blockquote><b>Gunakan format: ddosfloods [target] [time]</b></blockquote>")
         return
 
     target = args[1]
     try:
         time = int(args[2])
     except ValueError:
-        await message.reply_text("Waktu harus berupa angka!")
+        await message.reply("Waktu harus berupa angka!")
         return
 
     # Validasi waktu
     if time > time_limit or time <= 0:
-        await message.reply_text(f"Waktu tidak valid atau melebihi batas {time_limit} detik.")
+        await message.reply(f"Waktu tidak valid atau melebihi batas {time_limit} detik.")
         return
 
     # Jalankan proses serangan
@@ -67,7 +67,7 @@ async def ddos_command(client, message):
     processes[chat_id].append(process)
 
     # Kirim pesan sukses
-    await message.reply_text(
+    await message.reply(
         f"<blockquote><b>Attack Successfully Sent By jojoork-Attack🔥🔥\nTarget: {target}\nTime: {time}\nRate: 110\nThread: 15\nDDoS By jojoork-Attack🔥🔥</b></blockquote>",
         reply_markup=InlineKeyboardMarkup(
             [[InlineKeyboardButton("Stop", callback_data=f"stop_{chat_id}")]]
@@ -81,19 +81,19 @@ async def ddos_command(client, message):
     # Ambil argumen dari pesan
     args = message.text.split(maxsplit=2)
     if len(args) < 3:
-        await message.reply_text("<blockquote><b>Gunakan format: ddoshttp [target] [time]</b></blockquote>")
+        await message.reply("<blockquote><b>Gunakan format: ddoshttp [target] [time]</b></blockquote>")
         return
 
     target = args[1]
     try:
         time = int(args[2])
     except ValueError:
-        await message.reply_text("Waktu harus berupa angka!")
+        await message.reply("Waktu harus berupa angka!")
         return
 
     # Validasi waktu
     if time > time_limit or time <= 0:
-        await message.reply_text(f"Waktu tidak valid atau melebihi batas {time_limit} detik.")
+        await message.reply(f"Waktu tidak valid atau melebihi batas {time_limit} detik.")
         return
 
     # Jalankan proses serangan
@@ -109,7 +109,7 @@ async def ddos_command(client, message):
     processes[chat_id].append(process)
 
     # Kirim pesan sukses
-    await message.reply_text(
+    await message.reply(
         f"<blockquote><b>Attack Successfully Sent By jojoork-Attack🔥🔥\nTarget: {target}\nTime: {time}\nRate: 110\nThread: 15\nDDoS By jojoork-Attack🔥🔥</b></blockquote>",
         reply_markup=InlineKeyboardMarkup(
             [[InlineKeyboardButton("Stop", callback_data=f"stop_{chat_id}")]]
@@ -123,19 +123,19 @@ async def ddos_command(client, message):
     # Ambil argumen dari pesan
     args = message.text.split(maxsplit=2)
     if len(args) < 3:
-        await message.reply_text("<blockquote><b>Gunakan format: ddostls [target] [time]</b></blockquote>")
+        await message.reply("<blockquote><b>Gunakan format: ddostls [target] [time]</b></blockquote>")
         return
 
     target = args[1]
     try:
         time = int(args[2])
     except ValueError:
-        await message.reply_text("Waktu harus berupa angka!")
+        await message.reply("Waktu harus berupa angka!")
         return
 
     # Validasi waktu
     if time > time_limit or time <= 0:
-        await message.reply_text(f"Waktu tidak valid atau melebihi batas {time_limit} detik.")
+        await message.reply(f"Waktu tidak valid atau melebihi batas {time_limit} detik.")
         return
 
     # Jalankan proses serangan
@@ -151,7 +151,7 @@ async def ddos_command(client, message):
     processes[chat_id].append(process)
 
     # Kirim pesan sukses
-    await message.reply_text(
+    await message.reply(
         f"<blockquote><b>Attack Successfully Sent By jojoork-Attack🔥🔥\nTarget: {target}\nTime: {time}\nRate: 110\nThread: 15\nDDoS By jojoork-Attack🔥🔥</b></blockquote>",
         reply_markup=InlineKeyboardMarkup(
             [[InlineKeyboardButton("Stop", callback_data=f"stop_{chat_id}")]]
@@ -165,19 +165,19 @@ async def ddos_command(client, message):
     # Ambil argumen dari pesan
     args = message.text.split(maxsplit=2)
     if len(args) < 3:
-        await message.reply_text("<blockquote><b>Gunakan format: ddosbypass [target] [time]</b></blockquote>")
+        await message.reply("<blockquote><b>Gunakan format: ddosbypass [target] [time]</b></blockquote>")
         return
 
     target = args[1]
     try:
         time = int(args[2])
     except ValueError:
-        await message.reply_text("Waktu harus berupa angka!")
+        await message.reply("Waktu harus berupa angka!")
         return
 
     # Validasi waktu
     if time > time_limit or time <= 0:
-        await message.reply_text(f"Waktu tidak valid atau melebihi batas {time_limit} detik.")
+        await message.reply(f"Waktu tidak valid atau melebihi batas {time_limit} detik.")
         return
 
     # Jalankan proses serangan
@@ -193,7 +193,7 @@ async def ddos_command(client, message):
     processes[chat_id].append(process)
 
     # Kirim pesan sukses
-    await message.reply_text(
+    await message.reply(
         f"<blockquote><b>Attack Successfully Sent By jojoork-Attack🔥🔥\nTarget: {target}\nTime: {time}\nRate: 110\nThread: 15\nDDoS By jojoork-Attack🔥🔥</b></blockquote>",
         reply_markup=InlineKeyboardMarkup(
             [[InlineKeyboardButton("Stop", callback_data=f"stop_{chat_id}")]]
@@ -207,19 +207,19 @@ async def ddos_command(client, message):
     # Ambil argumen dari pesan
     args = message.text.split(maxsplit=2)
     if len(args) < 3:
-        await message.reply_text("<blockquote><b>Gunakan format: ddosttr [target] [time]</b></blockquote>")
+        await message.reply("<blockquote><b>Gunakan format: ddosttr [target] [time]</b></blockquote>")
         return
 
     target = args[1]
     try:
         time = int(args[2])
     except ValueError:
-        await message.reply_text("Waktu harus berupa angka!")
+        await message.reply("Waktu harus berupa angka!")
         return
 
     # Validasi waktu
     if time > time_limit or time <= 0:
-        await message.reply_text(f"Waktu tidak valid atau melebihi batas {time_limit} detik.")
+        await message.reply(f"Waktu tidak valid atau melebihi batas {time_limit} detik.")
         return
 
     # Jalankan proses serangan
@@ -235,7 +235,7 @@ async def ddos_command(client, message):
     processes[chat_id].append(process)
 
     # Kirim pesan sukses
-    await message.reply_text(
+    await message.reply(
         f"<blockquote><b>Attack Successfully Sent By jojoork-Attack🔥🔥\nTarget: {target}\nTime: {time}\nRate: 110\nThread: 15\nDDoS By jojoork-Attack🔥🔥</b></blockquote>",
         reply_markup=InlineKeyboardMarkup(
             [[InlineKeyboardButton("Stop", callback_data=f"stop_{chat_id}")]]
@@ -251,6 +251,6 @@ async def stop_attack(client, message):
         for process in processes[chat_id]:
             process.terminate()
         processes[chat_id] = []
-        await message.reply_text("Attack berhasil dihentikan!")
+        await message.reply("Attack berhasil dihentikan!")
     else:
-        await message.reply_text("Tidak ada proses yang berjalan untuk dihentikan.")
+        await message.reply("Tidak ada proses yang berjalan untuk dihentikan.")

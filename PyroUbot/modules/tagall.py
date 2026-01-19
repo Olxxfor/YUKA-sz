@@ -179,7 +179,7 @@ async def _(client, message):
     for output in [users[i : i + 5] for i in range(0, len(users), 5)]:
         if message.chat.id not in tagallgcid:
             break
-        await m.reply_text(
+        await m.reply(
             f"{text}\n\n{' '.join(output)}", quote=bool(message.reply_to_message)
         )
         await asyncio.sleep(2)
@@ -194,11 +194,11 @@ async def _(client, message):
 @PY.GROUP
 async def _(client, message):
     if message.chat.id not in tagallgcid:
-        return await message.reply_text(
+        return await message.reply(
             "tidak ada perintah : tagall yang digunakan"
         )
     try:
         tagallgcid.remove(message.chat.id)
     except Exception:
         pass
-    await message.reply_text("tagall berhasil dibatalkan")
+    await message.reply("tagall berhasil dibatalkan")

@@ -272,14 +272,14 @@ async def _(client, message):
 <blockquote><b>{grp} ɢʀᴏᴜᴘ: {message.chat.title}</blockquote></b>
 <blockquote><b>{ktrn} ᴋᴇᴛ: sᴜᴅᴀʜ ᴀᴅᴀ ᴅᴀʟᴀᴍ ʟɪsᴛ ᴊᴇᴍʙᴏᴛ</blockquote></b>
 
-<blockquote><b>©𝗝𝘂𝗻𝗢𝗳𝗳𝗶𝗰𝗶𝗮𝗹 🜲</b></blockquote>
+<blockquote><b>𝐄𝐋 𝐏𝐑𝐎𝐌𝐏𝐓 𝐘𝐔𝐊𝐀𝐀𝟖𝟖 [𝐋𝐀𝐒𝐓𝐄𝐑𝐀]</b></blockquote>
 """
         else:
             await add_to_vars(client.me.id, "BL_ID", chat_id)
             txt = f"""
 <blockquote><b>{grp} ɢʀᴏᴜᴘ: {message.chat.title}</blockquote></b>\n<blockquote><b>{ktrn} ᴋᴇᴛ: ʙᴇʀʜᴀsɪʟ ᴅɪ ᴛᴀᴍʙᴀʜᴋᴀɴ ᴋᴇ ᴅᴀʟᴀᴍ ʟɪsᴛ ᴊᴇᴍʙᴏᴛ</blockquote></b>
 
-<blockquote><b>©𝗝𝘂𝗻𝗢𝗳𝗳𝗶𝗰𝗶𝗮𝗹 🜲</b></blockquote>
+<blockquote><b>𝐄𝐋 𝐏𝐑𝐎𝐌𝐏𝐓 𝐘𝐔𝐊𝐀𝐀𝟖𝟖 [𝐋𝐀𝐒𝐓𝐄𝐑𝐀]</b></blockquote>
 """
 
         return await msg.edit(txt)
@@ -306,7 +306,7 @@ async def _(client, message):
 <blockquote><b>{grp} ɢʀᴏᴜᴘ: {message.chat.title}</blockquote></b>
 <blockquote><b>{ktrn} ᴋᴇᴛ: ᴛɪᴅᴀᴋ ᴀᴅᴀ ᴅᴀʟᴀᴍ ʟɪsᴛ ᴊᴇᴍʙᴏᴛ</b></blockquote>
 
-<blockquote><b>©𝗝𝘂𝗻𝗢𝗳𝗳𝗶𝗰𝗶𝗮𝗹 🜲</b></blockquote>
+<blockquote><b>𝐄𝐋 𝐏𝐑𝐎𝐌𝐏𝐓 𝐘𝐔𝐊𝐀𝐀𝟖𝟖 [𝐋𝐀𝐒𝐓𝐄𝐑𝐀]</b></blockquote>
 """
         else:
             await remove_from_vars(client.me.id, "BL_ID", chat_id)
@@ -314,7 +314,7 @@ async def _(client, message):
 <blockquote><b>{grp} ɢʀᴏᴜᴘ: {message.chat.title}</blockquote ></b>
 <blockquote><b>{ktrn} ᴋᴇᴛ: ʙᴇʀʜᴀsɪʟ ᴅɪ ʜᴀᴘᴜs ᴋᴇ ᴅᴀʟᴀᴍ ʟɪsᴛ ᴊᴇᴍʙᴏᴛ</blockquote></b>
 
-<blockquote><b>©𝗝𝘂𝗻𝗢𝗳𝗳𝗶𝗰𝗶𝗮𝗹 🜲</b></blockquote>
+<blockquote><b>𝐄𝐋 𝐏𝐑𝐎𝐌𝐏𝐓 𝐘𝐔𝐊𝐀𝐀𝟖𝟖 [𝐋𝐀𝐒𝐓𝐄𝐑𝐀]</b></blockquote>
 """
 
         return await msg.edit(response)

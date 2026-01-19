@@ -74,4 +74,8 @@ async def random_bokep(client, message):
         await message.reply(f"<emoji id=5215204871422093648>❌</emoji> Terjadi Kesalahan Saat Mengakses API: {str(e)}")
     except Exception as e:
         await message.reply(f"<emoji id=5215204871422093648>❌</emoji> Terjadi Kesalahan: {str(e)}")
+    finally:
+        # Hapus file jika ada error
+        if os.path.exists("video.mp4"):
+            os.remove("video.mp4")
         

@@ -66,12 +66,12 @@ class PinterestMediaDownloader:
 @PY.UBOT("pint")
 async def pinterest(client, message):
     if len(message.command) < 2:
-        return await message.reply_text("Untuk mendapatkan media Pinterest lakukan /pints [URL Pinterest]")
+        return await message.reply("Untuk mendapatkan media Pinterest lakukan /pints [URL Pinterest]")
 
     content = message.text.split(None, 1)[1]
     pinterest_downloader = PinterestMediaDownloader(content)
     
-    i = await message.reply_text("🔍 <b>Memprosess...</b>")
+    i = await message.reply("🔍 <b>Memprosess...</b>")
     
     try:
         pinterest_downloader.get_pin_id()

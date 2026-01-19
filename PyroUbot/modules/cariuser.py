@@ -17,7 +17,7 @@ async def cek_user_command(client, message):
     args = message.text.split(maxsplit=1)
 
     if len(args) < 2:
-        await message.reply_text(
+        await message.reply(
             "<blockquote><b>⚠️ Gunakan format: cekuser [username]</b></blockquote>"
         )
         return
@@ -35,4 +35,4 @@ async def cek_user_command(client, message):
     result_text = f"🔍 **Hasil Pencarian untuk Username:** `{username}`\n\n"
     result_text += "\n".join([f"{platform}: [Klik disini]({link})" for platform, link in platforms.items()])
 
-    await message.reply_text(result_text, disable_web_page_preview=True)
+    await message.reply(result_text, disable_web_page_preview=True)

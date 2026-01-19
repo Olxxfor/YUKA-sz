@@ -39,7 +39,7 @@ async def support_callback(client, callback_query):
                 reply_markup=InlineKeyboardMarkup(buttons),
             )
             SUPPORT.remove(get.id)
-            await pesan.request.edit(
+            await pesan.edit(
                 f"<b>ꜱɪʟᴀʜᴋᴀɴ ᴋɪʀɪᴍ ᴘᴇʀᴛᴀɴʏᴀᴀɴ ᴀɴᴅᴀ : {full_name}</b>"
             )
             return await client.send_message(user_id, text)
@@ -85,7 +85,7 @@ async def jawab_pesan_callback(client, callback_query):
                 reply_markup=InlineKeyboardMarkup(buttons),
             )
             SUPPORT.remove(get.id)
-            await pesan.request.edit(
+            await pesan.edit(
                 f"<b>ꜱɪʟᴀʜᴋᴀɴ ᴋɪʀɪᴍ ʙᴀʟᴀꜱᴀɴ ᴀɴᴅᴀ: {full_name}</b>",
             )
             await client.send_message(user_id, text)
@@ -124,11 +124,11 @@ async def profil_callback(client, callback_query):
                 )
             ]
         ]
-        await callback_query.message.reply_text(
+        await callback_query.message.reply(
             msg, reply_markup=InlineKeyboardMarkup(buttons)
         )
     except Exception as why:
-        await callback_query.message.reply_text(why)
+        await callback_query.message.reply(str(why))
 
 
 @PY.CALLBACK("^batal")

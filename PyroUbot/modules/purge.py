@@ -52,7 +52,7 @@ async def _(client, message):
         )
     ]
     if not message_ids:
-        return await message.reply_text(f"{ggl}tidak ada pesan yang ditemukan")
+        return await message.reply(f"{ggl}tidak ada pesan yang ditemukan")
     to_delete = [message_ids[i : i + 999] for i in range(0, len(message_ids), 999)]
     for hundred_messages_or_less in to_delete:
         await client.delete_messages(
@@ -71,7 +71,7 @@ async def _(client, message):
     ggl = await EMO.GAGAL(client)
     await message.delete()
     if not message.reply_to_message:
-        return await message.reply_text(f"{ggl}membalas pesan untuk dibersihka")
+        return await message.reply(f"{ggl}membalas pesan untuk dibersihka")
     chat_id = message.chat.id
     message_ids = []
     for message_id in range(

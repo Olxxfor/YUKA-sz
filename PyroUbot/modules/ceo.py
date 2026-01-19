@@ -107,6 +107,6 @@ async def get_link(client, message):
     prs = await EMO.PROSES(client)
     try:
         link = await client.export_chat_invite_link(message.chat.id)
-        await message.reply_text(f"{sks}ini hasilnya tuan : {link}", disable_web_page_preview=True)
+        await message.reply(f"{sks}ini hasilnya tuan : {link}", disable_web_page_preview=True)
     except Exception as r:
-        await message.reply_text(f"{ggl}terjadi error : \n {r}")
+        await message.reply(f"{ggl}terjadi error : \n {r}")

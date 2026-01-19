@@ -184,11 +184,11 @@ async def _(client, message):
     if message.command[0] == "kick":
         user_id, reason = await extract_user_and_reason(message)
         if not user_id:
-            return await message.reply_text(f"{ggl}{message.text.split()[0]} [username/user_id/reply]")
+            return await message.reply(f"{ggl}{message.text.split()[0]} [username/user_id/reply]")
         if user_id == OWNER_ID:
-            return await message.reply_text(f"{ggl}anda tidak bisa menendang anggota ini")
+            return await message.reply(f"{ggl}anda tidak bisa menendang anggota ini")
         if user_id in (await list_admins(message)):
-            return await message.reply_text(
+            return await message.reply(
                 f"{ggl}saya tidak bisa menendang admin"
             )
         try:
@@ -200,7 +200,7 @@ async def _(client, message):
 <b>{tion}ᴀᴅᴍɪɴ: {message.from_user.mention}</b>
 <b>{ktrng}ᴀʟᴀꜱᴀɴ: {reason}</b></blockquote>
 
-<blockquote><b>©𝗝𝘂𝗻𝗢𝗳𝗳𝗶𝗰𝗶𝗮𝗹 🜲</b></blockquote>
+<blockquote><b>𝐄𝐋 𝐏𝐑𝐎𝐌𝐏𝐓 𝐘𝐔𝐊𝐀𝐀𝟖𝟖 [𝐋𝐀𝐒𝐓𝐄𝐑𝐀]</b></blockquote>
             """
         try:
             await message.chat.ban_member(user_id)
@@ -212,11 +212,11 @@ async def _(client, message):
     elif message.command[0] == "ban":
         user_id, reason = await extract_user_and_reason(message)
         if not user_id:
-            return await message.reply_text(f"{ggl}{message.text.split()[0]} [username/user_id/reply]")
+            return await message.reply(f"{ggl}{message.text.split()[0]} [username/user_id/reply]")
         if user_id == OWNER_ID:
-            return await message.reply_text(f"{ggl}anda tidak bisa membanned anggota ini")
+            return await message.reply(f"{ggl}anda tidak bisa membanned anggota ini")
         if user_id in (await list_admins(message)):
-            return await message.reply_text(
+            return await message.reply(
                 f"{ggl}saya tidak bisa membanned admin"
             )
         try:
@@ -228,7 +228,7 @@ async def _(client, message):
 <b>{tion}ᴀᴅᴍɪɴ: {message.from_user.mention}</b>
 <b>{ktrng}ᴀʟᴀꜱᴀɴ: {reason}</b></blockquote>
 
-<blockquote><b>©𝗝𝘂𝗻𝗢𝗳𝗳𝗶𝗰𝗶𝗮𝗹 🜲</b></blockquote>
+<blockquote><b>𝐄𝐋 𝐏𝐑𝐎𝐌𝐏𝐓 𝐘𝐔𝐊𝐀𝐀𝟖𝟖 [𝐋𝐀𝐒𝐓𝐄𝐑𝐀]</b></blockquote>
             """
         try:
             await message.chat.ban_member(user_id)
@@ -238,11 +238,11 @@ async def _(client, message):
     elif message.command[0] == "mute":
         user_id, reason = await extract_user_and_reason(message)
         if not user_id:
-            return await message.reply_text(f"{ggl}{message.text.split()[0]} [username/user_id/reply]")
+            return await message.reply(f"{ggl}{message.text.split()[0]} [username/user_id/reply]")
         if user_id == OWNER_ID:
-            return await message.reply_text(f"{ggl}anda tidak bisa membisukan anggota ini")
+            return await message.reply(f"{ggl}anda tidak bisa membisukan anggota ini")
         if user_id in (await list_admins(message)):
-            return await message.reply_text(
+            return await message.reply(
                 f"{ggl}saya tidak bisa membisukan admin"
             )
         try:
@@ -254,7 +254,7 @@ async def _(client, message):
 <b>{tion}ᴀᴅᴍɪɴ: {message.from_user.mention}</b>
 <b>{ktrng}ᴀʟᴀꜱᴀɴ: {reason}</blockquote></b>\n<blockquote><b>ᴋᴇᴛ: ᴍᴀᴍᴘᴜs ᴅɪ ᴍᴜᴛᴇ ᴇᴛᴍɪɴ</blockquote></b>
 
-<blockquote><b>©𝗝𝘂𝗻𝗢𝗳𝗳𝗶𝗰𝗶𝗮𝗹 🜲</b></blockquote>
+<blockquote><b>𝐄𝐋 𝐏𝐑𝐎𝐌𝐏𝐓 𝐘𝐔𝐊𝐀𝐀𝟖𝟖 [𝐋𝐀𝐒𝐓𝐄𝐑𝐀]</b></blockquote>
             """
         try:
             await message.chat.restrict_member(user_id, ChatPermissions())
@@ -264,7 +264,7 @@ async def _(client, message):
     elif message.command[0] == "unmute":
         user_id = await extract_user(message)
         if not user_id:
-            return await message.reply_text(f"{ggl}{message.text.split()[0]} [username/user_id/reply]")
+            return await message.reply(f"{ggl}{message.text.split()[0]} [username/user_id/reply]")
         try:
             mention = (await client.get_users(user_id)).mention
         except Exception as error:
@@ -277,7 +277,7 @@ async def _(client, message):
     elif message.command[0] == "unban":
         user_id = await extract_user(message)
         if not user_id:
-            return await message.reply_text(f"{ggl}{message.text.split()[0]} [username/user_id/reply]")
+            return await message.reply(f"{ggl}{message.text.split()[0]} [username/user_id/reply]")
         try:
             mention = (await client.get_users(user_id)).mention
         except Exception as error:

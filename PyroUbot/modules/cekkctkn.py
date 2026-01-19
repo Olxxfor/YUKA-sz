@@ -23,9 +23,9 @@ KHODAM_LIST = [
 async def cek_khodam(client, message):
     args = message.text.split(maxsplit=1)
     if len(args) < 2:
-        return await message.reply_text("⚠️ Gunakan format: cekkctkn [nama]")
+        return await message.reply("⚠️ Gunakan format: cekkctkn [nama]")
 
     nama = args[1]
     khodam = random.choice(KHODAM_LIST)
     hasil = f"<blockquote><b>🤭HASIL KECANTIKAN🤭\n\n=👩 Nama: `{nama}`\n Persen: `{khodam}`</blockquote></b>"
-    await message.reply_text(hasil)
+    await message.reply(hasil)

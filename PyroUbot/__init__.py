@@ -58,7 +58,7 @@ logger.addHandler(connection_handler)
 # -------------------------
 class Bot(Client):
     def __init__(self, **kwargs):
-        super().__init__(**kwargs, device_model="JunOfficial✪")
+        super().__init__(**kwargs, device_model="𝐄𝐋 𝐏𝐑𝐎𝐌𝐏𝐓 𝐘𝐔𝐊𝐀𝐀𝟖𝟖")
 
     def on_message(self, filters=None, group=-1):
         def decorator(func):
@@ -90,7 +90,7 @@ class Ubot(Client):
     _get_my_peer = {}
 
     def __init__(self, **kwargs):
-        super().__init__(**kwargs, device_model="JunOfficial✫")
+        super().__init__(**kwargs, device_model="𝐄𝐋 𝐏𝐑𝐎𝐌𝐏𝐓 𝐘𝐔𝐊𝐀𝐀𝟖𝟖")
 
     def on_message(self, filters=None, group=-1):
         def decorator(func):

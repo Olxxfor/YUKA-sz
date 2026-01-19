@@ -8,6 +8,7 @@ from pyrogram.types import *
 from pyrogram.raw import functions
 
 from PyroUbot import *
+from PyroUbot.core.database.variabel import get_vars, set_vars
 
 
 @PY.BOT("start")
@@ -16,7 +17,15 @@ from PyroUbot import *
 async def _(client, message):
     buttons = BTN.START(message)
     msg = MSG.START(message)
-    await message.reply(msg, reply_markup=InlineKeyboardMarkup(buttons))
+    start_photo = await get_vars(OWNER_ID, "START_PHOTO")
+    
+    if start_photo:
+        try:
+            await message.reply_photo(start_photo, caption=msg, reply_markup=InlineKeyboardMarkup(buttons))
+        except Exception as e:
+            await message.reply(msg, reply_markup=InlineKeyboardMarkup(buttons))
+    else:
+        await message.reply(msg, reply_markup=InlineKeyboardMarkup(buttons))
 
 
 @PY.CALLBACK("bahan")

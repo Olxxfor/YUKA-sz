@@ -20,13 +20,13 @@ async def done_command(client, message):
     try:
         args = message.text.split(" ", 1)
         if len(args) < 2 or "," not in args[1]:
-            await message.reply_text("<blockquote>Penggunaan: .done name item,price,payment</blockquote>")
+            await message.reply("<blockquote>Penggunaan: .done name item,price,payment</blockquote>")
             return
 
         parts = args[1].split(",", 2)
 
         if len(parts) < 2:
-            await message.reply_text("<blockquote>Penggunaan: .done name item,price,payment</blockquote>")
+            await message.reply("<blockquote>Penggunaan: .done name item,price,payment</blockquote>")
             return
 
         name_item = parts[0].strip()

@@ -97,11 +97,11 @@ async def _(client, message):
 # async def _(client, message):
     # brhsl = await EMO.BERHASIL(client)
     # if message.chat.id not in invite_id:
-        # return await message.reply_text(
+        # return await message.reply(
             # f"sedang tidak ada perintah : inviteall"
         # )
     # try:
         # invite_id.remove(message.chat.id)
-        # await message.reply_text("perintah : inviteall berhasil dibatalkan")
+        # await message.reply("perintah : inviteall berhasil dibatalkan")
     # except Exception as e:
-        # await message.reply_text(e)
+        # await message.reply(e)

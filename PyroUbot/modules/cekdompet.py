@@ -101,6 +101,6 @@ async def _(client, message):
 
 {engy} **Status Dompet**: {energy_status}__**</blockquote>
 """
-        await message.reply_text(response)
+        await message.reply(response)
     else:
-        await message.reply_text("{ggll} **Gagal mendeteksi pengguna...**")
+        await message.reply("{ggll} **Gagal mendeteksi pengguna...**")
