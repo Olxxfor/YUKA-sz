@@ -46,7 +46,7 @@ async def impostor(client: Client, message: Message):
     if inputArgs:
         try:
             user = await client.get_users(inputArgs)
-        except:
+        except Exception:
             return await xx.edit("<blockquote>**Nama pengguna/ID tidak valid.**</blockquote>")
         userObj = await client.get_chat(user.id)
     elif message.reply_to_message:
@@ -82,7 +82,7 @@ async def update_profile(client: Client, userObj, restore=False):
             try:
                 pfp = await client.download_media(photos[0].file_id)
                 await client.set_profile_photo(photo=pfp)
-            except:
+            except Exception:
                 pass
         return
 
@@ -101,7 +101,7 @@ async def update_profile(client: Client, userObj, restore=False):
         if photos:
             pfp = await client.download_media(photos[0].file_id)
             await client.set_profile_photo(photo=pfp)
-    except:
+    except Exception:
         pass
 
     await client.update_profile(first_name=first_name, last_name=last_name, bio=bio)

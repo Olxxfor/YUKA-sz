@@ -243,7 +243,7 @@ async def pmpermit_button(m):
 async def delete_old_message(message, msg_id):
     try:
         await message._client.delete_messages(message.chat.id, msg_id)
-    except:
+    except Exception:
         pass
 
 

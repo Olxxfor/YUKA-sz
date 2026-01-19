@@ -222,7 +222,7 @@ async def _(client, message):
             try:
                 user = await client.get_chat(message.text.split()[1])
                 text += f"<blockquote><b><emoji id=6026056450223116307>⏺</emoji> ᴜꜱᴇʀ ɪᴅ: `{user.id}`\n</blockquote></b>\n"
-            except:
+            except Exception:
                 return await message.reply("<blockquote><emoji id=6113891550788324241>❌</emoji>ᴘᴇɴɢɢᴜɴᴀ ᴛɪᴅᴀᴋ ᴅɪᴛᴇᴍᴜᴋᴀɴ</blockquote>")
 
         text += f"<blockquote><b><emoji id=6026056450223116307>⏺</emoji> ᴄʜᴀᴛ ɪᴅ: `{message.chat.id}`\n</blockquote></b>"

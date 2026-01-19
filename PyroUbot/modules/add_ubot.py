@@ -452,7 +452,7 @@ async def _(client, callback_query):
     try:
         xxxx = (expired - datetime.now()).days
         return await callback_query.answer(f"<blockquote>⏳ ᴛɪɴɢɢᴀʟ {xxxx} ʜᴀʀɪ ʟᴀɢɪ</blockquote>", True)
-    except:
+    except Exception:
         return await callback_query.answer("<blockquote>✅ sᴜᴅᴀʜ ᴛɪᴅᴀᴋ ᴀᴋᴛɪғ</blockquote>", True)
 
 @PY.CALLBACK("del_ubot")

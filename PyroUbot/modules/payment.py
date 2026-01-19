@@ -87,7 +87,7 @@ async def _(client, callback_query):
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(buttons),
         )
-    except:
+    except Exception:
         pass
 
 

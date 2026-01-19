@@ -22,7 +22,7 @@ async def _(user, message):
     for x in user_ids:
         try:
             await user.unblock_user(x)
-        except:
+        except Exception:
             pass
     await _prs.edit(f"<blockquote>{sks}berhasil melakukan unblockall users</blockquote>")
 

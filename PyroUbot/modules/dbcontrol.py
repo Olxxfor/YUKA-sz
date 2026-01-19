@@ -40,12 +40,10 @@ async def _(client, message):
     prem_users = await get_list_from_vars(client.me.id, "PREM_USERS")
 
     if user.id in prem_users:
-        return await msg.edit(f"<blockquote></blockquote>""
-<blockquote><b>ɴᴀᴍᴇ: [{user.first_name} {user.last_name or ''}](tg://user?id={user.id})</b>
+        return await msg.edit(f"""<blockquote><b>ɴᴀᴍᴇ: [{user.first_name} {user.last_name or ''}](tg://user?id={user.id})</b>
 <b>ɪᴅ: {user.id}</b>
-<b>ᴋᴇᴛᴇʀᴀɴɢᴀɴ: ꜱᴜᴅᴀʜ ᴘʀᴇᴍɪᴜᴍ</ci></b>
-<b>ᴇxᴘɪʀᴇᴅ: {get_bulan} ʙᴜʟᴀɴ</b></blockquote>
-"""
+<b>ᴋᴇᴛᴇʀᴀɴɢᴀɴ: ꜱᴜᴅᴀʜ ᴘʀᴇᴍɪᴜᴍ</b>
+<b>ᴇxᴘɪʀᴇᴅ: {get_bulan} ʙᴜʟᴀɴ</b></blockquote>"""
         )
 
     try:
@@ -53,12 +51,10 @@ async def _(client, message):
         expired = now + relativedelta(months=int(get_bulan))
         await set_expired_date(user_id, expired)
         await add_to_vars(client.me.id, "PREM_USERS", user.id)
-        await msg.edit(f"<blockquote></blockquote>""
-<blockquote><b>ɴᴀᴍᴇ: [{user.first_name} {user.last_name or ''}](tg://user?id={user.id})</b>
+        await msg.edit(f"""<blockquote><b>ɴᴀᴍᴇ: [{user.first_name} {user.last_name or ''}](tg://user?id={user.id})</b>
 <b>ɪᴅ: {user.id}</b>
 <b>ᴇxᴘɪʀᴇᴅ: {get_bulan} ʙᴜʟᴀɴ</b>
-<b>ꜱɪʟᴀʜᴋᴀɴ ʙᴜᴋᴀ @{client.me.username} ᴜɴᴛᴜᴋ ᴍᴇᴍʙᴜᴀᴛ ᴜꜱᴇʀʙᴏᴛ</b></blockquote>
-"""
+<b>ꜱɪʟᴀʜᴋᴀɴ ʙᴜᴋᴀ @{client.me.username} ᴜɴᴛᴜᴋ ᴍᴇᴍʙᴜᴀᴛ ᴜꜱᴇʀʙᴏᴛ</b></blockquote>"""
         )
         return await bot.send_message(
             OWNER_ID,
@@ -99,8 +95,7 @@ async def _(client, message):
     prem_users = await get_list_from_vars(client.me.id, "PREM_USERS")
 
     if user.id not in prem_users:
-        return await msg.edit(f"<blockquote></blockquote>""
- ɪɴғᴏʀᴍᴀᴛɪᴏɴ :
+        return await msg.edit(f""" ɪɴғᴏʀᴍᴀᴛɪᴏɴ :
  <blockquote><b>name: [{user.first_name} {user.last_name or ''}](tg://user?id={user.id})</b>
  <b>id: {user.id}</b>
  <b>keterangan: tidak dalam daftar</b></blockquote>
@@ -109,12 +104,11 @@ async def _(client, message):
     try:
         await remove_from_vars(client.me.id, "PREM_USERS", user.id)
         await rem_expired_date(user_id)
-        return await msg.edit(f"<blockquote></blockquote>""
+        return await msg.edit(f"""
  ɪɴғᴏʀᴍᴀᴛɪᴏɴ :
  <blockquote><b>name: [{user.first_name} {user.last_name or ''}](tg://user?id={user.id})</b>
  <b>id: {user.id}</b>
- <b>keterangan: unpremium</b></blockquote>
-"""
+ <b>keterangan: unpremium</b></blockquote>"""
         )
     except Exception as error:
         return await msg.edit(error)
@@ -160,22 +154,18 @@ async def _(client, message):
     sudo_users = await get_list_from_vars(client.me.id, "SELER_USERS")
 
     if user.id in sudo_users:
-        return await msg.edit(f"<blockquote></blockquote>""
- ɪɴғᴏʀᴍᴀᴛɪᴏɴ :
+        return await msg.edit(f""" ɪɴғᴏʀᴍᴀᴛɪᴏɴ :
  <blockquote><b>name: [{user.first_name} {user.last_name or ''}](tg://user?id={user.id})</b>
  <b>id: {user.id}</b>
- <b>keterangan: sudah seller</b></blockquote>
-"""
+ <b>keterangan: sudah seller</b></blockquote>"""
         )
 
     try:
         await add_to_vars(client.me.id, "SELER_USERS", user.id)
-        return await msg.edit(f"<blockquote></blockquote>""
- ɪɴғᴏʀᴍᴀᴛɪᴏɴ :
+        return await msg.edit(f""" ɪɴғᴏʀᴍᴀᴛɪᴏɴ :
  <blockquote><b>name: [{user.first_name} {user.last_name or ''}](tg://user?id={user.id})</b>
  <b>id: {user.id}</b>
- <b>keterangan: seller</b></blockquote>
-"""
+ <b>keterangan: seller</b></blockquote>"""
         )
     except Exception as error:
         return await msg.edit(error)
@@ -199,22 +189,18 @@ async def _(client, message):
     seles_users = await get_list_from_vars(client.me.id, "SELER_USERS")
 
     if user.id not in seles_users:
-        return await msg.edit(f"<blockquote></blockquote>""
- ɪɴғᴏʀᴍᴀᴛɪᴏɴ :
+        return await msg.edit(f""" ɪɴғᴏʀᴍᴀᴛɪᴏɴ :
  <blockquote><b>name: [{user.first_name} {user.last_name or ''}](tg://user?id={user.id})</b>
  </b>id: {user.id}</b>
- </b>keterangan: tidak dalam daftar</b></blockquote>
-"""
+ </b>keterangan: tidak dalam daftar</b></blockquote>"""
         )
 
     try:
         await remove_from_vars(client.me.id, "SELER_USERS", user.id)
-        return await msg.edit(f"<blockquote></blockquote>""
- ɪɴғᴏʀᴍᴀᴛɪᴏɴ :
+        return await msg.edit(f""" ɪɴғᴏʀᴍᴀᴛɪᴏɴ :
  <blockquote><b>name: [{user.first_name} {user.last_name or ''}](tg://user?id={user.id})</b>
  </b>id: {user.id}</b>
- </b>keterangan: unseller</b></blockquote>
-"""
+ </b>keterangan: unseller</b></blockquote>"""
         )
     except Exception as error:
         return await msg.edit(error)
@@ -236,7 +222,7 @@ async def _(client, message):
             seles_list.append(
                 f"<blockquote><b>👤 [{user.first_name} {user.last_name or ''}](tg://user?id={user.id}) | <code>{user.id}</code></blockquote></b>"
             )
-        except:
+        except Exception:
             continue
 
     if seles_list:
@@ -270,12 +256,10 @@ async def _(client, message):
     now = datetime.now(timezone("Asia/Jakarta"))
     expire_date = now + timedelta(days=int(get_day))
     await set_expired_date(user_id, expire_date)
-    await Tm.edit(f"<blockquote></blockquote>""
- ɪɴғᴏʀᴍᴀᴛɪᴏɴ :
+    await Tm.edit(f""" ɪɴғᴏʀᴍᴀᴛɪᴏɴ :
  name: {user.mention}
  id: {get_id}
- aktifkan_selama: {get_day} hari
-"""
+ aktifkan_selama: {get_day} hari"""
     )
 
 
@@ -292,14 +276,12 @@ async def _(client, message):
     except Exception as error:
         return await Sh.ediit(error)
     if get_exp is None:
-        await Sh.edit(f"<blockquote></blockquote>""
-INFORMATION
+        await Sh.edit(f"""INFORMATION
 name : {sh.mention}
 plan : none
 id : {user_id}
 prefix : .
-expired : nonaktif
-""")
+expired : nonaktif""")
     else:
         SH = await ubot.get_prefix(user_id)
         exp = get_exp.strftime("%d-%m-%Y")
@@ -307,14 +289,12 @@ expired : nonaktif
             status = "SuperUltra"
         else:
             status = "Premium"
-        await Sh.edit(f"<blockquote></blockquote>""
-INFORMATION
+        await Sh.edit(f"""INFORMATION
 name : {sh.mention}
 plan : {status}
 id : {user_id}
 prefix : {' '.join(SH)}
-expired : {exp}
-"""
+expired : {exp}"""
         )
 
 
@@ -336,22 +316,18 @@ async def _(client, message):
     admin_users = await get_list_from_vars(client.me.id, "ADMIN_USERS")
 
     if user.id in admin_users:
-        return await msg.edit(f"<blockquote></blockquote>""
-💬 INFORMATION
+        return await msg.edit(f"""💬 INFORMATION
 name: [{user.first_name} {user.last_name or ''}](tg://user?id={user.id})
 id: {user.id}
-keterangan: sudah dalam daftar
-"""
+keterangan: sudah dalam daftar"""
         )
 
     try:
         await add_to_vars(client.me.id, "ADMIN_USERS", user.id)
-        return await msg.edit(f"<blockquote></blockquote>""
-💬 INFORMATION
+        return await msg.edit(f"""💬 INFORMATION
 name: [{user.first_name} {user.last_name or ''}](tg://user?id={user.id})
 id: {user.id}
-keterangan: admin
-"""
+keterangan: admin"""
         )
     except Exception as error:
         return await msg.edit(error)
@@ -375,22 +351,18 @@ async def _(client, message):
     admin_users = await get_list_from_vars(client.me.id, "ADMIN_USERS")
 
     if user.id not in admin_users:
-        return await msg.edit(f"<blockquote></blockquote>""
-💬 INFORMATION
+        return await msg.edit(f"""💬 INFORMATION
 name: [{user.first_name} {user.last_name or ''}](tg://user?id={user.id})
 id: {user.id}
-keterangan: tidak daam daftar
-"""
+keterangan: tidak daam daftar"""
         )
 
     try:
         await remove_from_vars(client.me.id, "ADMIN_USERS", user.id)
-        return await msg.edit(f"<blockquote></blockquote>""
-💬 INFORMATION
+        return await msg.edit(f"""💬 INFORMATION
 name: [{user.first_name} {user.last_name or ''}](tg://user?id={user.id})
 id: {user.id}
-keterangan: unadmin
-"""
+keterangan: unadmin"""
         )
     except Exception as error:
         return await msg.edit(error)
@@ -412,7 +384,7 @@ async def _(client, message):
             admin_list.append(
                 f"👤 [{user.first_name} {user.last_name or ''}](tg://user?id={user.id}) | {user.id}"
             )
-        except:
+        except Exception:
             continue
 
     if admin_list:
@@ -443,12 +415,10 @@ async def _(client, message):
     prem_users = await get_list_from_vars(client.me.id, "ULTRA_PREM")
 
     if user.id in prem_users:
-        return await msg.edit(f"<blockquote></blockquote>""
-<b>name:</b> [{user.first_name} {user.last_name or ''}](tg://user?id={user.id})
+        return await msg.edit(f"""<b>name:</b> [{user.first_name} {user.last_name or ''}](tg://user?id={user.id})
 <b>id:</b> {user.id}
 <b>keterangan: sudah</b> <code>[SuperUltra]</code>
-<b>expired:</b> <code>{get_bulan}</code> <b>bulan</b>
-"""
+<b>expired:</b> <code>{get_bulan}</code> <b>bulan</b>"""
         )
 
     try:
@@ -456,13 +426,11 @@ async def _(client, message):
         expired = now + relativedelta(months=int(get_bulan))
         await set_expired_date(user_id, expired)
         await add_to_vars(client.me.id, "ULTRA_PREM", user.id)
-        await msg.edit(f"<blockquote></blockquote>""
-<b>name:</b> [{user.first_name} {user.last_name or ''}](tg://user?id={user.id})
+        await msg.edit(f"""<b>name:</b> [{user.first_name} {user.last_name or ''}](tg://user?id={user.id})
 <b>id:</b> <code>{user.id}</code>
 <b>expired:</b> <code>{get_bulan}</code> <b>bulan</b>
 <b>ꜱilahkan buka</b> @{client.me.mention} <b>untuk membuat uꜱerbot</b>
-<b>status : </b><code>[SuperUltra]</code>
-"""
+<b>status : </b><code>[SuperUltra]</code>"""
         )
         return await bot.send_message(
             OWNER_ID,
@@ -502,20 +470,16 @@ async def _(client, message):
     prem_users = await get_list_from_vars(client.me.id, "ULTRA_PREM")
 
     if user.id not in prem_users:
-        return await msg.edit(f"<blockquote></blockquote>""
-<b>name:</b> [{user.first_name} {user.last_name or ''}](tg://user?id={user.id})
+        return await msg.edit(f"""<b>name:</b> [{user.first_name} {user.last_name or ''}](tg://user?id={user.id})
 <b>id:</b> <code>{user.id}</code>
-<b>keterangan: tidak dalam daftar</b>
-"""
+<b>keterangan: tidak dalam daftar</b>"""
         )
     try:
         await remove_from_vars(client.me.id, "ULTRA_PREM", user.id)
         await rem_expired_date(user_id)
-        return await msg.edit(f"<blockquote></blockquote>""
-<b>name:</b> [{user.first_name} {user.last_name or ''}](tg://user?id={user.id})
+        return await msg.edit(f"""<b>name:</b> [{user.first_name} {user.last_name or ''}](tg://user?id={user.id})
 <b>id:</b> <code>{user.id}</code>
-<b>keterangan: none superultra</b>
-"""
+<b>keterangan: none superultra</b>"""
         )
     except Exception as error:
         return await msg.edit(error)

@@ -126,6 +126,4 @@ async def _(client, message):
                     done += 1
             except Exception:
                 pass
-    await Haku.edit(f"<blockquote></blockquote>""
-{sks}berhasil keluar dari : {done} grup yang telah membatasi kamu
-""")
+    await Haku.edit(f"""<blockquote>{sks}berhasil keluar dari : {done} grup yang telah membatasi kamu</blockquote>""")

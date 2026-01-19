@@ -31,7 +31,7 @@ async def pic_bing_cmd(client, message):
             )
             get_media.append(InputMediaPhoto(saved.photo.file_id))
             await saved.delete()
-        except:
+        except Exception:
             pass
     if len(get_media) == 0:
         return await TM.edit("<blockquote><b>❌ ɪᴍᴀɢᴇ ᴘʜᴏᴛᴏ ᴛɪᴅᴀᴋ ᴅɪᴛᴇᴍᴜᴋᴀɴ</b></blockquote>")

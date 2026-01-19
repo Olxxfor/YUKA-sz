@@ -144,7 +144,7 @@ async def _(client, message):
         try:
             chat = await client.get_chat(chat_id)
             list += f" ├ {chat.title} | {chat.id}\n"
-        except:
+        except Exception:
             list += f" ├ {chat_id}\n"
 
     list += f"{ktrng} total database {total_database}"

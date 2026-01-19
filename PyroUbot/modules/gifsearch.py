@@ -22,7 +22,7 @@ async def gif_cmd(client, message):
         saved = await client.send_inline_bot_result(
             client.me.id, x.query_id, x.results[random.randrange(len(x.results))].id
         )
-    except:
+    except Exception:
         await message.reply("<blockquote><b>❌ ɢɪꜰ ᴛɪᴅᴀᴋ ᴅɪᴛᴇᴍᴜᴋᴀɴ</b></blockquote>")
         return await TM.delete()
     saved = await client.get_messages(client.me.id, int(saved.updates[1].message.id))

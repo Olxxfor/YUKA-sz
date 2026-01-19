@@ -29,12 +29,10 @@ async def _(client, message):
     prem_users = await get_list_from_vars(bot.me.id, "PREM_USERS")
 
     if user.id in prem_users:
-        return await msg.edit(f"<blockquote></blockquote>""
-<blockquote><b>ɴᴀᴍᴇ: [{user.first_name} {user.last_name or ''}](tg://user?id={user.id})</b>
+        return await msg.edit(f"""<blockquote><b>ɴᴀᴍᴇ: [{user.first_name} {user.last_name or ''}](tg://user?id={user.id})</b>
 <b>ɪᴅ: `{user.id}`</b>
-<b>ᴋᴇᴛᴇʀᴀɴɢᴀɴ: ꜱᴜᴅᴀʜ ᴘʀᴇᴍɪᴜᴍ</ci></b>
-<b>ᴇxᴘɪʀᴇᴅ: {get_bulan} ʙᴜʟᴀɴ</b></blockquote>
-"""
+<b>ᴋᴇᴛᴇʀᴀɴɢᴀɴ: ꜱᴜᴅᴀʜ ᴘʀᴇᴍɪᴜᴍ</b>
+<b>ᴇxᴘɪʀᴇᴅ: {get_bulan} ʙᴜʟᴀɴ</b></blockquote>"""
         )
 
     try:
@@ -42,18 +40,17 @@ async def _(client, message):
         expired = now + relativedelta(months=int(get_bulan))
         await set_expired_date(user_id, expired)
         await add_to_vars(bot.me.id, "PREM_USERS", user.id)
-        await msg.edit(f"<blockquote></blockquote>""
-<blockquote><b>ɴᴀᴍᴇ: [{user.first_name} {user.last_name or ''}](tg://user?id={user.id})</b>
+        await msg.edit(f"""<blockquote><b>ɴᴀᴍᴇ: [{user.first_name} {user.last_name or ''}](tg://user?id={user.id})</b>
 <b>ɪᴅ: `{user.id}`</b>
 <b>ᴇxᴘɪʀᴇᴅ: {get_bulan} ʙᴜʟᴀɴ</b>
-<b>ꜱɪʟᴀʜᴋᴀɴ ʙᴜᴋᴀ @{bot.me.username} ᴜɴᴛᴜᴋ ᴍᴇᴍʙᴜᴀᴛ ᴜꜱᴇʀʙᴏᴛ</b></blockquote>
+<b>ꜱɪʟᴀʜᴋᴀɴ ʙᴜᴋᴀ @{bot.me.username} ᴜɴᴛᴜᴋ ᴍᴇᴍʙᴜᴀᴛ ᴜꜱᴇʀʙᴏᴛ</b>
 
-<blockquote>ᴄᴀʀᴀ ʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ :
+<b>ᴄᴀʀᴀ ʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ :</b>
 - sɪʟᴀʜᴋᴀɴ /start ᴅᴜʟᴜ ʙᴏᴛ @{bot.me.username}
 - ᴋᴀʟᴀᴜ sᴜᴅᴀʜ sᴛᴀʀᴛ ʙᴏᴛ ᴀʙɪsᴛᴜ ᴘᴇɴᴄᴇᴛ ᴛᴏᴍʙᴏʟ ʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ 
-- ɴᴀʜ ɴᴀɴᴛɪ ᴀᴅᴀ ᴀʀᴀʜᴀɴ ᴅᴀʀɪ ʙᴏᴛ ɴʏᴀ ɪᴛᴜ ɪᴋᴜᴛɪɴ</blockquote>
-<blockquote><b>ɴᴏᴛᴇ : ᴊᴀɴɢᴀɴ ʟᴜᴘᴀ ʙᴀᴄᴀ ᴀʀᴀʜᴀɴ ᴅᴀʀɪ ʙᴏᴛ ɴʏᴀ</b></blockquote>
-"""
+- ɴᴀʜ ɴᴀɴᴛɪ ᴀᴅᴀ ᴀʀᴀʜᴀɴ ᴅᴀʀɪ ʙᴏᴛ ɴʏᴀ ɪᴛᴜ ɪᴋᴜᴛɪɴ
+
+<b>ɴᴏᴛᴇ : ᴊᴀɴɢᴀɴ ʟᴜᴘᴀ ʙᴀᴄᴀ ᴀʀᴀʜᴀɴ ᴅᴀʀɪ ʙᴏᴛ ɴʏᴀ</b></blockquote>"""
         )
         return await bot.send_message(
             OWNER_ID,
@@ -93,7 +90,7 @@ async def _(client, message):
     prem_users = await get_list_from_vars(bot.me.id, "PREM_USERS")
 
     if user.id not in prem_users:
-        return await msg.edit(f"<blockquote></blockquote>""
+        return await msg.edit(f"""
 <blockquote><b>ɴᴀᴍᴇ: [{user.first_name} {user.last_name or ''}](tg://user?id={user.id})</b>
 <b>ɪᴅ: `{user.id}`</b>
 <b>ᴋᴇᴛᴇʀᴀɴɢᴀɴ: ᴛɪᴅᴀᴋ ᴛᴇʀᴅᴀꜰᴛᴀʀ</ci></b></blockquote>
@@ -102,7 +99,7 @@ async def _(client, message):
     try:
         await remove_from_vars(bot.me.id, "PREM_USERS", user.id)
         await rem_expired_date(user_id)
-        return await msg.edit(f"<blockquote></blockquote>""
+        return await msg.edit(f"""
 <blockquote><b>ɴᴀᴍᴇ: [{user.first_name} {user.last_name or ''}](tg://user?id={user.id})</b>
 <b>ɪᴅ: `{user.id}`</b>
 <b>ᴋᴇᴛᴇʀᴀɴɢᴀɴ: ᴛᴇʟᴀʜ ᴅɪ ʜᴀᴘᴜꜱ ᴅᴀʀɪ ᴅᴀᴛᴀʙᴀꜱᴇ</ci></b></blockquote>
@@ -157,7 +154,7 @@ async def _(client, message):
     sudo_users = await get_list_from_vars(bot.me.id, "SELER_USERS")
 
     if user.id in sudo_users:
-        return await msg.edit(f"<blockquote></blockquote>""
+        return await msg.edit(f"""
 <blockquote><b>ɴᴀᴍᴇ: [{user.first_name} {user.last_name or ''}](tg://user?id={user.id})</b>
 <b>ɪᴅ: `{user.id}`</b>
 <b>ᴋᴇᴛᴇʀᴀɴɢᴀɴ: ꜱᴜᴅᴀʜ ʀᴇꜱᴇʟʟᴇʀ</ci></b></blockquote>
@@ -166,7 +163,7 @@ async def _(client, message):
 
     try:
         await add_to_vars(bot.me.id, "SELER_USERS", user.id)
-        return await msg.edit(f"<blockquote></blockquote>""
+        return await msg.edit(f"""
 <blockquote><b>ɴᴀᴍᴇ: [{user.first_name} {user.last_name or ''}](tg://user?id={user.id})</b>
 <b>ɪᴅ: `{user.id}`</b>
 <b>ᴋᴇᴛᴇʀᴀɴɢᴀɴ: ʀᴇꜱᴇʟʟᴇʀ</ci></b>
@@ -197,7 +194,7 @@ async def _(client, message):
     seles_users = await get_list_from_vars(bot.me.id, "SELER_USERS")
 
     if user.id not in seles_users:
-        return await msg.edit(f"<blockquote></blockquote>""
+        return await msg.edit(f"""
 <blockquote><b>ɴᴀᴍᴇ: [{user.first_name} {user.last_name or ''}](tg://user?id={user.id})</b>
 <b>ɪᴅ: `{user.id}`</b>
 <b>ᴋᴇᴛᴇʀᴀɴɢᴀɴ: ᴛɪᴅᴀᴋ ᴛᴇʀᴅᴀꜰᴛᴀʀ</ci></b></blockquote>
@@ -206,7 +203,7 @@ async def _(client, message):
 
     try:
         await remove_from_vars(bot.me.id, "SELER_USERS", user.id)
-        return await msg.edit(f"<blockquote></blockquote>""
+        return await msg.edit(f"""
 <blockquote><b>ɴᴀᴍᴇ: [{user.first_name} {user.last_name or ''}](tg://user?id={user.id})</b>
 <b>ɪᴅ: `{user.id}`</b>
 <b>ᴋᴇᴛᴇʀᴀɴɢᴀɴ: ᴛᴇʟᴀʜ ᴅɪ ʜᴀᴘᴜꜱ ᴅᴀʀɪ ᴅᴀᴛᴀʙᴀꜱᴇ</ci></b></blockquote>
@@ -234,7 +231,7 @@ async def _(client, message):
             seles_list.append(
                 f"<blockquote>👤 [{user.first_name} {user.last_name or ''}](tg://user?id={user.id}) | `{user.id}`</blockquote>"
             )
-        except:
+        except Exception:
             continue
 
     if seles_list:
@@ -270,7 +267,7 @@ async def _(client, message):
     now = datetime.now(timezone("Asia/Jakarta"))
     expire_date = now + timedelta(days=int(get_day))
     await set_expired_date(user_id, expire_date)
-    await Tm.edit(f"<blockquote></blockquote>""
+    await Tm.edit(f"""
 💬 INFORMATION
  name: {user.mention}
  id: {get_id}
@@ -294,7 +291,7 @@ async def _(client, message):
     except Exception as error:
         return await Sh.ediit(error)
     if get_exp is None:
-        await Sh.edit(f"<blockquote></blockquote>""
+        await Sh.edit(f"""
 <blockquote><b>ɴᴀᴍᴇ: {sh.mention}</b>
 <b>ɪᴅ: `{user_id}`</b>
 <b>ᴘʟᴀɴ : ɴᴏɴᴇ</b>
@@ -308,7 +305,7 @@ async def _(client, message):
             status = "SuperUltra"
         else:
             status = "Premium"
-        await Sh.edit(f"<blockquote></blockquote>""
+        await Sh.edit(f"""
 <blockquote><b>ɴᴀᴍᴇ: {sh.mention}</b>
 <b>ɪᴅ: `{user_id}`</b>
 <b>ᴘʟᴀɴ : {status}</b>
@@ -338,7 +335,7 @@ async def _(client, message):
     admin_users = await get_list_from_vars(bot.me.id, "ADMIN_USERS")
 
     if user.id in admin_users:
-        return await msg.edit(f"<blockquote></blockquote>""
+        return await msg.edit(f"""
 💬 INFORMATION
 name: [{user.first_name} {user.last_name or ''}](tg://user?id={user.id})
 id: {user.id}
@@ -348,7 +345,7 @@ keterangan: sudah dalam daftar
 
     try:
         await add_to_vars(bot.me.id, "ADMIN_USERS", user.id)
-        return await msg.edit(f"<blockquote></blockquote>""
+        return await msg.edit(f"""
 💬 INFORMATION
 name: [{user.first_name} {user.last_name or ''}](tg://user?id={user.id})
 id: {user.id}
@@ -379,7 +376,7 @@ async def _(client, message):
     admin_users = await get_list_from_vars(bot.me.id, "ADMIN_USERS")
 
     if user.id not in admin_users:
-        return await msg.edit(f"<blockquote></blockquote>""
+        return await msg.edit(f"""
 💬 INFORMATION
 name: [{user.first_name} {user.last_name or ''}](tg://user?id={user.id})
 id: {user.id}
@@ -389,7 +386,7 @@ keterangan: tidak daam daftar
 
     try:
         await remove_from_vars(bot.me.id, "ADMIN_USERS", user.id)
-        return await msg.edit(f"<blockquote></blockquote>""
+        return await msg.edit(f"""
 💬 INFORMATION
 name: [{user.first_name} {user.last_name or ''}](tg://user?id={user.id})
 id: {user.id}
@@ -418,7 +415,7 @@ async def _(client, message):
             admin_list.append(
                 f"👤 [{user.first_name} {user.last_name or ''}](tg://user?id={user.id}) | {user.id}"
             )
-        except:
+        except Exception:
             continue
 
     if admin_list:

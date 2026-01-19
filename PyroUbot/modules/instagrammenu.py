@@ -3,8 +3,8 @@ import requests
 from pyrogram import Client, filters
 from pyrogram.types import Message
 
-# Ganti dengan API key RapidAPI Anda
-RAPIDAPI_KEY = "ad586745a5msh38212dc52683a12p154b2ejsnea80c2b3748d"
+# Load API key dari environment variable (lebih aman)
+RAPIDAPI_KEY = os.getenv("RAPIDAPI_KEY", "")
 
 async def download_instagram_media(url: str, is_audio: bool = False):
     """Fungsi untuk mendownload media dari Instagram"""

@@ -1,3 +1,4 @@
+import os
 import requests
 import qrcode
 from pyrogram import Client, filters
@@ -13,10 +14,10 @@ Perintah:
 Sumber: API OkeConnect.</blockquote></b>
 """
 
-# Data OrderKuota
-MERCHANT_ID = "OK1986347"
-API_KEY = "6110825173844237019863470KCT7FF7D7059AD0FD10DF40D93B7A6F6304"
-CODE_QR = "00020101021126610014COM.GO-JEK.WWW01189360091434595106800210G4595106800303UMI51440014ID.CO.QRIS.WWW0215ID10243588286540303UMI5204651353033605802ID5924ALFASEFY STORE , MAGETAN6007MAGETAN61056331262070703A016304C24D"
+# Data OrderKuota - Load dari environment variable untuk keamanan
+MERCHANT_ID = os.getenv("MERCHANT_ID", "")
+API_KEY = os.getenv("OKECONNECT_API_KEY", "")
+CODE_QR = os.getenv("MERCHANT_CODE_QR", "")
 
 # API URL
 API_URL = f"https://gateway.okeconnect.com/api/mutasi/qris/{MERCHANT_ID}/{API_KEY}"
