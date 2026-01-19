@@ -192,7 +192,7 @@ class PY:
         async def function(client, message):
             ultra_users = await get_list_from_vars(bot.me.id, "ULTRA_PREM")
             if client.me.id not in ultra_users:
-                return await message.reply("<emoji id=6113891550788324241>❌</emoji>sorry ! this acces only for [SuperUltra]")
+                return await message.reply("<blockquote><emoji id=6113891550788324241>❌</emoji>sorry ! this acces only for [SuperUltra]</blockquote>")
             return await func(client, message)
 
         return function

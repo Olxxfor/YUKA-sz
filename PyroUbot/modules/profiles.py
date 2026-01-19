@@ -46,9 +46,9 @@ async def _(client, message):
     prs = await EMO.PROSES(client)
     ggl = await EMO.GAGAL(client)
     get_user = await extract_user(message)
-    lol = await message.reply(f"{prs}proceꜱꜱing...")
+    lol = await message.reply(f"<blockquote>{prs}proceꜱꜱing...</blockquote>")
     if not get_user:
-        return await lol.edit(f"{ggl}user tidak ditemukan")
+        return await lol.edit(f"<blockquote>{ggl}user tidak ditemukan</blockquote>")
     try:
         user_id = (await client.get_users(get_user)).id
     except Exception:
@@ -81,7 +81,7 @@ async def _(client, message):
     brhsl = await EMO.BERHASIL(client)
     ggl = await EMO.GAGAL(client)
     user_id = await extract_user(message)
-    Tm = await message.reply(f"{prs}processing . . .")
+    Tm = await message.reply(f"<blockquote>{prs}processing . . .</blockquote>")
     if not user_id:
         return await Tm.edit(
             f"{ggl}berikan userid/username/reply untuk mendapatkan info pengguna tersebut.>"
@@ -140,7 +140,7 @@ async def _(client, message):
         else:
             await Tm.edit(out_str, disable_web_page_preview=True)
     except Exception as e:
-        return await Tm.edit(f"info: {e}")
+        return await Tm.edit(f"<blockquote>info: {e}</blockquote>")
 
 
 @PY.UBOT("cinfo")
@@ -149,7 +149,7 @@ async def _(client, message):
     prs = await EMO.PROSES(client)
     brhsl = await EMO.BERHASIL(client)
     ggl = await EMO.GAGAL(client)
-    Tm = await message.reply(f"{prs}processing . . .")
+    Tm = await message.reply(f"<blockquote>{prs}processing . . .</blockquote>")
     try:
         if len(message.text.split()) > 1:
             chat_u = message.text.split()[1]
@@ -205,7 +205,7 @@ async def _(client, message):
         else:
             await Tm.edit(out_str, disable_web_page_preview=True)
     except Exception as e:
-        return await Tm.edit(f"info: `{e}`")
+        return await Tm.edit(f"<blockquote>info: `{e}`</blockquote>")
 
 
 @PY.UBOT("id")
@@ -223,7 +223,7 @@ async def _(client, message):
                 user = await client.get_chat(message.text.split()[1])
                 text += f"<blockquote><b><emoji id=6026056450223116307>⏺</emoji> ᴜꜱᴇʀ ɪᴅ: `{user.id}`\n</blockquote></b>\n"
             except:
-                return await message.reply("<emoji id=6113891550788324241>❌</emoji>ᴘᴇɴɢɢᴜɴᴀ ᴛɪᴅᴀᴋ ᴅɪᴛᴇᴍᴜᴋᴀɴ")
+                return await message.reply("<blockquote><emoji id=6113891550788324241>❌</emoji>ᴘᴇɴɢɢᴜɴᴀ ᴛɪᴅᴀᴋ ᴅɪᴛᴇᴍᴜᴋᴀɴ</blockquote>")
 
         text += f"<blockquote><b><emoji id=6026056450223116307>⏺</emoji> ᴄʜᴀᴛ ɪᴅ: `{message.chat.id}`\n</blockquote></b>"
 
@@ -250,18 +250,18 @@ async def _(client, message):
     prs = await EMO.PROSES(client)
     brhsl = await EMO.BERHASIL(client)
     ggl = await EMO.GAGAL(client)
-    tex = await message.reply(f"{prs}proceꜱꜱing...")
+    tex = await message.reply(f"<blockquote>{prs}proceꜱꜱing...</blockquote>")
     if len(message.command) == 1:
-        return await tex.edit(f"{ggl}{message.text.split()[0]} [text]")
+        return await tex.edit(f"<blockquote>{ggl}{message.text.split()[0]} [text]</blockquote>")
     elif len(message.command) > 1:
         bio = message.text.split(None, 1)[1]
         try:
             await client.update_profile(bio=bio)
-            await tex.edit(f"{brhsl}berhaꜱil mengubah bio menjadi {bio}")
+            await tex.edit(f"<blockquote>{brhsl}berhaꜱil mengubah bio menjadi {bio}</blockquote>")
         except Exception as e:
-            await tex.edit(f"ERROR: {e}")
+            await tex.edit(f"<blockquote>ERROR: {e}</blockquote>")
     else:
-        return await tex.edit(f"{ggl}berikan tekꜱ untuk ditetapkan ꜱebagai bio")
+        return await tex.edit(f"<blockquote>{ggl}berikan tekꜱ untuk ditetapkan ꜱebagai bio</blockquote>")
 
 
 @PY.UBOT("setname")
@@ -270,9 +270,9 @@ async def _(client, message):
     prs = await EMO.PROSES(client)
     brhsl = await EMO.BERHASIL(client)
     ggl = await EMO.GAGAL(client)
-    tex = await message.reply(f"{prs}proceꜱꜱing...")
+    tex = await message.reply(f"<blockquote>{prs}proceꜱꜱing...</blockquote>")
     if len(message.command) == 1:
-        return await tex.edit(f"{ggl}{message.text.split()[0]} [text]")
+        return await tex.edit(f"<blockquote>{ggl}{message.text.split()[0]} [text]</blockquote>")
     elif len(message.command) > 1:
         name = message.text.split(None, 1)[1]
         try:
@@ -281,9 +281,9 @@ async def _(client, message):
                 f"{brhsl}berhaꜱil mengubah nama menjadi {name}"
             )
         except Exception as e:
-            await tex.edit(f"ERROR: {e}")
+            await tex.edit(f"<blockquote>ERROR: {e}</blockquote>")
     else:
-        return await tex.edit(f"{ggl}berikan tekꜱ untuk ditetapkan ꜱebagai nama anda")
+        return await tex.edit(f"<blockquote>{ggl}berikan tekꜱ untuk ditetapkan ꜱebagai nama anda</blockquote>")
 
 
 @PY.UBOT("block")
@@ -293,14 +293,14 @@ async def _(client, message):
     brhsl = await EMO.BERHASIL(client)
     ggl = await EMO.GAGAL(client)
     user_id = await extract_user(message)
-    tex = await message.reply(f"{prs}proceꜱꜱing...")
+    tex = await message.reply(f"<blockquote>{prs}proceꜱꜱing...</blockquote>")
     if not user_id:
-        return await tex.edit(f"{ggl}{message.text.split()[0]} [reply to user]")
+        return await tex.edit(f"<blockquote>{ggl}{message.text.split()[0]} [reply to user]</blockquote>")
     if user_id == client.me.id:
-        return await tex.edit(f"{brhsl}ok done")
+        return await tex.edit(f"<blockquote>{brhsl}ok done</blockquote>")
     await client.block_user(user_id)
     umention = (await client.get_users(user_id)).mention
-    await tex.edit(f"{brhsl}berhaꜱil diblokir {umention}")
+    await tex.edit(f"<blockquote>{brhsl}berhaꜱil diblokir {umention}</blockquote>")
   
 
 @PY.UBOT("unblock")
@@ -310,14 +310,14 @@ async def _(client, message):
     brhsl = await EMO.BERHASIL(client)
     ggl = await EMO.GAGAL(client)
     user_id = await extract_user(message)
-    tex = await message.reply(f"{prs}proceꜱꜱing...")
+    tex = await message.reply(f"<blockquote>{prs}proceꜱꜱing...</blockquote>")
     if not user_id:
-        return await tex.edit(f"{ggl}{message.text.split()[0]} [reply to user]")
+        return await tex.edit(f"<blockquote>{ggl}{message.text.split()[0]} [reply to user]</blockquote>")
     if user_id == client.me.id:
-        return await tex.edit(f"{brhsl}ok done.")
+        return await tex.edit(f"<blockquote>{brhsl}ok done.</blockquote>")
     await client.unblock_user(user_id)
     umention = (await client.get_users(user_id)).mention
-    await tex.edit(f"{brhsl}berhaꜱil dibebaꜱkan {umention}")
+    await tex.edit(f"<blockquote>{brhsl}berhaꜱil dibebaꜱkan {umention}</blockquote>")
 
 @PY.UBOT("idm")
 @PY.TOP_CMD
@@ -325,5 +325,5 @@ async def _(client, message):
     if not message.reply_to_message:
         return
     id = message.reply_to_message.entities[0].custom_emoji_id
-    await message.reply(f"`{id}`")
+    await message.reply(f"<blockquote>`{id}`</blockquote>")
 

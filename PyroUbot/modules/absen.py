@@ -86,7 +86,7 @@ async def hadir_callback(c, cq):
     timestamp = datetime.now(pytz.timezone('asia/Jakarta')).strftime("%d-%m-%Y")
     jam = datetime.now(pytz.timezone('asia/Jakarta')).strftime("%H:%M:%S")
     if any(user['user_id'] == user_id for user in hadir_list):
-        await cq.answer("anda sudah melakukan absen sebelumnya", show_alert=True)
+        await cq.answer("<blockquote>anda sudah melakukan absen sebelumnya</blockquote>", show_alert=True)
     else:
         hadir_list.append({"user_id": user_id, "mention": mention, "jam": jam})
         hadir_text = get_hadir_list()

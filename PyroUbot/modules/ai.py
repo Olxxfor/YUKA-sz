@@ -21,10 +21,10 @@ async def chat_gpt(client, message):
 
         if len(message.command) < 2:
             await message.reply(
-                "<emoji id=5019523782004441717>❌</emoji>mohon gunakan format\ncontoh : .ai halo"
+                "<blockquote><emoji id=5019523782004441717>❌</emoji>mohon gunakan format\ncontoh : .ai halo</blockquote>"
             )
         else:
-            prs = await message.reply(f"<emoji id=6226405134004389590>🔍</emoji>proccesing Kingz....")
+            prs = await message.reply(f"<blockquote><emoji id=6226405134004389590>🔍</emoji>proccesing Kingz....</blockquote>")
             a = message.text.split(' ', 1)[1]
             response = requests.get(f'https://api.botcahx.eu.org/api/search/openai-chat?text={a}&apikey=Boyy')
 
@@ -35,8 +35,8 @@ async def chat_gpt(client, message):
                       f"<blockquote>{x}</blockquote>"
                     )
                 else:
-                    await message.reply("No 'results' key found in the response.")
+                    await message.reply("<blockquote><b>❌ No 'results' key found in the response.</b></blockquote>")
             except KeyError:
-                await message.reply("Error accessing the response.")
+                await message.reply("<blockquote><b>❌ Error accessing the response.</b></blockquote>")
     except Exception as e:
-        await message.reply(f"{e}")
+        await message.reply(f"<blockquote><b>❌ Error: {e}</b></blockquote>")

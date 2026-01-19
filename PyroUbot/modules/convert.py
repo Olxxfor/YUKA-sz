@@ -36,7 +36,7 @@ async def _(client, message):
     prs = await EMO.PROSES(client)
     brhsl = await EMO.BERHASIL(client)
     ggl = await EMO.GAGAL(client)
-    Tm = await message.reply(f"{prs}tunggu sebentar...")
+    Tm = await message.reply(f"<blockquote>{prs}tunggu sebentar...</blockquote>")
     if message.reply_to_message:
         if len(message.command) < 2:
             if message.reply_to_message.photo:
@@ -75,7 +75,7 @@ async def _(client, message):
                 get_photo = await dl_pic(client, photo)
             except Exception as error:
                 return await Tm.edit(error)
-    await Tm.edit("proceꜱꜱing...")
+    await Tm.edit("<blockquote>proceꜱꜱing...</blockquote>")
     await client.unblock_user("@qq_neural_anime_bot")
     send_photo = await client.send_photo("@qq_neural_anime_bot", get_photo)
     await asyncio.sleep(30)
@@ -139,7 +139,7 @@ async def _(client, message):
 async def _(client, message):
     try:
         if not message.reply_to_message or not message.reply_to_message.photo:
-            return await message.reply("reply ke foto untuk mengubah ke sticker")
+            return await message.reply("<blockquote>reply ke foto untuk mengubah ke sticker</blockquote>")
         sticker = await client.download_media(
             message.reply_to_message.photo.file_id,
             f"sticker_{message.from_user.id}.webp",
@@ -155,10 +155,10 @@ async def _(client, message):
 async def _(client, message):
     prs = await EMO.PROSES(client)
     ggl = await EMO.GAGAL(client)
-    TM = await message.reply(f"{prs}proceꜱꜱing...")
+    TM = await message.reply(f"<blockquote>{prs}proceꜱꜱing...</blockquote>")
     if not message.reply_to_message.sticker:
-        return await TM.edit(f"{ggl}balas ke stiker...")
-    await TM.edit(f"{prs}downloading sticker. . .")
+        return await TM.edit(f"<blockquote>{ggl}balas ke stiker...</blockquote>")
+    await TM.edit(f"<blockquote>{prs}downloading sticker. . .</blockquote>")
     file = await client.download_media(
         message.reply_to_message,
         f"Gift_{message.from_user.id}.mp4",
@@ -181,21 +181,21 @@ async def _(client, message):
     ggl = await EMO.GAGAL(client)
     ktrng = await EMO.BL_KETERANGAN(client)
     replied = message.reply_to_message
-    Tm = await message.reply(f"{prs}tunggu sebentar")
+    Tm = await message.reply(f"<blockquote>{prs}tunggu sebentar</blockquote>")
     if not replied:
-        return await Tm.edit(f"{ggl}mohon balas ke video")
+        return await Tm.edit(f"<blockquote>{ggl}mohon balas ke video</blockquote>")
     if replied.media == MessageMediaType.VIDEO:
-        await Tm.edit(f"{prs}downloading video . . ..")
+        await Tm.edit(f"<blockquote>{prs}downloading video . . ..</blockquote>")
         file = await client.download_media(
             message=replied,
             file_name=f"toaudio_{replied.id}",
         )
         out_file = f"{file}.mp3"
         try:
-            await Tm.edit(f"{ktrng}mencoba ekstrak audio. ..")
+            await Tm.edit(f"<blockquote>{ktrng}mencoba ekstrak audio. ..</blockquote>")
             cmd = f"ffmpeg -i {file} -q:a 0 -map a {out_file}"
             await run_cmd(cmd)
-            await Tm.edit(f"{brhsl}uploading audio . . .")
+            await Tm.edit(f"<blockquote>{brhsl}uploading audio . . .</blockquote>")
             await client.send_voice(
                 message.chat.id,
                 voice=out_file,
@@ -206,7 +206,7 @@ async def _(client, message):
         except Exception as error:
             await Tm.edit(error)
     else:
-        return await Tm.edit(f"{ggl}mohon balas ke video")
+        return await Tm.edit(f"<blockquote>{ggl}mohon balas ke video</blockquote>")
 
 
 @PY.UBOT("colong")
@@ -217,12 +217,12 @@ async def _(client, message):
     ktrng = await EMO.BL_KETERANGAN(client)
     dia = message.reply_to_message
     if not dia:
-        return await message.reply(f"{ggl}mohon balas ke media")
+        return await message.reply(f"<blockquote>{ggl}mohon balas ke media</blockquote>")
     anjing = dia.caption or ""
-    Tm = await message.reply(f"{prs}processing...")
+    Tm = await message.reply(f"<blockquote>{prs}processing...</blockquote>")
     if dia.photo:
         if message.reply_to_message.photo.file_size > 10000000:
-            return await Tm.edit(f"{ktrng}file di atas 10mb tidak di izinkan")
+            return await Tm.edit(f"<blockquote>{ktrng}file di atas 10mb tidak di izinkan</blockquote>")
         anu = await client.download_media(dia)
         await client.send_photo(client.me.id, anu, anjing)
         os.remove(anu)
@@ -230,7 +230,7 @@ async def _(client, message):
         return await Tm.delete()
     if dia.video:
         if message.reply_to_message.video.file_size > 10000000:
-            return await Tm.edit(f"{ktrng}file di atas 10mb tidak di izinkan")
+            return await Tm.edit(f"<blockquote>{ktrng}file di atas 10mb tidak di izinkan</blockquote>")
         anu = await client.download_media(dia)
         await client.send_video(client.me.id, anu, anjing)
         os.remove(anu)
@@ -238,7 +238,7 @@ async def _(client, message):
         return await Tm.delete()
     if dia.audio:
         if message.reply_to_message.audio.file_size > 10000000:
-            return await Tm.edit(f"{ktrng}file di atas 10mb tidak di izinkan")
+            return await Tm.edit(f"<blockquote>{ktrng}file di atas 10mb tidak di izinkan</blockquote>")
         anu = await client.download_media(dia)
         await client.send_audio(client.me.id, anu, anjing)
         os.remove(anu)
@@ -246,7 +246,7 @@ async def _(client, message):
         return await Tm.delete()
     if dia.voice:
         if message.reply_to_message.voice.file_size > 10000000:
-            return await Tm.edit(f"{ktrng}file di atas 10mb tidak di izinkan")
+            return await Tm.edit(f"<blockquote>{ktrng}file di atas 10mb tidak di izinkan</blockquote>")
         anu = await client.download_media(dia)
         await client.send_voice(client.me.id, anu, anjing)
         os.remove(anu)
@@ -254,7 +254,7 @@ async def _(client, message):
         return await Tm.delete()
     if dia.document:
         if message.reply_to_message.document.file_size > 10000000:
-            return await Tm.edit(f"{ktrng}file di atas 10mb tidak di izinkan")
+            return await Tm.edit(f"<blockquote>{ktrng}file di atas 10mb tidak di izinkan</blockquote>")
         anu = await client.download_media(dia)
         await client.send_document(client.me.id, anu, anjing)
         os.remove(anu)

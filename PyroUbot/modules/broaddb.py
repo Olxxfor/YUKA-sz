@@ -40,7 +40,7 @@ async def _(client, message):
     _msg = f"{prs}proccesing..."
     gcs = await message.reply(_msg)
     if not message.reply_to_message:
-        return await gcs.edit(f"**{ggl} mohon balas ke pesan !**")
+        return await gcs.edit(f"<blockquote>**{ggl} mohon balas ke pesan !**</blockquote>")
     text = message.reply_to_message
     database = await get_list_from_vars(client.me.id, "DB_ID")
     done = 0
@@ -163,9 +163,9 @@ async def _(client, message):
     databases = await get_list_from_vars(client.me.id, "DB_ID")
 
     if not databases:
-        return await msg.edit(f"{ggl}database broadcaꜱt anda koꜱong")
+        return await msg.edit(f"<blockquote>{ggl}database broadcaꜱt anda koꜱong</blockquote>")
 
     for chat_id in databases:
         await remove_from_vars(client.me.id, "DB_ID", chat_id)
 
-    await msg.edit(f"{brhsl}ꜱemua database broadcaꜱt berhaꜱil di hapuꜱ")
+    await msg.edit(f"<blockquote>{brhsl}ꜱemua database broadcaꜱt berhaꜱil di hapuꜱ</blockquote>")

@@ -33,10 +33,10 @@ async def _(client, message):
         if reply.text or reply.caption:
             text = reply.text or reply.caption
         else:
-            return await message.reply("ʀᴇᴘʟʏ ᴋᴇ ᴛᴇxᴛ ᴀᴛᴀᴜ ᴄᴀᴘᴛɪᴏɴ ᴍᴇᴅɪᴀ")
+            return await message.reply("<blockquote>ʀᴇᴘʟʏ ᴋᴇ ᴛᴇxᴛ ᴀᴛᴀᴜ ᴄᴀᴘᴛɪᴏɴ ᴍᴇᴅɪᴀ</blockquote>")
     else:
         if len(message.command) < 2:
-            return await message.reply(f"<code>{message.text}</code> [ʀᴇᴘʟʏ/ᴛᴇxᴛ]")
+            return await message.reply(f"<blockquote><code>{message.text}</code> [ʀᴇᴘʟʏ/ᴛᴇxᴛ]</blockquote>")
         else:
             text = message.text.split(None, 1)[1]
     try:

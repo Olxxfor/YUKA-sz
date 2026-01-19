@@ -18,11 +18,11 @@ __HELP__ = """
 @PY.UBOT("capdl")
 async def capcut_download(client, message):
     if len(message.command) < 2:
-        await message.reply("Gunakan format: /capdl [URL CapCut]")
+        await message.reply("<blockquote>Gunakan format: /capdl [URL CapCut]</blockquote>")
         return
     
     url = message.command[1]
-    processing_msg = await message.reply("🔄 Memproses permintaan, harap tunggu...")
+    processing_msg = await message.reply("<blockquote>🔄 Memproses permintaan, harap tunggu...</blockquote>")
     
     response = requests.get(f"https://api.botcahx.eu.org/api/download/capcut?url={url}&apikey=moire")
     data = response.json()

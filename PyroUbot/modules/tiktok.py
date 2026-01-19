@@ -14,11 +14,11 @@ __HELP__ = """
 @PY.TOP_CMD
 async def tiktok_handler(client, message):
     if len(message.command) < 2:
-        await message.reply("linknya mana?")
+        await message.reply("<blockquote>linknya mana?</blockquote>")
         return
 
     url = message.command[1]
-    proses_message = await message.reply("```\nprosess...```")
+    proses_message = await message.reply("<blockquote>```\nprosess...```</blockquote>")
 
     try:
         response = requests.get(f"https://api.diioffc.web.id/api/download/tiktok?url={url}")
@@ -49,4 +49,4 @@ async def tiktok_handler(client, message):
 
     except Exception as e:
         await proses_message.delete()
-        await message.reply(f"Error \n{e}")
+        await message.reply(f"<blockquote>Error \n{e}</blockquote>")

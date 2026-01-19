@@ -25,7 +25,7 @@ async def chat_gpt(client, message):
                 "<emoji id=5019523782004441717>❌</emoji>mohon gunakan format\ncontoh : .simi query"
             )
         else:
-            prs = await message.reply(f"<emoji id=5319230516929502602>🔍</emoji>menjawab....")
+            prs = await message.reply(f"<blockquote><emoji id=5319230516929502602>🔍</emoji>menjawab....</blockquote>")
             a = message.text.split(' ', 1)[1]
             response = requests.get(f'https://api.botcahx.eu.org/api/search/simsimi?query={a}&apikey=Boyy')
 
@@ -36,8 +36,8 @@ async def chat_gpt(client, message):
                       f"<blockquote>{x}</blockquote>"
                     )
                 else:
-                    await message.reply("No 'results' key found in the response.")
+                    await message.reply("<blockquote>No 'results' key found in the response.</blockquote>")
             except KeyError:
-                await message.reply("Error accessing the response.")
+                await message.reply("<blockquote>Error accessing the response.</blockquote>")
     except Exception as e:
-        await message.reply(f"{e}")
+        await message.reply(f"<blockquote>{e}</blockquote>")

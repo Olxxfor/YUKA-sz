@@ -34,7 +34,7 @@ async def quotes_anime(client, message):
             
             await message.reply(result)
         else:
-            await message.reply("Gagal mengambil data Quotes.")
+            await message.reply("<blockquote>Gagal mengambil data Quotes.</blockquote>")
     
     except Exception as e:
-        await message.reply(f"Terjadi kesalahan: {e}")
+        await message.reply(f"<blockquote>Terjadi kesalahan: {e}</blockquote>")

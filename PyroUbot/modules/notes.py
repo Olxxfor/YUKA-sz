@@ -43,7 +43,7 @@ async def _(client, message):
     brhsl = await EMO.BERHASIL(client)
     ggl = await EMO.GAGAL(client)
     if len(message.command) != 2:
-        return await message.reply(f"{ggl}woi asu mohon gunakan {message.text.split()[0]} namacatatan/namacb")
+        return await message.reply(f"<blockquote>{ggl}woi asu mohon gunakan {message.text.split()[0]} namacatatan/namacb</blockquote>")
     args = get_arg(message)
     reply = message.reply_to_message
     query = "notes_cb" if message.command[0] == "addcb" else "notes"
@@ -56,7 +56,7 @@ async def _(client, message):
     vars = await get_vars(client.me.id, args, query)
 
     if vars:
-        return await message.reply(f"{ggl}catatan {args} ꜱudah ada</n>")
+        return await message.reply(f"<blockquote>{ggl}catatan {args} ꜱudah ada</n></blockquote>")
 
     value = None
     type_mapping = {
@@ -105,11 +105,11 @@ async def _(client, message):
     vars = await get_vars(client.me.id, args, query)
 
     if not vars:
-        return await message.reply(f"{ggl}catatan {args} tidak ditemukan")
+        return await message.reply(f"<blockquote>{ggl}catatan {args} tidak ditemukan</blockquote>")
 
     await remove_vars(client.me.id, args, query)
     await client.delete_messages(client.me.id, int(vars["message_id"]))
-    return await message.reply(f"<brhsl>{brhsl}catan {args} berhasil dihapus")
+    return await message.reply(f"<blockquote><brhsl>{brhsl}catan {args} berhasil dihapus</blockquote>")
 
 
 @PY.UBOT("get")
@@ -211,4 +211,4 @@ async def _(client, callback_query):
             return await callback_query.edit_message_text(text, reply_markup=buttons)
 
         except TypeError:
-            return await callback_query.answer("maaf pengguna ubot sangat tolol saat mengisi callback", show_alert=True)
+            return await callback_query.answer("<blockquote>maaf pengguna ubot sangat tolol saat mengisi callback</blockquote>", show_alert=True)

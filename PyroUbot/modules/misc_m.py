@@ -45,7 +45,7 @@ async def _(client, message):
     yubot = await EMO.UBOT(client)
     await client.unblock_user("SpamBot")
     bot_info = await client.resolve_peer("SpamBot")
-    msg = await message.reply(f"{prs}processing . . .")
+    msg = await message.reply(f"<blockquote>{prs}processing . . .</blockquote>")
     response = await client.invoke(
         StartBot(
             bot=bot_info,
@@ -124,9 +124,9 @@ async def carbon_func(client, message):
         text = message.reply_to_message.text or message.reply_to_message.caption
     if not text:
         return await message.delete()
-    ex = await message.reply("memproꜱeꜱ...")
+    ex = await message.reply("<blockquote>memproꜱeꜱ...</blockquote>")
     carbon = await make_carbon(text)
-    await ex.edit("uploading...")
+    await ex.edit("<blockquote>uploading...</blockquote>")
     await asyncio.gather(
         ex.delete(),
         client.send_photo(
@@ -183,7 +183,7 @@ async def _(client, message):
             return await message.delete()
         else:
             data = qr_gen(message.text.split(None, 1)[1])
-    Tm = await message.reply("sedang memproses buat qrcode....")
+    Tm = await message.reply("<blockquote>sedang memproses buat qrcode....</blockquote>")
     try:
         QRcode = (
             requests.post(
@@ -205,13 +205,13 @@ async def _(client, message):
 async def _(client, message):
     replied = message.reply_to_message
     if not (replied and replied.media and (replied.photo or replied.sticker)):
-        await message.reply("balas kode qr untuk mendapatkan data...")
+        await message.reply("<blockquote>balas kode qr untuk mendapatkan data...</blockquote>")
         return
     if not os.path.isdir("premiumQR/"):
         os.makedirs("premiumQR/")
-    AM = await message.reply("mengunduh media...")
+    AM = await message.reply("<blockquote>mengunduh media...</blockquote>")
     down_load = await client.download_media(message=replied, file_name="premiumQR/")
-    await AM.edit("memproses kode qr anda...")
+    await AM.edit("<blockquote>memproses kode qr anda...</blockquote>")
     cmd = [
         "curl",
         "-X",
@@ -230,15 +230,15 @@ async def _(client, message):
     err_response = stderr.decode().strip()
     os.remove(down_load)
     if not (out_response or err_response):
-        await AM.edit("tidak bisa mendapatkan data kode qr ini...")
+        await AM.edit("<blockquote>tidak bisa mendapatkan data kode qr ini...</blockquote>")
         return
     try:
         soup = BeautifulSoup(out_response, "html.parser")
         qr_contents = soup.find_all("pre")[0].text
     except IndexError:
-        await AM.edit("indeks daftar di luar jangkauan")
+        await AM.edit("<blockquote>indeks daftar di luar jangkauan</blockquote>")
         return
-    await AM.edit(f"data qrcode:\n{qr_contents}")
+    await AM.edit(f"<blockquote>data qrcode:\n{qr_contents}</blockquote>")
   
 
 @PY.UBOT("font")
@@ -248,10 +248,10 @@ async def _(client, message):
         if message.reply_to_message.text:
             query = id(message)
         else:
-            return await message.reply("harap reply ke text")
+            return await message.reply("<blockquote>harap reply ke text</blockquote>")
     else:
         if len(message.command) < 2:
-            return await message.reply(f"{message.text} [reply/text]")
+            return await message.reply(f"<blockquote>{message.text} [reply/text]</blockquote>")
         else:
             query = id(message)
     try:
@@ -302,7 +302,7 @@ async def _(client, callback_query):
         get_new_font = gens_font(new, text)
         return await callback_query.edit_message_text(get_new_font)
     except Exception as error:
-        return await callback_query.answer(f"Error: {error}", True)
+        return await callback_query.answer(f"<blockquote>Error: {error}</blockquote>", True)
 
 
 @PY.CALLBACK("^next")
@@ -321,7 +321,7 @@ async def _(client, callback_query):
         buttons.row(InlineKeyboardButton("◄", callback_data=f"prev {get_id}"))
         return await callback_query.edit_message_reply_markup(reply_markup=buttons)
     except Exception as error:
-        return await callback_query.answer(f"Error: {error}", True)
+        return await callback_query.answer(f"<blockquote>Error: {error}</blockquote>", True)
 
 
 @PY.CALLBACK("^prev")
@@ -340,4 +340,4 @@ async def _(client, callback_query):
         buttons.row(InlineKeyboardButton("►", callback_data=f"next {get_id}"))
         return await callback_query.edit_message_reply_markup(reply_markup=buttons)
     except Exception as error:
-        return await callback_query.answer(f"❌ Error: {error}", True)
+        return await callback_query.answer(f"<blockquote>❌ Error: {error}</blockquote>", True)

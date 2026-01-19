@@ -28,7 +28,7 @@ async def chat_gpt(client, message):
                 "<emoji id=5019523782004441717>❌</emoji>mohon gunakan format\ncontoh : .checkdana 085xxx"
             )
         else:
-            prs = await message.reply(f"<emoji id=6226405134004389590>🔍</emoji>proccesing Kingz....")
+            prs = await message.reply(f"<blockquote><emoji id=6226405134004389590>🔍</emoji>proccesing Kingz....</blockquote>")
             a = message.text.split(' ', 1)[1]
             response = requests.get(f'https://api.siputzx.my.id/api/check/dana?account_number={a}')
 
@@ -39,8 +39,8 @@ async def chat_gpt(client, message):
                       f"<blockquote>BERIKUT DATA DARI PAYMENT DANA           {x}</blockquote>"
                     )
                 else:
-                    await message.reply("No 'results' key found in the response.")
+                    await message.reply("<blockquote>No 'results' key found in the response.</blockquote>")
             except KeyError:
-                await message.reply("Error accessing the response.")
+                await message.reply("<blockquote>Error accessing the response.</blockquote>")
     except Exception as e:
-        await message.reply(f"{e}")
+        await message.reply(f"<blockquote>{e}</blockquote>")

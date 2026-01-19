@@ -16,7 +16,7 @@ async def _(client, message):
     args = message.text.split(" ", 1)
 
     if len(args) < 2:
-        await message.reply("❌ Harap gunakan format:\n`.happymod <nama_aplikasi>`", quote=True)
+        await message.reply("<blockquote>❌ Harap gunakan format:\n`.happymod <nama_aplikasi>`</blockquote>", quote=True)
         return
 
     query = args[1]
@@ -27,7 +27,7 @@ async def _(client, message):
         data = response.json()
 
         if not data.get("status") or "result" not in data:
-            await message.reply("⚠️ Tidak ditemukan hasil untuk pencarian ini.", quote=True)
+            await message.reply("<blockquote>⚠️ Tidak ditemukan hasil untuk pencarian ini.</blockquote>", quote=True)
             return
 
         results = data["result"][:5]
@@ -48,4 +48,4 @@ async def _(client, message):
 
         await message.reply(response_text, disable_web_page_preview=True, quote=True)
     except Exception as e:
-        await message.reply(f"❌ Terjadi kesalahan:\n`{str(e)}`", quote=True)
+        await message.reply(f"<blockquote>❌ Terjadi kesalahan:\n`{str(e)}`</blockquote>", quote=True)

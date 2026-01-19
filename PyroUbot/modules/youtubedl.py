@@ -135,24 +135,24 @@ async def download_thumbnail(url: str):
 async def vsong_cmd(client, message):
     # validate arguments
     if len(message.command) < 2:
-        return await message.reply("❌ Video tidak ditemukan, masukkan judul.")
+        return await message.reply("<blockquote>❌ Video tidak ditemukan, masukkan judul.</blockquote>")
 
-    infomsg = await message.reply("🔍 Pencarian...", quote=False)
+    infomsg = await message.reply("<blockquote>🔍 Pencarian...</blockquote>", quote=False)
     # get query safely
     try:
         query = message.text.split(None, 1)[1]
     except Exception:
-        return await infomsg.edit("🔍 Masukkan query yang valid.")
+        return await infomsg.edit("<blockquote>🔍 Masukkan query yang valid.</blockquote>")
 
     # search youtube (yt-dlp)
     try:
         search = await find_first_youtube(query)
     except Exception as e:
-        await infomsg.edit(f"🔍 Pencarian gagal:\n{e}")
+        await infomsg.edit(f"<blockquote>🔍 Pencarian gagal:\n{e}</blockquote>")
         return
 
     if not search:
-        return await infomsg.edit("🔍 Tidak ada hasil untuk query kamu.")
+        return await infomsg.edit("<blockquote>🔍 Tidak ada hasil untuk query kamu.</blockquote>")
 
     link = search.get("webpage_url") or f"https://youtu.be/{search.get('id')}"
 
@@ -167,9 +167,9 @@ async def vsong_cmd(client, message):
         try:
             file_name, title, url, duration, views, channel, thumb, data_ytp = await YoutubeDownload(link, True)
         except Exception as error:
-            return await infomsg.edit(f"🔥 Downloader error:\n{error}")
+            return await infomsg.edit(f"<blockquote>🔥 Downloader error:\n{error}</blockquote>")
     except Exception as error:
-        return await infomsg.edit(f"🔥 Downloader error:\n{error}")
+        return await infomsg.edit(f"<blockquote>🔥 Downloader error:\n{error}</blockquote>")
 
     # download thumbnail non-blocking
     thumbnail = None
@@ -206,7 +206,7 @@ async def vsong_cmd(client, message):
             reply_to_message_id=message.id,
         )
     except Exception as e:
-        await infomsg.edit(f"❌ Gagal mengirim video:\n{e}")
+        await infomsg.edit(f"<blockquote>❌ Gagal mengirim video:\n{e}</blockquote>")
         # cleanup
         for _f in (thumbnail, file_name):
             try:
@@ -243,22 +243,22 @@ async def song_cmd(client, message):
     prs = await EMO.PROSES(client)
 
     if len(message.command) < 2:
-        return await message.reply(f"{ggl} Audio tidak ditemukan! Masukkan judul.")
+        return await message.reply(f"<blockquote>{ggl} Audio tidak ditemukan! Masukkan judul.</blockquote>")
 
-    infomsg = await message.reply(f"{prs} Pencarian...", quote=False)
+    infomsg = await message.reply(f"<blockquote>{prs} Pencarian...</blockquote>", quote=False)
     try:
         query = message.text.split(None, 1)[1]
     except Exception:
-        return await infomsg.edit(f"{ggl} Query tidak valid.")
+        return await infomsg.edit(f"<blockquote>{ggl} Query tidak valid.</blockquote>")
 
     try:
         search = await find_first_youtube(query)
     except Exception as e:
-        await infomsg.edit(f"{prs} Pencarian gagal:\n{e}")
+        await infomsg.edit(f"<blockquote>{prs} Pencarian gagal:\n{e}</blockquote>")
         return
 
     if not search:
-        return await infomsg.edit(f"{prs} Tidak ada hasil.")
+        return await infomsg.edit(f"<blockquote>{prs} Tidak ada hasil.</blockquote>")
 
     link = search.get("webpage_url") or f"https://youtu.be/{search.get('id')}"
 
@@ -270,9 +270,9 @@ async def song_cmd(client, message):
         try:
             file_name, title, url, duration, views, channel, thumb, data_ytp = await YoutubeDownload(link, False)
         except Exception as error:
-            return await infomsg.edit(f"{ggl} Downloader error:\n{error}")
+            return await infomsg.edit(f"<blockquote>{ggl} Downloader error:\n{error}</blockquote>")
     except Exception as error:
-        return await infomsg.edit(f"{ggl} Downloader error:\n{error}")
+        return await infomsg.edit(f"<blockquote>{ggl} Downloader error:\n{error}</blockquote>")
 
     # thumbnail download
     thumbnail = None
@@ -306,7 +306,7 @@ async def song_cmd(client, message):
             reply_to_message_id=message.id,
         )
     except Exception as e:
-        await infomsg.edit(f"❌ Gagal mengirim audio:\n{e}")
+        await infomsg.edit(f"<blockquote>❌ Gagal mengirim audio:\n{e}</blockquote>")
         for _f in (thumbnail, file_name):
             try:
                 if _f and os.path.exists(_f):

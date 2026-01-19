@@ -16,7 +16,7 @@ async def _(client, message):
     try:
         target = message.reply_to_message
         if not target:
-            await message.reply(f"<emoji id=5911461474315802019>⭐</emoji> **mohon balas ke pesan** !", quote=True)
+            await message.reply(f"<blockquote><emoji id=5911461474315802019>⭐</emoji> **mohon balas ke pesan** !</blockquote>", quote=True)
             return
         entity = target.entities[0]
         custom_emoji_id = entity.custom_emoji_id

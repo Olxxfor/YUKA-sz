@@ -66,12 +66,12 @@ class PinterestMediaDownloader:
 @PY.UBOT("pint")
 async def pinterest(client, message):
     if len(message.command) < 2:
-        return await message.reply("Untuk mendapatkan media Pinterest lakukan /pints [URL Pinterest]")
+        return await message.reply("<blockquote>Untuk mendapatkan media Pinterest lakukan /pints [URL Pinterest]</blockquote>")
 
     content = message.text.split(None, 1)[1]
     pinterest_downloader = PinterestMediaDownloader(content)
     
-    i = await message.reply("🔍 <b>Memprosess...</b>")
+    i = await message.reply("<blockquote>🔍 <b>Memprosess...</b></blockquote>")
     
     try:
         pinterest_downloader.get_pin_id()
@@ -92,7 +92,7 @@ async def pinterest(client, message):
         
         await i.delete()
     except Exception as err:
-        return await i.edit("Maaf, saya tidak dapat mendapatkan informasi tentang file ini.\nCoba lagi nanti atau kirim tautan lain.", disable_web_page_preview=True)
+        return await i.edit("<blockquote>Maaf, saya tidak dapat mendapatkan informasi tentang file ini.\nCoba lagi nanti atau kirim tautan lain.</blockquote>", disable_web_page_preview=True)
 
 @PY.UBOT("pinsearch")
 async def pin(client, message):
@@ -100,10 +100,10 @@ async def pin(client, message):
     sks = await EMO.BERHASIL(client)
     prs = await EMO.PROSES(client)
     
-    jalan = await message.reply(f"{prs} Processing...")
+    jalan = await message.reply(f"<blockquote>{prs} Processing...</blockquote>")
     
     if len(message.command) != 2:
-        return await jalan.edit(f"{ggl} Example .pinsearch asuna")
+        return await jalan.edit(f"<blockquote>{ggl} Example .pinsearch asuna</blockquote>")
     
     a = message.text.split(' ', 1)[1]
     chat_id = message.chat.id
@@ -127,10 +127,10 @@ async def pin(client, message):
             
             await jalan.delete()
         else:
-            await jalan.edit(f"{ggl} No 'result' key found in the response.")
+            await jalan.edit(f"<blockquote>{ggl} No 'result' key found in the response.</blockquote>")
     
     except requests.exceptions.RequestException as e:
-        await jalan.edit(f"{ggl} Request failed: {e}")
+        await jalan.edit(f"<blockquote>{ggl} Request failed: {e}</blockquote>")
     
     except Exception as e:
-        await jalan.edit(f"{ggl} An error occurred: {e}")
+        await jalan.edit(f"<blockquote>{ggl} An error occurred: {e}</blockquote>")

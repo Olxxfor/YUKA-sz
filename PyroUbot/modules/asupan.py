@@ -22,7 +22,7 @@ perintah : <code>{0}cowok</code>
 @PY.TOP_CMD
 async def video_asupan(client, message):
     prs = await EMO.PROSES(client)
-    y = await message.reply(f"{prs}mencari video asupan...")
+    y = await message.reply(f"<blockquote>{prs}mencari video asupan...</blockquote>")
     try:
         asupannya = []
         async for asupan in client.search_messages(
@@ -40,7 +40,7 @@ async def video_asupan(client, message):
 @PY.TOP_CMD
 async def photo_cewek(client, message):
     prs = await EMO.PROSES(client)
-    y = await message.reply(f"{prs}mencari ayang...")
+    y = await message.reply(f"<blockquote>{prs}mencari ayang...</blockquote>")
     try:
         ayangnya = []
         async for ayang in client.search_messages(
@@ -58,7 +58,7 @@ async def photo_cewek(client, message):
 @PY.TOP_CMD
 async def photo_cewek(client, message):
     prs = await EMO.PROSES(client)
-    y = await message.reply(f"{prs}mencari cowok...")
+    y = await message.reply(f"<blockquote>{prs}mencari cowok...</blockquote>")
     try:
         ayang2nya = []
         async for ayang2 in client.search_messages(

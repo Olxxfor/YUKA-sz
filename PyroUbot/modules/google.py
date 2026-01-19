@@ -11,10 +11,10 @@ perintah : <code>{0}google [query]</code>
 
 @PY.UBOT("gg|google|googlesearch")
 async def google_search(client, message):
-    webevent = await message.reply("ᴍᴇɴᴇʟᴜsᴜʀɪ ɢᴏᴏɢʟᴇ...")
+    webevent = await message.reply("<blockquote>ᴍᴇɴᴇʟᴜsᴜʀɪ ɢᴏᴏɢʟᴇ...</blockquote>")
     match = get_arg(message)
     if not match:
-        return await webevent.edit(f"{message.text} ǫᴜᴇʀʏ")
+        return await webevent.edit(f"<blockquote>{message.text} ǫᴜᴇʀʏ</blockquote>")
     
     search_query = match.strip()
     api_url = f"https://aemt.uk.to/googlesearch?query={search_query}"
@@ -39,4 +39,4 @@ async def google_search(client, message):
                     disable_web_page_preview=True,
                 )
             else:
-                return await webevent.edit("ᴇʀʀᴏʀ: ᴍᴇɴɢɢᴜɴᴀᴋᴀɴ ᴀᴘɪ")
+                return await webevent.edit("<blockquote>ᴇʀʀᴏʀ: ᴍᴇɴɢɢᴜɴᴀᴋᴀɴ ᴀᴘɪ</blockquote>")

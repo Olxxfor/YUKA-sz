@@ -83,4 +83,4 @@ async def _(client, message):
 """
         await message.reply(response)
     else:
-        await message.reply("{ggll} **Gagal mendeteksi pengguna...**")
+        await message.reply("<blockquote>{ggll} **Gagal mendeteksi pengguna...**</blockquote>")

@@ -12,12 +12,12 @@ from PyroUbot import *
 
 async def cukimay(client, message):
     if message.from_user.id != OWNER_ID:
-        await message.reply(f"\nmau ngapain anjenk?\n")
+        await message.reply(f"<blockquote>\nmau ngapain anjenk?\n</blockquote>")
         return
     command = get_arg(message)
-    msg = await message.reply("memproses...", quote=True)
+    msg = await message.reply("<blockquote>memproses...</blockquote>", quote=True)
     if not command:
-        return await msg.edit("noob")
+        return await msg.edit("<blockquote>noob</blockquote>")
     try:
         if command == "shutdown":
             await msg.delete()
@@ -53,12 +53,12 @@ async def cb_gitpull(client, callback_query):
     os.system(f"kill -9 {os.getpid()} && git pull && python3 -m PyroUbot")
     
 async def handle_shutdown(message):
-    await message.reply("✅ System berhasil dimatikan", quote=True)
+    await message.reply("<blockquote>✅ System berhasil dimatikan</blockquote>", quote=True)
     os.system(f"kill -9 {os.getpid()}")
 
 
 async def handle_restart(message):
-    await message.reply("✅ System berhasil direstart", quote=True)
+    await message.reply("<blockquote>✅ System berhasil direstart</blockquote>", quote=True)
     os.execl(sys.executable, sys.executable, "-m", "PyroUbot")
 
 
@@ -69,7 +69,7 @@ async def handle_update(message):
     elif int(len(str(out))) > 4096:
         await send_large_output(message, out)
     else:
-        await message.reply(f"```{out}```", quote=True)
+        await message.reply(f"<blockquote>```{out}```</blockquote>", quote=True)
     os.execl(sys.executable, sys.executable, "-m", "PyroUbot")
 
 
@@ -90,11 +90,11 @@ async def send_large_output(message, output):
 @PY.UBOT("eval")
 async def _(client, message):
     if message.from_user.id != OWNER_ID:
-        await message.reply(f"mau ngapain anjenk?")
+        await message.reply(f"<blockquote>mau ngapain anjenk?</blockquote>")
         return
     if not get_arg(message):
         return
-    TM = await message.reply("sebentar proses...")
+    TM = await message.reply("<blockquote>sebentar proses...</blockquote>")
     cmd = message.text.split(" ", maxsplit=1)[1]
     reply_to_ = message.reply_to_message or message
     old_stderr = sys.stderr
@@ -154,4 +154,4 @@ async def _(client, message):
         except Exception as error:
             return await message.reply(str(error))
     else:
-        return await message.reply("reply peꜱan anjenk!!")
+        return await message.reply("<blockquote>reply peꜱan anjenk!!</blockquote>")

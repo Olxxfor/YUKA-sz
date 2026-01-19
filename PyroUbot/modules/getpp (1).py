@@ -31,7 +31,7 @@ async def get_profile_pic(client, message):
         target = message.chat.id
         
     if not target:
-        return await message.reply("**__Gunakan `/getpp @username`, reply user, atau kirim `.getpp` di grup/channel untuk ambil PP.__**")
+        return await message.reply("<blockquote>**__Gunakan `/getpp @username`, reply user, atau kirim `.getpp` di grup/channel untuk ambil PP.__**</blockquote>")
 
     try:
         async for photo in client.get_chat_photos(target, limit=1):  # Ambil 1 foto terbaru
@@ -42,9 +42,9 @@ async def get_profile_pic(client, message):
             )
             return
 
-        await message.reply("**__User/grup tidak memiliki foto profil__**.")
+        await message.reply("<blockquote>**__User/grup tidak memiliki foto profil__**.</blockquote>")
 
     except (UsernameNotOccupied, UserNotParticipant, PeerIdInvalid):
-        await message.reply("**__Akun atau grup tidak ditemukan.__**")
+        await message.reply("<blockquote>**__Akun atau grup tidak ditemukan.__**</blockquote>")
     except Exception as e:
-        await message.reply(f"**__Terjadi kesalahan: {str(e)}__**")
+        await message.reply(f"<blockquote>**__Terjadi kesalahan: {str(e)}__**</blockquote>")

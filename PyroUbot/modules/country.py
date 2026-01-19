@@ -14,11 +14,11 @@ API_URL = "https://api.siputzx.my.id/api/tools/countryInfo"
 @PY.UBOT("country")
 async def country_info_cmd(client, message):
     if len(message.command) < 2:
-        await message.reply("<i>❌ Harap masukkan nama negara.</i>")
+        await message.reply("<blockquote><i>❌ Harap masukkan nama negara.</i></blockquote>")
         return
 
     country_name = message.text.split(None, 1)[1]
-    msg = await message.reply("<i>🔍 Mengambil data...</i>")
+    msg = await message.reply("<blockquote><i>🔍 Mengambil data...</i></blockquote>")
 
     try:
         response = requests.get(f"{API_URL}?name={country_name}")
@@ -29,7 +29,7 @@ async def country_info_cmd(client, message):
 
         if response.status_code != 200 or not data.get("status"):
             error_message = data.get("error", "Gagal mengambil data.")
-            await msg.edit(f"<b>❌ Gagal mengambil data.</b>\nPesan: {error_message}")
+            await msg.edit(f"<blockquote><b>❌ Gagal mengambil data.</b>\nPesan: {error_message}</blockquote>")
             return
 
         # Mengambil data dengan pengecekan lebih teliti
@@ -58,4 +58,4 @@ async def country_info_cmd(client, message):
 
         await msg.edit(result_text)
     except Exception as e:
-        await msg.edit(f"<b>❌ Terjadi kesalahan:</b> {str(e)}")
+        await msg.edit(f"<blockquote><b>❌ Terjadi kesalahan:</b> {str(e)}</blockquote>")

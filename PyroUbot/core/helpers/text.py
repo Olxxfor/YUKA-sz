@@ -23,56 +23,32 @@ class MSG:
 
     def START(message):
         return f"""
-<blockquote>
-👋🏻 <b>ʜᴀʟᴏ —</b>  
-<a href="tg://user?id={message.from_user.id}">
-<b>{message.from_user.first_name} {message.from_user.last_name or ''}</b>
-</a>
+<blockquote>𝐇𝐀𝐈 𝐇𝐀𝐈 👋🏻👋🏻
+<a href="tg://user?id={message.from_user.id}"><b>{message.from_user.first_name} {message.from_user.last_name or ''}</b></a> 𝐒𝐄𝐋𝐀𝐌𝐀𝐓 𝐃𝐀𝐓𝐀𝐍𝐆 𝐃𝐈 <b>@{bot.me.username}</b>
 
-📚💎 <b>@{bot.me.username}</b>  
-ᴀᴅᴀʟᴀʜ ʙᴏᴛ ʏᴀɴɢ ᴅᴀᴘᴀᴛ ᴍᴇᴍʙᴜᴀᴛ <b>ᴜsᴇʀʙᴏᴛ</b>  
-ᴅᴇɴɢᴀɴ ᴍᴜᴅᴀʜ
-
-🚀 ʙᴏᴛ ɪɴɪ ᴅɪᴋᴇᴍʙᴀɴɢᴋᴀɴ ᴏʟᴇʜ  
-<a href="tg://openmessage?user_id={OWNER_ID}">
-<b>@YUKALASTERA</b>
-</a>
-
-<b>𝐂𝐚𝐫𝐚 𝐒𝐞𝐰𝐚 𝐔𝐬𝐞𝐫𝐛𝐨𝐭 :</b>
-
-<b>Untuk menyewa userbot,</b>  
-<b>silakan menekan tombol</b>  
-<b>"Buat Userbot".</b>
-
-<b>Jika belum melakukan transaksi,</b>  
-<b>silakan memilih menu</b>  
-<b>"Beli Userbot".</b>
-
-<b>Selanjutnya, pilih masa aktif</b>  
-<b>sesuai dengan hari atau bulan</b>  
-<b>yang diinginkan.</b>
-
-<b>Setelah itu, lakukan</b>  
-<b>pembayaran sesuai</b>  
-<b>instruksi yang tersedia.</b>
-
-<b>Tunggu proses verifikasi</b>  
-<b>dari admin.</b>
-
-<b>Jika verifikasi telah selesai,</b>  
-<b>Anda dapat menikmati</b>  
-<b>layanan userbot kami.</b>
-
-<b>Userbot ini sedang dalam tahap</b>  
-<b>pengembangan.</b>
-
-<b>Jika Anda ingin membeli userbot</b>  
-<b>atau menjadi reseller,</b>  
-<b>silakan menghubungi owner utama.</b>
-
-<b>ᴋʟɪᴋ ᴛᴏᴍʙᴏʟ ᴅɪʙᴀᴡᴀʜ</b>  
-<b>ᴜɴᴛᴜᴋ ᴍᴇᴍʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ</b>
+𝐁𝐄𝐋𝐈𝐄𝐕𝐄 𝐈𝐍 𝐘𝐎𝐔𝐑 𝐏𝐎𝐖𝐄𝐑
+𝐄𝐍𝐉𝐎𝐘 𝐄𝐀𝐂𝐇 𝐌𝐎𝐌𝐄𝐍𝐓
+𝐆𝐎𝐃 𝐈𝐒 𝐖𝐈𝐓𝐇 𝐘𝐎𝐔 🕊️
 </blockquote>
+
+<blockquote>✘ 𝐔𝐒𝐄𝐑𝐁𝐎𝐓 𝐏𝐀𝐊𝐄𝐓 / 𝐋𝐀𝐘𝐀𝐍𝐀𝐍 ✘
+
+🖤 <b>Buat Userbot otomatis</b>
+🖤 <b>Pilih masa aktif sesuai paket (hari/bulan)</b>
+🖤 <b>Sistem pembayaran & verifikasi cepat</b>
+🖤 <b>Bisa dijadikan reseller atau upgrade paket</b>
+</blockquote>
+
+<blockquote>✘ 𝐔𝐒𝐄𝐑 𝐈𝐍𝐅𝐎 ✘ ⚫
+
+🃏 <b>ID :</b> <code>{message.from_user.id}</code>
+🃏 <b>USERNAME :</b> <code>@{message.from_user.username or 'tidak ada'}</code>
+🃏 <b>STATUS :</b> <code>belum membeli userbot</code>
+</blockquote>
+
+<blockquote>𝐂𝐑𝐄𝐀𝐓𝐄𝐃 𝐁𝐘
+<a href="tg://openmessage?user_id={OWNER_ID}"><b>@YUKALASTERA</b></a> 🥷🏻
+𝐍𝐀𝐌𝐀 𝐁𝐎𝐓 : <b>@{bot.me.username}</b></blockquote>
 """
 
     def TEXT_PAYMENT(harga, total, bulan):
@@ -116,7 +92,7 @@ class MSG:
 </blockquote>
 """
         else:
-            return "<b>❌ Userbot tidak ditemukan</b>"
+            return "<blockquote><b>❌ Userbot tidak ditemukan</b></blockquote>"
 
     def POLICY():
         return """

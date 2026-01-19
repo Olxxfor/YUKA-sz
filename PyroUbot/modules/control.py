@@ -38,7 +38,7 @@ async def _(client, message):
     group_type = message.command[1]
     split = message.command[2:]
     group_name = " ".join(split)
-    xd = await message.reply("memproꜱeꜱ...")
+    xd = await message.reply("<blockquote>memproꜱeꜱ...</blockquote>")
     desc = "Welcome To My " + ("Group" if group_type == "gc" else "Channel")
     if group_type == "group":
         _id = await client.create_supergroup(group_name, desc)
@@ -62,9 +62,9 @@ async def _(client, message):
     prs = await EMO.PROSES(client)
     brhsl = await EMO.BERHASIL(client)
     ggl = await EMO.GAGAL(client)
-    Tm = await message.reply(f"{prs}memproses...", quote=True)
+    Tm = await message.reply(f"<blockquote>{prs}memproses...</blockquote>", quote=True)
     if len(message.command) < 2:
-        return await Tm.edit(f"{ggl}{message.text} [simbol]")
+        return await Tm.edit(f"<blockquote>{ggl}{message.text} [simbol]</blockquote>")
     else:
         ub_prefix = []
         for prefix in message.command[1:]:
@@ -143,7 +143,7 @@ async def _(client, message):
     brhsl = await EMO.BERHASIL(client)
     ggl = await EMO.GAGAL(client)
     try:
-        msg = await message.reply(f"{prs}memproses...", quote=True)
+        msg = await message.reply(f"<blockquote>{prs}memproses...</blockquote>", quote=True)
 
         if not client.me.is_premium:
             return await msg.edit(
@@ -151,7 +151,7 @@ async def _(client, message):
             )
 
         if len(message.command) < 3:
-            return await msg.edit(f"{ggl}tolong masukkan query dan valeu nya")
+            return await msg.edit(f"<blockquote>{ggl}tolong masukkan query dan valeu nya</blockquote>")
 
         query_mapping = {
           "pong": "EMOJI_PING",
@@ -185,9 +185,9 @@ async def _(client, message):
                     f"{brhsl}emoJi berhasil di setting ke: <emoji id={emoji_id}>{value}</emoji>"
                 )
             else:
-                await msg.edit(f"{ggl}tidak dapat menemukan emoji premium")
+                await msg.edit(f"<blockquote>{ggl}tidak dapat menemukan emoji premium</blockquote>")
         else:
-            await msg.edit(f"{ggl}mapping tidak ditemukan")
+            await msg.edit(f"<blockquote>{ggl}mapping tidak ditemukan</blockquote>")
 
     except Exception as error:
         await msg.edit(str(error))

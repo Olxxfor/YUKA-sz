@@ -2626,7 +2626,7 @@ def paginate_modules(page_n, module_dict, prefix, chat=None):
                 ),
                 EqInlineKeyboardButton(
                     "♛",
-                    callback_data="close_user".format(prefix, modulo_page),
+                    callback_data="close_user",
                 ),
                 EqInlineKeyboardButton(
                     "⊳",

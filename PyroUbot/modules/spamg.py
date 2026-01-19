@@ -44,7 +44,7 @@ async def _(client, message):
     try:
         count = int(count)
     except Exception:
-        return await r.edit(f"<b><code>{message.text.split()[0]}</code> [jumlah] [text/reply_msg]</b>")
+        return await r.edit(f"<blockquote><b><code>{message.text.split()[0]}</code> [jumlah] [text/reply_msg]</b></blockquote>")
 
     if not msg:
         return await r.edit(
@@ -58,7 +58,7 @@ async def _(client, message):
         await SpamMsg(client, message, msg)
 
     spam_progress.remove(client.me.id)    
-    await r.edit("<b>spam telah selesai</b>")
+    await r.edit("<blockquote><b>spam telah selesai</b></blockquote>")
 
 @PY.UBOT("setdelay")
 @PY.TOP_CMD
@@ -71,13 +71,13 @@ async def _(client, message):
     try:
         count = int(count)
     except Exception:
-        return await r.edit(f"<b><code>{message.text.split()[0]}</code> [count]</b>")
+        return await r.edit(f"<blockquote><b><code>{message.text.split()[0]}</code> [count]</b></blockquote>")
 
     if not count:
-        return await r.edit(f"<b><code>{message.text.split()[0]}</code> [count]</b>")
+        return await r.edit(f"<blockquote><b><code>{message.text.split()[0]}</code> [count]</b></blockquote>")
 
     await set_vars(client.me.id, "SPAM", count)
-    return await r.edit("<b>spam delay berhasil di setting</b>")
+    return await r.edit("<blockquote><b>spam delay berhasil di setting</b></blockquote>")
 
 @PY.UBOT("stopspam")
 @PY.TOP_CMD
@@ -85,6 +85,6 @@ async def _(client, message):
     global spam_progress
     if client.me.id in spam_progress:
         spam_progress.remove(client.me.id)
-        await message.reply("<b>spam telah berhenti</b>")
+        await message.reply("<blockquote><b>spam telah berhenti</b></blockquote>")
     else:
-        await message.reply("<b>tidak ada spam yang ditemukan</b>")
+        await message.reply("<blockquote><b>tidak ada spam yang ditemukan</b></blockquote>")

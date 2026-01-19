@@ -44,4 +44,4 @@ async def done_command(client, message):
         await izzy_ganteng.edit(response)
 
     except Exception as e:
-        await izzy_ganteng.edit(f"error: {e}")
+        await izzy_ganteng.edit(f"<blockquote>error: {e}</blockquote>")

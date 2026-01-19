@@ -27,7 +27,7 @@ async def nyolongnih(client, message):
     sks = await EMO.BERHASIL(client)
     prs = await EMO.PROSES(client)
     try:
-        await message.edit(f"{prs}proccesing...")
+        await message.edit(f"<blockquote>{prs}proccesing...</blockquote>")
         link = get_arg(message)
         msg_id = int(link.split("/")[-1])
         if "t.me/c/" in link:
@@ -35,13 +35,13 @@ async def nyolongnih(client, message):
                 chat = int("-100" + str(link.split("/")[-2]))
                 dia = await client.get_messages(chat, msg_id)
             except RPCError:
-                await message.edit(f"{ggl}**sepertinya terjadi kesalahan**")
+                await message.edit(f"<blockquote>{ggl}**sepertinya terjadi kesalahan**</blockquote>")
         else:
             try:
                 chat = str(link.split("/")[-2])
                 dia = await client.get_messages(chat, msg_id)
             except RPCError:
-                await message.edit(f"{ggl}**sepertinya terjadi kesalahan**")
+                await message.edit(f"<blockquote>{ggl}**sepertinya terjadi kesalahan**</blockquote>")
         anjing = dia.caption or None
         if dia.text:
             await dia.copy(message.chat.id)
@@ -76,7 +76,7 @@ async def nyolongnih(client, message):
             await message.delete()
             os.remove(anu)
         else:
-            await message.edit(f"{ggl}**sepertinya terjadi kesalahan**")
+            await message.edit(f"<blockquote>{ggl}**sepertinya terjadi kesalahan**</blockquote>")
     except Exception as e:
         await message.reply(e)
 

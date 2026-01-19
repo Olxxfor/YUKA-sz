@@ -26,36 +26,36 @@ async def impostor(client: Client, message: Message):
     moireX2 = ["@moire_mor", "@more_thanx"]
 
     if inputArgs in moireX2:
-        await message.edit("**[ᴋᴏɴᴛᴏʟ]** - Tidak dapat menyamar sebagai Developer😡")
-        await client.send_message("@moire_logs", "**Maaf Telah MengClone Moire 🥺**")
+        await message.edit("<blockquote>**[ᴋᴏɴᴛᴏʟ]** - Tidak dapat menyamar sebagai Developer😡</blockquote>")
+        await client.send_message("<blockquote>@moire_logs</blockquote>", "**Maaf Telah MengClone Moire 🥺**")
         return
 
-    xx = await message.edit("`Memproses...`")
+    xx = await message.edit("<blockquote>`Memproses...`</blockquote>")
 
     # Jika perintah restore dijalankan
     if "restore" in inputArgs:
         if user_id not in STORAGE:
-            return await xx.edit("**Anda harus meng-clone seseorang dulu sebelum mengembalikan identitas!**")
+            return await xx.edit("<blockquote>**Anda harus meng-clone seseorang dulu sebelum mengembalikan identitas!**</blockquote>")
 
-        await message.edit("**Mengembalikan Identitas Asli...**")
+        await message.edit("<blockquote>**Mengembalikan Identitas Asli...**</blockquote>")
         await update_profile(client, STORAGE[user_id], restore=True)
         del STORAGE[user_id]
-        return await xx.edit("**Berhasil mengembalikan akun Anda!**")
+        return await xx.edit("<blockquote>**Berhasil mengembalikan akun Anda!**</blockquote>")
 
     # Mendapatkan userObj berdasarkan input atau reply
     if inputArgs:
         try:
             user = await client.get_users(inputArgs)
         except:
-            return await xx.edit("**Nama pengguna/ID tidak valid.**")
+            return await xx.edit("<blockquote>**Nama pengguna/ID tidak valid.**</blockquote>")
         userObj = await client.get_chat(user.id)
     elif message.reply_to_message:
         reply_user = message.reply_to_message.from_user
         if not reply_user:
-            return await xx.edit("**Tidak dapat menyamar sebagai admin anonim 🥺**")
+            return await xx.edit("<blockquote>**Tidak dapat menyamar sebagai admin anonim 🥺**</blockquote>")
         userObj = await client.get_chat(reply_user.id)
     else:
-        return await xx.edit("**Gunakan .clone @username atau reply pesan pengguna.**")
+        return await xx.edit("<blockquote>**Gunakan .clone @username atau reply pesan pengguna.**</blockquote>")
 
     # Simpan identitas asli jika belum ada
     if user_id not in STORAGE:
@@ -63,9 +63,9 @@ async def impostor(client: Client, message: Message):
         my_photos = [p async for p in client.get_chat_photos("me")]
         STORAGE[user_id] = {"profile": my_profile, "photos": my_photos}
 
-    await xx.edit("**Cloning Identitas...**")
+    await xx.edit("<blockquote>**Cloning Identitas...**</blockquote>")
     await update_profile(client, userObj)
-    await xx.edit("**Cloning succes 😶‍🌫️**")
+    await xx.edit("<blockquote>**Cloning succes 😶‍🌫️**</blockquote>")
 
 async def update_profile(client: Client, userObj, restore=False):
     if restore:

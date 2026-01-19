@@ -46,12 +46,12 @@ async def ddos_command(client, message):
     try:
         time = int(args[2])
     except ValueError:
-        await message.reply("Waktu harus berupa angka!")
+        await message.reply("<blockquote>Waktu harus berupa angka!</blockquote>")
         return
 
     # Validasi waktu
     if time > time_limit or time <= 0:
-        await message.reply(f"Waktu tidak valid atau melebihi batas {time_limit} detik.")
+        await message.reply(f"<blockquote>Waktu tidak valid atau melebihi batas {time_limit} detik.</blockquote>")
         return
 
     # Jalankan proses serangan
@@ -88,12 +88,12 @@ async def ddos_command(client, message):
     try:
         time = int(args[2])
     except ValueError:
-        await message.reply("Waktu harus berupa angka!")
+        await message.reply("<blockquote>Waktu harus berupa angka!</blockquote>")
         return
 
     # Validasi waktu
     if time > time_limit or time <= 0:
-        await message.reply(f"Waktu tidak valid atau melebihi batas {time_limit} detik.")
+        await message.reply(f"<blockquote>Waktu tidak valid atau melebihi batas {time_limit} detik.</blockquote>")
         return
 
     # Jalankan proses serangan
@@ -130,12 +130,12 @@ async def ddos_command(client, message):
     try:
         time = int(args[2])
     except ValueError:
-        await message.reply("Waktu harus berupa angka!")
+        await message.reply("<blockquote>Waktu harus berupa angka!</blockquote>")
         return
 
     # Validasi waktu
     if time > time_limit or time <= 0:
-        await message.reply(f"Waktu tidak valid atau melebihi batas {time_limit} detik.")
+        await message.reply(f"<blockquote>Waktu tidak valid atau melebihi batas {time_limit} detik.</blockquote>")
         return
 
     # Jalankan proses serangan
@@ -172,12 +172,12 @@ async def ddos_command(client, message):
     try:
         time = int(args[2])
     except ValueError:
-        await message.reply("Waktu harus berupa angka!")
+        await message.reply("<blockquote>Waktu harus berupa angka!</blockquote>")
         return
 
     # Validasi waktu
     if time > time_limit or time <= 0:
-        await message.reply(f"Waktu tidak valid atau melebihi batas {time_limit} detik.")
+        await message.reply(f"<blockquote>Waktu tidak valid atau melebihi batas {time_limit} detik.</blockquote>")
         return
 
     # Jalankan proses serangan
@@ -214,12 +214,12 @@ async def ddos_command(client, message):
     try:
         time = int(args[2])
     except ValueError:
-        await message.reply("Waktu harus berupa angka!")
+        await message.reply("<blockquote>Waktu harus berupa angka!</blockquote>")
         return
 
     # Validasi waktu
     if time > time_limit or time <= 0:
-        await message.reply(f"Waktu tidak valid atau melebihi batas {time_limit} detik.")
+        await message.reply(f"<blockquote>Waktu tidak valid atau melebihi batas {time_limit} detik.</blockquote>")
         return
 
     # Jalankan proses serangan
@@ -251,6 +251,6 @@ async def stop_attack(client, message):
         for process in processes[chat_id]:
             process.terminate()
         processes[chat_id] = []
-        await message.reply("Attack berhasil dihentikan!")
+        await message.reply("<blockquote>Attack berhasil dihentikan!</blockquote>")
     else:
-        await message.reply("Tidak ada proses yang berjalan untuk dihentikan.")
+        await message.reply("<blockquote>Tidak ada proses yang berjalan untuk dihentikan.</blockquote>")

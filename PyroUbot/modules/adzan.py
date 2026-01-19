@@ -16,7 +16,7 @@ __HELP__ = f"""
 async def adzan(client, message):
     lok = message.text.split(" ", 1)
     if len(lok) == 1:
-        await message.reply("`Mohon sertakan nama kota.`")
+        await message.reply("<blockquote>`Mohon sertakan nama kota.`</blockquote>")
         return
     lok = lok[1]
     url = f"http://muslimsalat.com/{lok}.json?key=bd099c5825cbedb9aa934e255a81a5fc"
@@ -24,7 +24,7 @@ async def adzan(client, message):
         req = requests.get(url)
         req.raise_for_status()
     except requests.exceptions.HTTPError as e:
-        await message.reply(f"Error: {e}")
+        await message.reply(f"<blockquote>Error: {e}</blockquote>")
         return
     result = req.json()
     txt = f"""

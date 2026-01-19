@@ -13,8 +13,8 @@ Perintah : <code>{0}gif</code> [ǫᴜᴇʀʏ]
 @PY.UBOT("gif")
 async def gif_cmd(client, message):
     if len(message.command) < 2:
-        return await message.reply(f"<code>{message.text}</code> [ǫᴜᴇʀʏ]")
-    TM = await message.reply("<b>ᴍᴇᴍᴘʀᴏsᴇs...</b>")
+        return await message.reply(f"<blockquote><code>{message.text}</code> [ǫᴜᴇʀʏ]</blockquote>")
+    TM = await message.reply("<blockquote><b>ᴍᴇᴍᴘʀᴏsᴇs...</b></blockquote>")
     try:
         x = await client.get_inline_bot_results(
             message.command[0], message.text.split(None, 1)[1]
@@ -23,7 +23,7 @@ async def gif_cmd(client, message):
             client.me.id, x.query_id, x.results[random.randrange(len(x.results))].id
         )
     except:
-        await message.reply("<b>❌ ɢɪꜰ ᴛɪᴅᴀᴋ ᴅɪᴛᴇᴍᴜᴋᴀɴ</b>")
+        await message.reply("<blockquote><b>❌ ɢɪꜰ ᴛɪᴅᴀᴋ ᴅɪᴛᴇᴍᴜᴋᴀɴ</b></blockquote>")
         return await TM.delete()
     saved = await client.get_messages(client.me.id, int(saved.updates[1].message.id))
     await client.send_animation(

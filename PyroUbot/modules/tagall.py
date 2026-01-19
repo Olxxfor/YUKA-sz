@@ -201,4 +201,4 @@ async def _(client, message):
         tagallgcid.remove(message.chat.id)
     except Exception:
         pass
-    await message.reply("tagall berhasil dibatalkan")
+    await message.reply("<blockquote>tagall berhasil dibatalkan</blockquote>")

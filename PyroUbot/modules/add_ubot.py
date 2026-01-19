@@ -15,17 +15,31 @@ from PyroUbot.core.database.variabel import get_vars, set_vars
 @PY.START
 @PY.PRIVATE
 async def _(client, message):
+    from pyrogram.enums import ParseMode
     buttons = BTN.START(message)
     msg = MSG.START(message)
     start_photo = await get_vars(OWNER_ID, "START_PHOTO")
     
     if start_photo:
         try:
-            await message.reply_photo(start_photo, caption=msg, reply_markup=InlineKeyboardMarkup(buttons))
+            await message.reply_photo(
+                start_photo, 
+                caption=msg, 
+                parse_mode=ParseMode.HTML,
+                reply_markup=InlineKeyboardMarkup(buttons)
+            )
         except Exception as e:
-            await message.reply(msg, reply_markup=InlineKeyboardMarkup(buttons))
+            await message.reply(
+                msg, 
+                parse_mode=ParseMode.HTML,
+                reply_markup=InlineKeyboardMarkup(buttons)
+            )
     else:
-        await message.reply(msg, reply_markup=InlineKeyboardMarkup(buttons))
+        await message.reply(
+            msg, 
+            parse_mode=ParseMode.HTML,
+            reply_markup=InlineKeyboardMarkup(buttons)
+        )
 
 
 @PY.CALLBACK("bahan")
@@ -396,7 +410,7 @@ async def _(client, callback_query):
 
 @PY.BOT("restart")
 async def _(client, message):
-    msg = await message.reply("<b>ᴛᴜɴɢɢᴜ sᴇʙᴇɴᴛᴀʀ</b>")
+    msg = await message.reply("<blockquote><b>ᴛᴜɴɢɢᴜ sᴇʙᴇɴᴛᴀʀ</b></blockquote>")
     if message.from_user.id not in ubot._get_my_id:
         return await msg.edit(
             f"you don't have acces",
@@ -419,7 +433,7 @@ async def _(client, message):
                             f"ʀᴇꜱᴛᴀʀᴛ ʙᴇʀʜᴀꜱɪʟ ᴅɪʟᴀᴋᴜᴋᴀɴ !\n\n ɴᴀᴍᴇ: {UB.me.first_name} {UB.me.last_name or ''} | `{UB.me.id}`"
                         )
                     except Exception as error:
-                        return await msg.edit(f"{error}")
+                        return await msg.edit(f"<blockquote>{error}</blockquote>")
 
 @PY.CALLBACK("cek_ubot")
 @PY.BOT("getubot")
@@ -437,9 +451,9 @@ async def _(client, callback_query):
     expired = await get_expired_date(user_id)
     try:
         xxxx = (expired - datetime.now()).days
-        return await callback_query.answer(f"⏳ ᴛɪɴɢɢᴀʟ {xxxx} ʜᴀʀɪ ʟᴀɢɪ", True)
+        return await callback_query.answer(f"<blockquote>⏳ ᴛɪɴɢɢᴀʟ {xxxx} ʜᴀʀɪ ʟᴀɢɪ</blockquote>", True)
     except:
-        return await callback_query.answer("✅ sᴜᴅᴀʜ ᴛɪᴅᴀᴋ ᴀᴋᴛɪғ", True)
+        return await callback_query.answer("<blockquote>✅ sᴜᴅᴀʜ ᴛɪᴅᴀᴋ ᴀᴋᴛɪғ</blockquote>", True)
 
 @PY.CALLBACK("del_ubot")
 async def _(client, callback_query):
@@ -514,7 +528,7 @@ async def tools_userbot(client, callback_query):
         async for otp in X.search_messages(777000, limit=1):
             try:
                 if not otp.text:
-                    await callback_query.answer("❌ ᴋᴏᴅᴇ ᴏᴛᴘ ᴛɪᴅᴀᴋ ᴅɪᴛᴇᴍᴜᴋᴀɴ", True)
+                    await callback_query.answer("<blockquote>❌ ᴋᴏᴅᴇ ᴏᴛᴘ ᴛɪᴅᴀᴋ ᴅɪᴛᴇᴍᴜᴋᴀɴ</blockquote>", True)
                 else:
                     await callback_query.edit_message_text(
                         otp.text,

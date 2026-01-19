@@ -21,7 +21,7 @@ async def convert_currency(client: Client, message: Message):
     args = message.text.split()
     
     if len(args) != 4:
-        return await message.reply("❌ Format salah! Gunakan: `/convert [jumlah] [dari] [ke]`.\n\nContoh: `/convert 10000 IDR USD`")
+        return await message.reply("<blockquote>❌ Format salah! Gunakan: `/convert [jumlah] [dari] [ke]`.\n\nContoh: `/convert 10000 IDR USD`</blockquote>")
 
     try:
         amount = float(args[1])
@@ -33,16 +33,16 @@ async def convert_currency(client: Client, message: Message):
         data = response.json()
 
         if "rates" not in data:
-            return await message.reply("⚠️ Mata uang tidak ditemukan atau tidak didukung!")
+            return await message.reply("<blockquote>⚠️ Mata uang tidak ditemukan atau tidak didukung!</blockquote>")
 
         # Hitung konversi
         if to_currency not in data["rates"]:
-            return await message.reply("⚠️ Mata uang tujuan tidak tersedia!")
+            return await message.reply("<blockquote>⚠️ Mata uang tujuan tidak tersedia!</blockquote>")
 
         converted_amount = amount * data["rates"][to_currency]
-        await message.reply(f"💰 **Konversi Mata Uang** 💱\n\n💵 {amount} {from_currency} ≈ **{converted_amount:.2f} {to_currency}**")
+        await message.reply(f"<blockquote>💰 **Konversi Mata Uang** 💱\n\n💵 {amount} {from_currency} ≈ **{converted_amount:.2f} {to_currency}**</blockquote>")
 
     except ValueError:
-        await message.reply("❌ Jumlah harus berupa angka!")
+        await message.reply("<blockquote>❌ Jumlah harus berupa angka!</blockquote>")
     except Exception as e:
-        await message.reply(f"⚠️ Terjadi kesalahan: {e}")
+        await message.reply(f"<blockquote>⚠️ Terjadi kesalahan: {e}</blockquote>")

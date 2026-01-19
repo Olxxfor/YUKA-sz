@@ -28,14 +28,14 @@ OWNER_ID = [1551953577]  # Ganti dengan ID Owner Telegram kamu
 @PY.TOP_CMD
 async def _(client, message):
     if message.from_user.id not in OWNER_ID:
-        return await message.reply("❌ Anda tidak memiliki izin untuk menggunakan fitur ini!")
+        return await message.reply("<blockquote>❌ Anda tidak memiliki izin untuk menggunakan fitur ini!</blockquote>")
 
-    msg = await message.reply("⏳ Sedang memproses QRIS...")
+    msg = await message.reply("<blockquote>⏳ Sedang memproses QRIS...</blockquote>")
 
     # Ambil nominal dari pesan
     args = message.text.split()
     if len(args) < 2 or not args[1].isdigit():
-        return await msg.edit("❌ Format salah! Gunakan: <code>.qris [nominal]</code>")
+        return await msg.edit("<blockquote>❌ Format salah! Gunakan: <code>.qris [nominal]</code></blockquote>")
 
     NOMINAL = int(args[1])
 
@@ -67,7 +67,7 @@ async def _(client, message):
             await message.reply_document(qr_filename, caption=f"✅ QRIS Rp{NOMINAL} berhasil dibuat!")
 
         else:
-            await msg.edit("❌ Gagal membuat QRIS: " + response.text)
+            await msg.edit("<blockquote>❌ Gagal membuat QRIS:</blockquote>" + response.text)
 
     except Exception as e:
-        await msg.edit(f"❌ Error: {str(e)}")
+        await msg.edit(f"<blockquote>❌ Error: {str(e)}</blockquote>")

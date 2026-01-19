@@ -43,8 +43,8 @@ async def _(client, message):
             buffer = BytesIO(f.read())
             try:
                 media_url = await upload_file(buffer)
-                await message.reply(f"<b>berhasil diupload ke : <a href='{media_url}'>LINK NYA KINGZ</a></b>")
+                await message.reply(f"<blockquote><b>berhasil diupload ke : <a href='{media_url}'>LINK NYA KINGZ</a></b></blockquote>")
             except Exception as e:
-                await message.reply(f"Error: {e}")
+                await message.reply(f"<blockquote>Error: {e}</blockquote>")
     else:
-        await message.reply("Please reply to a media message to upload.")
+        await message.reply("<blockquote>Please reply to a media message to upload.</blockquote>")

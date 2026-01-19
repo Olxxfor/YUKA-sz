@@ -170,11 +170,11 @@ def horor(text):
 async def _(client, message):
     args = message.text.split(" ", 1)
     if len(args) < 2:
-        await message.reply("contoh : .ytgold moire")
+        await message.reply("<blockquote>contoh : .ytgold moire</blockquote>")
         return
 
     request_text = args[1]
-    await message.reply("sedang memproses, mohon tunggu...")
+    await message.reply("<blockquote>sedang memproses, mohon tunggu...</blockquote>")
 
     image_content = horor(request_text)
     if image_content:
@@ -186,17 +186,17 @@ async def _(client, message):
         
         os.remove(temp_file)
     else:
-        await message.reply("apikey sedang bermasalah")
+        await message.reply("<blockquote>apikey sedang bermasalah</blockquote>")
                               
 @PY.UBOT("ytsilver")
 async def _(client, message):
     args = message.text.split(" ", 1)
     if len(args) < 2:
-        await message.reply("contoh : .ytsilver moire")
+        await message.reply("<blockquote>contoh : .ytsilver moire</blockquote>")
         return
 
     request_text = args[1]
-    await message.reply("sedang memproses, mohon tunggu...")
+    await message.reply("<blockquote>sedang memproses, mohon tunggu...</blockquote>")
 
     image_content = robott(request_text)
     if image_content:
@@ -208,18 +208,18 @@ async def _(client, message):
         
         os.remove(temp_file)
     else:
-        await message.reply("apikey sedang bermasalah")
+        await message.reply("<blockquote>apikey sedang bermasalah</blockquote>")
   
 # INSTAGRAM                                
 @PY.UBOT("iggold")
 async def _(client, message):
     args = message.text.split(" ", 1)
     if len(args) < 2:
-        await message.reply("contoh : .iggold moire")
+        await message.reply("<blockquote>contoh : .iggold moire</blockquote>")
         return
 
     request_text = args[1]
-    await message.reply("sedang memproses, mohon tunggu...")
+    await message.reply("<blockquote>sedang memproses, mohon tunggu...</blockquote>")
 
     image_content = robotttg(request_text)
     if image_content:
@@ -231,17 +231,17 @@ async def _(client, message):
         
         os.remove(temp_file)
     else:
-        await message.reply("apikey sedang bermasalah")
+        await message.reply("<blockquote>apikey sedang bermasalah</blockquote>")
                                   
 @PY.UBOT("igsilver")
 async def _(client, message):
     args = message.text.split(" ", 1)
     if len(args) < 2:
-        await message.reply("contoh : .igsilver moire")
+        await message.reply("<blockquote>contoh : .igsilver moire</blockquote>")
         return
 
     request_text = args[1]
-    await message.reply("sedang memproses, mohon tunggu...")
+    await message.reply("<blockquote>sedang memproses, mohon tunggu...</blockquote>")
 
     image_content = robottt(request_text)
     if image_content:
@@ -253,18 +253,18 @@ async def _(client, message):
         
         os.remove(temp_file)
     else:
-        await message.reply("apikey sedang bermasalah")
+        await message.reply("<blockquote>apikey sedang bermasalah</blockquote>")
 
 # FACEBOOK                                   
 @PY.UBOT("fbsilver")
 async def _(client, message):
     args = message.text.split(" ", 1)
     if len(args) < 2:
-        await message.reply("contoh : .fbsilver moire")
+        await message.reply("<blockquote>contoh : .fbsilver moire</blockquote>")
         return
 
     request_text = args[1]
-    await message.reply("sedang memproses, mohon tunggu...")
+    await message.reply("<blockquote>sedang memproses, mohon tunggu...</blockquote>")
 
     image_content = fb(request_text)
     if image_content:
@@ -276,17 +276,17 @@ async def _(client, message):
         
         os.remove(temp_file)
     else:
-        await message.reply("apikey sedang bermasalah")
+        await message.reply("<blockquote>apikey sedang bermasalah</blockquote>")
 
 @PY.UBOT("fbgold")
 async def _(client, message):
     args = message.text.split(" ", 1)
     if len(args) < 2:
-        await message.reply("contoh : .fbgold moire")
+        await message.reply("<blockquote>contoh : .fbgold moire</blockquote>")
         return
 
     request_text = args[1]
-    await message.reply("sedang memproses, mohon tunggu...")
+    await message.reply("<blockquote>sedang memproses, mohon tunggu...</blockquote>")
 
     image_content = fbs(request_text)
     if image_content:
@@ -298,18 +298,18 @@ async def _(client, message):
         
         os.remove(temp_file)
     else:
-        await message.reply("apikey sedang bermasalah")
+        await message.reply("<blockquote>apikey sedang bermasalah</blockquote>")
 
 # TWITTER
 @PY.UBOT("twtsilver")
 async def _(client, message):
     args = message.text.split(" ", 1)
     if len(args) < 2:
-        await message.reply("contoh : .twtsilver moire")
+        await message.reply("<blockquote>contoh : .twtsilver moire</blockquote>")
         return
 
     request_text = args[1]
-    await message.reply("sedang memproses, mohon tunggu...")
+    await message.reply("<blockquote>sedang memproses, mohon tunggu...</blockquote>")
 
     image_content = tweet(request_text)
     if image_content:
@@ -321,17 +321,17 @@ async def _(client, message):
         
         os.remove(temp_file)
     else:
-        await message.reply("apikey sedang bermasalah")
+        await message.reply("<blockquote>apikey sedang bermasalah</blockquote>")
 
 @PY.UBOT("twtgold")
 async def _(client, message):
     args = message.text.split(" ", 1)
     if len(args) < 2:
-        await message.reply("contoh : .twtgold moire")
+        await message.reply("<blockquote>contoh : .twtgold moire</blockquote>")
         return
 
     request_text = args[1]
-    await message.reply("sedang memproses, mohon tunggu...")
+    await message.reply("<blockquote>sedang memproses, mohon tunggu...</blockquote>")
 
     image_content = tweets(request_text)
     if image_content:
@@ -343,5 +343,5 @@ async def _(client, message):
         
         os.remove(temp_file)
     else:
-        await message.reply("apikey sedang bermasalah")
+        await message.reply("<blockquote>apikey sedang bermasalah</blockquote>")
  

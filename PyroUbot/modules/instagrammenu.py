@@ -47,28 +47,28 @@ async def instagram_help(client: Client, message: Message):
 async def download_video(client: Client, message: Message):
     """Download video Instagram"""
     if len(message.command) < 2:
-        await message.reply("⚠️ Gunakan: <code>.downloadvidio [link_instagram]</code>", parse_mode="html")
+        await message.reply("<blockquote>⚠️ Gunakan: <code>.downloadvidio [link_instagram]</code></blockquote>", parse_mode="html")
         return
     
     url = message.text.split()[1]
     if "instagram.com" not in url:
-        await message.reply("❌ Link harus dari Instagram!")
+        await message.reply("<blockquote>❌ Link harus dari Instagram!</blockquote>")
         return
     
-    msg = await message.reply("⏳ Memproses video...")
+    msg = await message.reply("<blockquote>⏳ Memproses video...</blockquote>")
     video_url = await download_instagram_media(url)
     
     if not video_url:
-        await msg.edit("❌ Gagal mendapatkan video. Pastikan link valid!")
+        await msg.edit("<blockquote>❌ Gagal mendapatkan video. Pastikan link valid!</blockquote>")
         return
     
     try:
-        await msg.edit("📥 Mengunduh video...")
+        await msg.edit("<blockquote>📥 Mengunduh video...</blockquote>")
         video_data = requests.get(video_url).content
         with open("temp_video.mp4", "wb") as f:
             f.write(video_data)
         
-        await msg.edit("📤 Mengunggah video...")
+        await msg.edit("<blockquote>📤 Mengunggah video...</blockquote>")
         await client.send_video(
             chat_id=message.chat.id,
             video="temp_video.mp4",
@@ -76,7 +76,7 @@ async def download_video(client: Client, message: Message):
         )
         await msg.delete()
     except Exception as e:
-        await msg.edit(f"❌ Error: {e}")
+        await msg.edit(f"<blockquote>❌ Error: {e}</blockquote>")
     finally:
         if os.path.exists("temp_video.mp4"):
             os.remove("temp_video.mp4")
@@ -85,28 +85,28 @@ async def download_video(client: Client, message: Message):
 async def download_audio(client: Client, message: Message):
     """Download audio Instagram"""
     if len(message.command) < 2:
-        await message.reply("⚠️ Gunakan: <code>.downloadsuara [link_instagram]</code>", parse_mode="html")
+        await message.reply("<blockquote>⚠️ Gunakan: <code>.downloadsuara [link_instagram]</code></blockquote>", parse_mode="html")
         return
     
     url = message.text.split()[1]
     if "instagram.com" not in url:
-        await message.reply("❌ Link harus dari Instagram!")
+        await message.reply("<blockquote>❌ Link harus dari Instagram!</blockquote>")
         return
     
-    msg = await message.reply("⏳ Memproses audio...")
+    msg = await message.reply("<blockquote>⏳ Memproses audio...</blockquote>")
     audio_url = await download_instagram_media(url, is_audio=True)
     
     if not audio_url:
-        await msg.edit("❌ Gagal mendapatkan audio. Pastikan link valid!")
+        await msg.edit("<blockquote>❌ Gagal mendapatkan audio. Pastikan link valid!</blockquote>")
         return
     
     try:
-        await msg.edit("📥 Mengunduh audio...")
+        await msg.edit("<blockquote>📥 Mengunduh audio...</blockquote>")
         audio_data = requests.get(audio_url).content
         with open("temp_audio.mp3", "wb") as f:
             f.write(audio_data)
         
-        await msg.edit("📤 Mengunggah audio...")
+        await msg.edit("<blockquote>📤 Mengunggah audio...</blockquote>")
         await client.send_audio(
             chat_id=message.chat.id,
             audio="temp_audio.mp3",
@@ -114,7 +114,7 @@ async def download_audio(client: Client, message: Message):
         )
         await msg.delete()
     except Exception as e:
-        await msg.edit(f"❌ Error: {e}")
+        await msg.edit(f"<blockquote>❌ Error: {e}</blockquote>")
     finally:
         if os.path.exists("temp_audio.mp3"):
             os.remove("temp_audio.mp3")

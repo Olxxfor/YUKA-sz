@@ -17,7 +17,7 @@ async def ngentod(client, message):
     elif int(len(str(out))) > 4096:
         await send_large_output(message, out)
     else:
-        await message.reply(f"```{out}```", quote=True)
+        await message.reply(f"<blockquote>```{out}```</blockquote>", quote=True)
     os.execl(sys.executable, sys.executable, "-m", "PyroUbot")
 
 @PY.BOT("update")

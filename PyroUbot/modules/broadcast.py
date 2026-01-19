@@ -45,7 +45,7 @@ async def limit_cmd(client, message):
     yubot = await EMO.UBOT(client)
     await client.unblock_user("SpamBot")
     bot_info = await client.resolve_peer("SpamBot")
-    msg = await message.reply(f"{prs}processing . . .")
+    msg = await message.reply(f"<blockquote>{prs}processing . . .</blockquote>")
     response = await client.invoke(
         StartBot(
             bot=bot_info,
@@ -181,10 +181,10 @@ async def _(client, message):
     command, text = extract_type_and_msg(message)
     
     if command not in ["group", "users", "all"] or not text:
-        return await gcs.edit(f"{ggl}{message.text.split()[0]} type [reply]")
+        return await gcs.edit(f"<blockquote>{ggl}{message.text.split()[0]} type [reply]</blockquote>")
 
     if not message.reply_to_message:
-        return await gcs.edit(f"{ggl}{message.text.split()[0]} type [reply]")
+        return await gcs.edit(f"<blockquote>{ggl}{message.text.split()[0]} type [reply]</blockquote>")
 
     chats = await get_data_id(client, command)
     blacklist = await get_list_from_vars(client.me.id, "BL_ID")
@@ -229,7 +229,7 @@ async def _(client, message):
 
     send = get_message(message)
     if not send:
-        return await msg.edit("mohon balaꜱ atau ketik ꜱeꜱuatu...")
+        return await msg.edit("<blockquote>mohon balaꜱ atau ketik ꜱeꜱuatu...</blockquote>")
         
     susers = await get_list_from_vars(client.me.id, "SAVED_USERS")
     done = 0
@@ -359,12 +359,12 @@ async def _(client, message):
     blacklists = await get_list_from_vars(client.me.id, "BL_ID")
 
     if not blacklists:
-        return await msg.edit(f"{ggl}blackliꜱt broadcaꜱt anda koꜱong")
+        return await msg.edit(f"<blockquote>{ggl}blackliꜱt broadcaꜱt anda koꜱong</blockquote>")
 
     for chat_id in blacklists:
         await remove_from_vars(client.me.id, "BL_ID", chat_id)
 
-    await msg.edit(f"{brhsl}ꜱemua blackliꜱt broadcaꜱt berhaꜱil di hapuꜱ")
+    await msg.edit(f"<blockquote>{brhsl}ꜱemua blackliꜱt broadcaꜱt berhaꜱil di hapuꜱ</blockquote>")
 
 
 @PY.UBOT("send")
@@ -389,10 +389,10 @@ async def _(client, message):
             try:
                 return await message.reply_to_message.copy(chat_id)
             except Exception as t:
-                return await message.reply(f"{t}")
+                return await message.reply(f"<blockquote>{t}</blockquote>")
     else:
         if len(message.command) < 3:
-            return await message.reply("Ketik yang bener kntl")
+            return await message.reply("<blockquote>Ketik yang bener kntl</blockquote>")
         chat_id, chat_text = message.text.split(None, 2)[1:]
         try:
             if "_" in chat_id:
@@ -403,7 +403,7 @@ async def _(client, message):
             else:
                 return await client.send_message(chat_id, chat_text)
         except Exception as t:
-            return await message.reply(f"{t}")
+            return await message.reply(f"<blockquote>{t}</blockquote>")
 
 
 @PY.INLINE("^get_send")
@@ -438,7 +438,7 @@ async def _(client, message):
     bcs = await EMO.BROADCAST(client)
     mng = await EMO.MENUNGGU(client)
     ggl = await EMO.GAGAL(client)   
-    msg = await message.reply(f"{prs}proceꜱꜱing...")
+    msg = await message.reply(f"<blockquote>{prs}proceꜱꜱing...</blockquote>")
     type, value = extract_type_and_text(message)
     auto_text_vars = await get_vars(client.me.id, "AUTO_TEXT")
 
@@ -449,7 +449,7 @@ async def _(client, message):
             )
 
         if client.me.id not in AG:
-            await msg.edit(f"{brhsl}auto gcaꜱt di aktifkan")
+            await msg.edit(f"<blockquote>{brhsl}auto gcaꜱt di aktifkan</blockquote>")
 
             AG.append(client.me.id)
 
@@ -495,7 +495,7 @@ putaran {done}
     elif type == "off":
         if client.me.id in AG:
             AG.remove(client.me.id)
-            return await msg.edit(f"{brhsl}auto gcast dinonaktifkan")
+            return await msg.edit(f"<blockquote>{brhsl}auto gcast dinonaktifkan</blockquote>")
         else:
             return await msg.delete()
 
@@ -505,7 +505,7 @@ putaran {done}
                 f"{ggl}{message.text.split()[0]} text - [value]"
             )
         await add_auto_text(client, value)
-        return await msg.edit(f"{brhsl}berhasil di simpan")
+        return await msg.edit(f"<blockquote>{brhsl}berhasil di simpan</blockquote>")
 
     elif type == "delay":
         if not int(value):
@@ -524,7 +524,7 @@ putaran {done}
             )
         if value == "all":
             await set_vars(client.me.id, "AUTO_TEXT", [])
-            return await msg.edit(f"{brhsl}semua text berhasil dihapus")
+            return await msg.edit(f"<blockquote>{brhsl}semua text berhasil dihapus</blockquote>")
         try:
             value = int(value) - 1
             auto_text_vars.pop(value)
@@ -537,7 +537,7 @@ putaran {done}
 
     elif type == "list":
         if not auto_text_vars:
-            return await msg.edit(f"{ggl}auto gcast text kosong")
+            return await msg.edit(f"<blockquote>{ggl}auto gcast text kosong</blockquote>")
         txt = "daftar auto gcast text\n\n"
         for num, x in enumerate(auto_text_vars, 1):
             txt += f"{num}> {x}\n\n"
@@ -548,14 +548,14 @@ putaran {done}
         if value == "off":
             if client.me.id in LT:
                 LT.remove(client.me.id)
-                return await msg.edit(f"{brhsl}auto cek limit dinonaktifkan")
+                return await msg.edit(f"<blockquote>{brhsl}auto cek limit dinonaktifkan</blockquote>")
             else:
                 return await msg.delete()
 
         elif value == "on":
             if client.me.id not in LT:
                 LT.append(client.me.id)
-                await msg.edit(f"{brhsl}auto cek limit started")
+                await msg.edit(f"<blockquote>{brhsl}auto cek limit started</blockquote>")
                 while client.me.id in LT:
                     for x in range(2):
                         await limit_cmd(client, message)
@@ -564,10 +564,10 @@ putaran {done}
             else:
                 return await msg.delete()
         else:
-             return await msg.edit(f"{ggl}{message.text.split()[0]} limit - [value]")
+             return await msg.edit(f"<blockquote>{ggl}{message.text.split()[0]} limit - [value]</blockquote>")
 
     else:
-        return await msg.edit(f"{ggl}{message.text.split()[0]} [query] - [value]")
+        return await msg.edit(f"<blockquote>{ggl}{message.text.split()[0]} [query] - [value]</blockquote>")
 
 
 async def add_auto_text(client, text):
@@ -578,10 +578,10 @@ async def add_auto_text(client, text):
 @PY.BOT("bcubot")
 @PY.ADMIN
 async def broadcast_bot(client, message):
-    msg = await message.reply("<b>sᴇᴅᴀɴɢ ᴅɪᴘʀᴏsᴇs ᴛᴜɴɢɢᴜ sᴇʙᴇɴᴛᴀʀ</b>", quote=True)
+    msg = await message.reply("<blockquote><b>sᴇᴅᴀɴɢ ᴅɪᴘʀᴏsᴇs ᴛᴜɴɢɢᴜ sᴇʙᴇɴᴛᴀʀ</b></blockquote>", quote=True)
     done = 0
     if not message.reply_to_message:
-        return await msg.edit("<b>ᴍᴏʜᴏɴ ʙᴀʟᴀs ᴘᴇsᴀɴ</b>")
+        return await msg.edit("<blockquote><b>ᴍᴏʜᴏɴ ʙᴀʟᴀs ᴘᴇsᴀɴ</b></blockquote>")
     for x in ubot._ubot:
         try:
             await x.unblock_user(bot.me.username)
@@ -589,5 +589,5 @@ async def broadcast_bot(client, message):
             done += 1
         except Exception:
             pass
-    return await msg.edit(f"✅ ʙᴇʀʜᴀsɪʟ ᴍᴇɴɢɪʀɪᴍ ᴘᴇsᴀɴ ᴋᴇ {done} ᴜʙᴏᴛ")
+    return await msg.edit(f"<blockquote>✅ ʙᴇʀʜᴀsɪʟ ᴍᴇɴɢɪʀɪᴍ ᴘᴇsᴀɴ ᴋᴇ {done} ᴜʙᴏᴛ</blockquote>")
     

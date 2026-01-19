@@ -19,7 +19,7 @@ __HELP__ = """
 async def pinterest(client, message):
     prs = await EMO.PROSES(client)
     err = await EMO.GAGAL(client)
-    jalan = await message.reply(f"{prs}<b>ᴘʀᴏᴄᴇssɪɴɢ...</b>")
+    jalan = await message.reply(f"<blockquote>{prs}<b>ᴘʀᴏᴄᴇssɪɴɢ...</b></blockquote>")
     chat_id = message.chat.id
     url = "https://api.botcahx.eu.org/api/randomgambar/couplepp?apikey=moire"
     response = requests.get(url)
@@ -47,4 +47,4 @@ async def pinterest(client, message):
         os.remove(male_image_filename)
         os.remove(female_image_filename)
     else:
-        await message.reply(f"Request failed with status code {response.status_code}")
+        await message.reply(f"<blockquote>Request failed with status code {response.status_code}</blockquote>")

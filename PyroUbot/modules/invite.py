@@ -20,7 +20,7 @@ async def _(client, message):
     prs = await EMO.PROSES(client)
     brhsl = await EMO.BERHASIL(client)
     ktrng = await EMO.BL_KETERANGAN(client)
-    mg = await message.reply(f"{prs}menambahkan pengguna!")
+    mg = await message.reply(f"<blockquote>{prs}menambahkan pengguna!</blockquote>")
     if len(message.command) < 2:
         return await mg.delete()
     user_s_to_add = message.text.split(" ", 1)[1]
@@ -33,8 +33,8 @@ async def _(client, message):
     try:
         await client.add_chat_members(message.chat.id, user_list, forward_limit=100)
     except Exception as e:
-        return await mg.edit(f"{e}")
-    await mg.edit(f"{brhsl}berhasil ditambahkan {len(user_list)} ke grup ini")
+        return await mg.edit(f"<blockquote>{e}</blockquote>")
+    await mg.edit(f"<blockquote>{brhsl}berhasil ditambahkan {len(user_list)} ke grup ini</blockquote>")
 
 
 

@@ -14,9 +14,9 @@ Perintah : <code>{0}pic</code> [ǫᴜᴇʀʏ]
 
 @PY.UBOT("pic")
 async def pic_bing_cmd(client, message):
-    TM = await message.reply("<b>ᴍᴇᴍᴘʀᴏsᴇs...</b>")
+    TM = await message.reply("<blockquote><b>ᴍᴇᴍᴘʀᴏsᴇs...</b></blockquote>")
     if len(message.command) < 2:
-        return await TM.edit(f"<code>{message.text}</code> [ǫᴜᴇʀʏ]")
+        return await TM.edit(f"<blockquote><code>{message.text}</code> [ǫᴜᴇʀʏ]</blockquote>")
     x = await client.get_inline_bot_results(
         message.command[0], message.text.split(None, 1)[1]
     )
@@ -34,7 +34,7 @@ async def pic_bing_cmd(client, message):
         except:
             pass
     if len(get_media) == 0:
-        return await TM.edit("<b>❌ ɪᴍᴀɢᴇ ᴘʜᴏᴛᴏ ᴛɪᴅᴀᴋ ᴅɪᴛᴇᴍᴜᴋᴀɴ</b>")
+        return await TM.edit("<blockquote><b>❌ ɪᴍᴀɢᴇ ᴘʜᴏᴛᴏ ᴛɪᴅᴀᴋ ᴅɪᴛᴇᴍᴜᴋᴀɴ</b></blockquote>")
     else:
         await client.send_media_group(
             message.chat.id,

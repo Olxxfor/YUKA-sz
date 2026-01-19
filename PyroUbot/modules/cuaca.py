@@ -18,7 +18,7 @@ async def cuaca(client, message):
     sks = await EMO.BERHASIL(client)
     prs = await EMO.PROSES(client)
     
-    jalan = await message.reply(f"{prs} Processing...")
+    jalan = await message.reply(f"<blockquote>{prs} Processing...</blockquote>")
     a = message.text.split(' ', 1)[1]
     chat_id = message.chat.id
     url = f"https://api.betabotz.eu.org/api/tools/cuaca?query={a}&apikey=Btz-bxwol"
@@ -54,10 +54,10 @@ async def cuaca(client, message):
             
             await jalan.delete()
         else:
-            await jalan.edit(f"{ggl} No 'result' key found in the response.")
+            await jalan.edit(f"<blockquote>{ggl} No 'result' key found in the response.</blockquote>")
     
     except requests.exceptions.RequestException as e:
-        await jalan.edit(f"{ggl} Request failed: {e}")
+        await jalan.edit(f"<blockquote>{ggl} Request failed: {e}</blockquote>")
     
     except Exception as e:
-        await jalan.edit(f"{ggl} An error occurred: {e}")
+        await jalan.edit(f"<blockquote>{ggl} An error occurred: {e}</blockquote>")

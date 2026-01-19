@@ -101,20 +101,20 @@ async def _(client, callback_query):
 @PY.ADMIN
 async def _(client, message):
     buttons = BTN.BOT_HELP(message)
-    sh = await message.reply("help menu information", reply_markup=InlineKeyboardMarkup(buttons))
+    sh = await message.reply("<blockquote>help menu information</blockquote>", reply_markup=InlineKeyboardMarkup(buttons))
     
 
 @PY.CALLBACK("balik")
 async def _(client, callback_query):
     buttons = BTN.BOT_HELP(callback_query)
-    sh = await callback_query.message.edit("help menu information", reply_markup=InlineKeyboardMarkup(buttons))
+    sh = await callback_query.message.edit("<blockquote>help menu information</blockquote>", reply_markup=InlineKeyboardMarkup(buttons))
 
 @PY.CALLBACK("reboot")
 async def _(client, callback_query):
     user_id = callback_query.from_user.id
     if user_id not in await get_list_from_vars(client.me.id, "ADMIN_USERS"):
-        return await callback_query.answer("tombol ini bukan untuk lu", True)
-    await callback_query.answer("system berhasil di restart", True)
+        return await callback_query.answer("<blockquote>tombol ini bukan untuk lu</blockquote>", True)
+    await callback_query.answer("<blockquote>system berhasil di restart</blockquote>", True)
     subprocess.call(["bash", "start.sh"])
 
 @PY.CALLBACK("update")
@@ -122,45 +122,60 @@ async def _(client, callback_query):
     out = subprocess.check_output(["git", "pull"]).decode("UTF-8")
     user_id = callback_query.from_user.id
     if not user_id == OWNER_ID:
-        return await callback_query.answer("tombol ini bukan untuk lu", True)
+        return await callback_query.answer("<blockquote>tombol ini bukan untuk lu</blockquote>", True)
     if "Already up to date." in str(out):
-        return await callback_query.answer("ꜱudah terupdate", True)
+        return await callback_query.answer("<blockquote>ꜱudah terupdate</blockquote>", True)
     else:
-        await callback_query.answer("ꜱedang memproꜱeꜱ update.....", True)
+        await callback_query.answer("<blockquote>ꜱedang memproꜱeꜱ update.....</blockquote>", True)
     os.execl(sys.executable, sys.executable, "-m", "ʏᴜᴋᴀᴜʙᴏᴛ-ᴘʀᴇᴍ")
 
 
 @PY.UBOT("help")
 async def user_help(client, message):
+    from pyrogram.enums import ParseMode
     if not get_arg(message):
         try:
             x = await client.get_inline_bot_results(bot.me.username, "user_help")
             await message.reply_inline_bot_result(x.query_id, x.results[0].id)
         except Exception as error:
-            await message.reply(error)
+            await message.reply(str(error), parse_mode=ParseMode.HTML)
     else:
         module = (get_arg(message))
         if get_arg(message) in HELP_COMMANDS:
+            from pyrogram.enums import ParseMode
             prefix = await ubot.get_prefix(client.me.id)
             await message.reply(
                 HELP_COMMANDS[get_arg(message)].__HELP__.format(
                     next((p) for p in prefix)
                 ),
+                parse_mode=ParseMode.HTML,
                 quote=True,
             )
         else:
+            from pyrogram.enums import ParseMode
             await message.reply(
-                f"<b>❌ No module found <code>{module}</code></b>"
+                f"<blockquote><b>❌ No module found <code>{module}</code></b></blockquote>",
+                parse_mode=ParseMode.HTML,
             )
 
 @PY.INLINE("^user_help")
 async def user_help_inline(client, inline_query):
+    from pyrogram.enums import ParseMode
     SH = await ubot.get_prefix(inline_query.from_user.id)
-    msg = f"<blockquote><b>✮ ᴍᴇɴᴜ ɪɴʟɪɴᴇ <a href=tg://user?id={inline_query.from_user.id}>{inline_query.from_user.first_name} {inline_query.from_user.last_name or ''}</a>\n ≛ ᴛᴏᴛᴀʟ ᴍᴏᴅᴜʟᴇs: {len(HELP_COMMANDS)}\n 卍 ᴘʀᴇꜰɪx: {' '.join(SH)}</b></blockquote>"
+    
+    # Format pesan menu inline dengan info lengkap
+    msg = f"""<blockquote><b>✣ ᴍᴇɴᴜ ɪɴʟɪɴᴇ <a href='tg://user?id={inline_query.from_user.id}'>{inline_query.from_user.first_name} {inline_query.from_user.last_name or ''}</a>
+
+  ᴛᴏᴛᴀʟ ᴍᴏᴅᴜʟᴇs: <code>{len(HELP_COMMANDS)}</code>
+  
+  ᴘʀᴇꜰɪx: <code>{' '.join(SH)}</code>
+  
+  ᴍʏ ᴜʙᴏᴛ: <a href='tg://user?id={bot.me.id}'>@{bot.me.username}</a></b></blockquote>"""
+    
     results = [InlineQueryResultArticle(
         title="Help Menu!",
         reply_markup=InlineKeyboardMarkup(paginate_modules(0, HELP_COMMANDS, "help")),
-        input_message_content=InputTextMessageContent(msg),
+        input_message_content=InputTextMessageContent(msg, parse_mode=ParseMode.HTML),
     )]
     await client.answer_inline_query(inline_query.id, cache_time=60, results=results)
 
@@ -175,13 +190,20 @@ async def close_usernya(client, callback_query):
 
 @PY.CALLBACK("help_(.*?)")
 async def help_callback(client, callback_query):
+    from pyrogram.enums import ParseMode
     mod_match = re.match(r"help_module\((.+?)\)", callback_query.data)
     prev_match = re.match(r"help_prev\((.+?)\)", callback_query.data)
     next_match = re.match(r"help_next\((.+?)\)", callback_query.data)
     tutup_match = re.match(r"help_tutup\((.+?)\)", callback_query.data)
     back_match = re.match(r"help_back", callback_query.data)
     SH = await ubot.get_prefix(callback_query.from_user.id)
-    top_text = f"<blockquote><b>✮ ᴍᴇɴᴜ ɪɴʟɪɴᴇ <a href=tg://user?id={callback_query.from_user.id}>{callback_query.from_user.first_name} {callback_query.from_user.last_name or ''}</a>\n ≛ ᴛᴏᴛᴀʟ ᴍᴏᴅᴜʟᴇs: {len(HELP_COMMANDS)}\n 卍 ᴘʀᴇꜰɪx: {' '.join(SH)}</b></blockquote>"
+    top_text = f"""<blockquote><b>✣ ᴍᴇɴᴜ ɪɴʟɪɴᴇ <a href='tg://user?id={callback_query.from_user.id}'>{callback_query.from_user.first_name} {callback_query.from_user.last_name or ''}</a>
+
+  ᴛᴏᴛᴀʟ ᴍᴏᴅᴜʟᴇs: <code>{len(HELP_COMMANDS)}</code>
+  
+  ᴘʀᴇꜰɪx: <code>{' '.join(SH)}</code>
+  
+  ᴍʏ ᴜʙᴏᴛ: <a href='tg://user?id={bot.me.id}'>@{bot.me.username}</a></b></blockquote>"""
 
     if mod_match:
         module = (mod_match.group(1)).replace(" ", "_")
@@ -190,6 +212,7 @@ async def help_callback(client, callback_query):
         await callback_query.edit_message_text(
             text=text 
             + '\n<blockquote><b>( ! ) Userbot By 𝐄𝐋 𝐏𝐑𝐎𝐌𝐏𝐓 𝐘𝐔𝐊𝐀𝐀𝟖𝟖 [𝐋𝐀𝐒𝐓𝐄𝐑𝐀] </b></blockquote>',
+            parse_mode=ParseMode.HTML,
             reply_markup=InlineKeyboardMarkup(button),
             disable_web_page_preview=True,
         )
@@ -197,6 +220,7 @@ async def help_callback(client, callback_query):
         curr_page = int(prev_match.group(1))
         await callback_query.edit_message_text(
             top_text,
+            parse_mode=ParseMode.HTML,
             reply_markup=InlineKeyboardMarkup(paginate_modules(curr_page - 1, HELP_COMMANDS, "help")),
             disable_web_page_preview=True,
         )
@@ -204,12 +228,14 @@ async def help_callback(client, callback_query):
         next_page = int(next_match.group(1))
         await callback_query.edit_message_text(
             text=top_text,
+            parse_mode=ParseMode.HTML,
             reply_markup=InlineKeyboardMarkup(paginate_modules(next_page + 1, HELP_COMMANDS, "help")),
             disable_web_page_preview=True,
         )
     elif back_match:
         await callback_query.edit_message_text(
             text=top_text,
+            parse_mode=ParseMode.HTML,
             reply_markup=InlineKeyboardMarkup(paginate_modules(0, HELP_COMMANDS, "help")),
             disable_web_page_preview=True,
         )

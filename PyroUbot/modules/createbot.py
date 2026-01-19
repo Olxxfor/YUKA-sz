@@ -27,7 +27,7 @@ async def create_bot_command(client, message):
     bot_username = args[2]
 
     if not bot_username.endswith("Bot"):
-        await message.reply("❌ **Username bot harus diakhiri dengan 'Bot'.**")
+        await message.reply("<blockquote>❌ **Username bot harus diakhiri dengan 'Bot'.**</blockquote>")
         return
 
     try:
@@ -48,4 +48,4 @@ async def create_bot_command(client, message):
         )
     
     except Exception as e:
-        await message.reply(f"⚠️ Terjadi kesalahan: {str(e)}")
+        await message.reply(f"<blockquote>⚠️ Terjadi kesalahan: {str(e)}</blockquote>")

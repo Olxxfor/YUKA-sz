@@ -31,10 +31,10 @@ async def _(client, message):
     brhsl = await EMO.BERHASIL(client)
     ggl = await EMO.GAGAL(client)
     try:
-        msg = await message.reply(f"{prs}memproses...", quote=True)
+        msg = await message.reply(f"<blockquote>{prs}memproses...</blockquote>", quote=True)
 
         if len(message.command) < 3:
-            return await msg.edit(f"{ggl}tolong masukkan query dan valuenya")
+            return await msg.edit(f"<blockquote>{ggl}tolong masukkan query dan valuenya</blockquote>")
 
         query_mapping = {
             "pong": "STRING_PONG",
@@ -56,7 +56,7 @@ async def _(client, message):
                 f"{brhsl}text berhasil di setting ke: {value}"
             )
         else:
-            await msg.edit(f"{ggl}mapping tidak ditemukan")
+            await msg.edit(f"<blockquote>{ggl}mapping tidak ditemukan</blockquote>")
 
     except Exception as error:
         await msg.edit(str(error))
@@ -65,14 +65,14 @@ async def _(client, message):
 async def extract_emoji(client, message):
     try:
         if not message.reply_to_message:
-            return await message.reply("Please reply to a message to extract custom emoji IDs.")
+            return await message.reply("<blockquote>Please reply to a message to extract custom emoji IDs.</blockquote>")
         
         custom_emoji_ids = [entity.custom_emoji_id for entity in message.reply_to_message.entities]
         emojis = extract_emojis_from_entities(message.reply_to_message)
         
         formatted_emojis = "".join([f"<emoji id={emoji_id}>{emoji}</emoji>" if emoji_id is not None else emoji for emoji_id, emoji in zip(custom_emoji_ids, emojis)])
         
-        await message.reply(f"{formatted_emojis}", parse_mode=ParseMode.DISABLED)
+        await message.reply(f"<blockquote>{formatted_emojis}</blockquote>", parse_mode=ParseMode.DISABLED)
     
     except Exception as e:
         await message.reply(str(e))

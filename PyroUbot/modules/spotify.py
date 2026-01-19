@@ -16,10 +16,10 @@ __HELP__ = """
 async def spotify_search(client, message):
     query = " ".join(message.command[1:])
     if not query:
-        await message.reply("Gunakan format: /spotify <judul lagu>")
+        await message.reply("<blockquote>Gunakan format: /spotify <judul lagu></blockquote>")
         return
     
-    proses_msg = await message.reply("🔎 Mencari lagu...")
+    proses_msg = await message.reply("<blockquote>🔎 Mencari lagu...</blockquote>")
     search_url = f"https://api.botcahx.eu.org/api/search/spotify?query={query}&apikey=moire"
     search_response = requests.get(search_url).json()
     

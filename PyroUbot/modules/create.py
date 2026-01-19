@@ -21,7 +21,7 @@ async def _(client, message):
     group_type = message.command[1]
     split = message.command[2:]
     group_name = " ".join(split)
-    xd = await message.reply("memproꜱeꜱ...")
+    xd = await message.reply("<blockquote>memproꜱeꜱ...</blockquote>")
     desc = "Welcome To My " + ("Group" if group_type == "gc" else "Channel")
     if group_type == "group":
         _id = await client.create_supergroup(group_name, desc)

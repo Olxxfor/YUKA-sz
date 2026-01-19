@@ -16,7 +16,7 @@ perintah : <code>{0}getblock</code>
 async def _(user, message):
     sks = await EMO.BERHASIL(user)
     prs = await EMO.PROSES(user)
-    _prs = await message.reply(f"{prs}sedang melakukan unblockall...")
+    _prs = await message.reply(f"<blockquote>{prs}sedang melakukan unblockall...</blockquote>")
     mecha = await user.invoke(GetBlocked(offset=0, limit=100))
     user_ids = [entry.peer_id.user_id for entry in mecha.blocked]
     for x in user_ids:
@@ -24,19 +24,19 @@ async def _(user, message):
             await user.unblock_user(x)
         except:
             pass
-    await _prs.edit(f"{sks}berhasil melakukan unblockall users")
+    await _prs.edit(f"<blockquote>{sks}berhasil melakukan unblockall users</blockquote>")
 
 @PY.UBOT("getblock")
 async def _(user, message):
     prs = await EMO.PROSES(user)
-    _prs = await message.reply(f"{prs}sedang mengecek...")
+    _prs = await message.reply(f"<blockquote>{prs}sedang mengecek...</blockquote>")
     mecha = await user.invoke(GetBlocked(offset=0, limit=100))
     user_ids = [entry.peer_id.user_id for entry in mecha.blocked]
     teko = len(user_ids)
     if user_ids:
         try:
-            await _prs.edit(f"kamu memblockir : {teko} users")
+            await _prs.edit(f"<blockquote>kamu memblockir : {teko} users</blockquote>")
         except Exception as i:
-            await _prs.edit(f"{i}")
+            await _prs.edit(f"<blockquote>{i}</blockquote>")
     else:
-        await _prs.edit(f"tidak ada yang di blockir")
+        await _prs.edit(f"<blockquote>tidak ada yang di blockir</blockquote>")

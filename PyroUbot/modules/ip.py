@@ -19,7 +19,7 @@ Penjelasan: untuk mendapatkan alamat IP dari ip adress yang diberikan</blockquot
 @PY.TOP_CMD
 async def hacker_lacak_target(client, message):
     apikey = kc("M0QwN0UyRUFBRjU1OTQwQUY0NDczNEMzRjJBQzdDMUE=").decode("utf-8")
-    ran = await message.reply("<code>Processing</code>")
+    ran = await message.reply("<blockquote><code>Processing</code></blockquote>")
     ipddres = message.text.split(None, 1)[1] if len(message.command) != 1 else None
     if not ipddres:
         await ran.edit_text(

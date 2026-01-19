@@ -34,18 +34,18 @@ def get_ssweb_image(url):
 async def screenshot_handler(client, message):
     args = message.text.split(maxsplit=1)
     if len(args) < 2:
-        await message.reply("<b><i>Input URL!</i></b>")
+        await message.reply("<blockquote><b><i>Input URL!</i></b></blockquote>")
         return
 
     url = args[1].strip()
     if not url.startswith(("http://", "https://")):
         url = "https://" + url
 
-    await message.reply("<b><i>Ｌｏａｄｉｎｇ．．.</i></b>")
+    await message.reply("<blockquote><b><i>Ｌｏａｄｉｎｇ．．.</i></b></blockquote>")
 
     image_data = get_ssweb_image(url)
     if not image_data:
-        await message.reply("<b><i>Gagal mengambil screenshot.</i></b>")
+        await message.reply("<blockquote><b><i>Gagal mengambil screenshot.</i></b></blockquote>")
         return
 
     filepath = f"img2p.jpeg"

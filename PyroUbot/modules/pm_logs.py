@@ -120,7 +120,7 @@ async def _(client, message):
         )
     query = {"limit": "PM_LIMIT", "text": "PM_TEXT", "pic": "PM_PIC"}
     if message.command[1].lower() not in query:
-        return await message.reply(f"{ggl}query yang di masukkan tidak valid")
+        return await message.reply(f"<blockquote>{ggl}query yang di masukkan tidak valid</blockquote>")
     query_str, value_str = (
         message.text.split(None, 2)[1],
         message.text.split(None, 2)[2],
@@ -148,13 +148,13 @@ async def _(client, message):
     toggle_option = message.command[1].lower()
 
     if toggle_option not in toggle_options:
-        return await message.reply(f"{ggl}opsi tidak valid. Harap gunakan 'on' atau 'off'.")
+        return await message.reply(f"<blockquote>{ggl}opsi tidak valid. Harap gunakan 'on' atau 'off'.</blockquote>")
 
     value = toggle_options[toggle_option]
     text = "diaktifkan" if value else "dinonaktifkan"
 
     await set_vars(client.me.id, "PMPERMIT", value)
-    await message.reply(f"{brhsl}pmpermit berhasil {text}")
+    await message.reply(f"<blockquote>{brhsl}pmpermit berhasil {text}</blockquote>")
 
 
 @PY.INLINE("pm_pr")
@@ -206,9 +206,9 @@ async def _(client, message):
     vars = await get_pm_id(client.me.id)
     if user.id not in vars:
         await add_pm_id(client.me.id, user.id)
-        return await message.reply(f"{brhsl}ʙᴀɪᴋʟᴀʜ, {rpk} ᴛᴇʟᴀʜ ᴅɪᴛᴇʀɪᴍᴀ")
+        return await message.reply(f"<blockquote>{brhsl}ʙᴀɪᴋʟᴀʜ, {rpk} ᴛᴇʟᴀʜ ᴅɪᴛᴇʀɪᴍᴀ</blockquote>")
     else:
-        return await message.reply(f"{brhsl}{rpk} sᴜᴅᴀʜ ᴅɪᴛᴇʀɪᴍᴀ")
+        return await message.reply(f"<blockquote>{brhsl}{rpk} sᴜᴅᴀʜ ᴅɪᴛᴇʀɪᴍᴀ</blockquote>")
 
 
 @PY.UBOT("no|tolak")
@@ -268,7 +268,7 @@ async def _(client, message):
     command = message.command[1].lower()
 
     if command not in query:
-        return await message.reply(f"{ggl}opsi tidak valid!!")
+        return await message.reply(f"<blockquote>{ggl}opsi tidak valid!!</blockquote>")
 
     value = query[command]
 

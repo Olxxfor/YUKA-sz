@@ -47,7 +47,7 @@ async def send_quran(client, message):
     try:
         args = message.command[1:]
         if len(args) < 2 or not args[0].isdigit() or not args[1].isdigit():
-            await message.reply("Contoh:\n .alquran 1 2\n\nMaka hasilnya adalah surah Al-Fatihah ayat 2")
+            await message.reply("<blockquote>Contoh:\n .alquran 1 2\n\nMaka hasilnya adalah surah Al-Fatihah ayat 2</blockquote>")
             return
         
         surah = int(args[0])
@@ -73,4 +73,4 @@ async def send_quran(client, message):
         )
 
     except Exception as e:
-        await message.reply(f"Error: {str(e)}")
+        await message.reply(f"<blockquote>Error: {str(e)}</blockquote>")

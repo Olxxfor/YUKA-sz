@@ -16,7 +16,7 @@ async def cekkhodam(client, message):
     try:
         nama = message.text.split(" ", 1)[1] if len(message.text.split()) > 1 else None
         if not nama:
-            await message.edit("ɴᴀᴍᴀɴʏᴀ ᴍᴀɴᴀ")
+            await message.edit("<blockquote>ɴᴀᴍᴀɴʏᴀ ᴍᴀɴᴀ</blockquote>")
             return
 
         def pick_random(options):

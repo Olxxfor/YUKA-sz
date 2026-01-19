@@ -19,7 +19,7 @@ async def cek_kecocokan(_, message):
     text = message.text[len(message.command[0]) + 2:].strip()
 
     if "," not in text:
-        return await message.reply("**Gunakan format:**\n`.pasangan nama1, nama2`")
+        return await message.reply("<blockquote>**Gunakan format:**\n`.pasangan nama1, nama2`</blockquote>")
 
     nama1, nama2 = map(str.strip, text.split(",", 1))
 
@@ -42,7 +42,7 @@ async def cek_kecocokan(_, message):
             )
             await message.reply_photo(hasil["gambar"], caption=teks)
         else:
-            await message.reply("⚠️ **Gagal mendapatkan data kecocokan.**")
+            await message.reply("<blockquote>⚠️ **Gagal mendapatkan data kecocokan.**</blockquote>")
     
     except Exception as e:
-        await message.reply(f"❌ **Terjadi kesalahan:** `{e}`")
+        await message.reply(f"<blockquote>❌ **Terjadi kesalahan:** `{e}`</blockquote>")

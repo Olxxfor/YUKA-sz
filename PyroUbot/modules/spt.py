@@ -146,4 +146,4 @@ async def batal_callback(client, callback_query):
             )
         except Exception as why:
             await callback_query.message.delete()
-            await client.send_message(user_id, f"<b>ɢᴀɢᴀʟ ᴅɪ ʙᴀᴛᴀʟᴋᴀɴ! {why}</b>")
+            await client.send_message(user_id, f"<blockquote><b>ɢᴀɢᴀʟ ᴅɪ ʙᴀᴛᴀʟᴋᴀɴ! {why}</b></blockquote>")

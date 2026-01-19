@@ -43,19 +43,19 @@ async def upload_media(m: Message):
 @PY.UBOT("qvideo")
 async def quotesvideo_handler(client, message: Message):
     if not message.reply_to_message or not message.reply_to_message.video:
-        return await message.reply("Silakan balas ke sebuah video dengan perintah: `/qvideo teks`")
+        return await message.reply("<blockquote>Silakan balas ke sebuah video dengan perintah: `/qvideo teks`</blockquote>")
 
     query = " ".join(message.command[1:])
     if not query:
-        return await message.reply("Silakan masukkan teks untuk quotes video.\nContoh: `/qvideo Makan Ayam`")
+        return await message.reply("<blockquote>Silakan masukkan teks untuk quotes video.\nContoh: `/qvideo Makan Ayam`</blockquote>")
 
-    msg = await message.reply("🔄 Mengunggah video...")
+    msg = await message.reply("<blockquote>🔄 Mengunggah video...</blockquote>")
     video_url = await upload_media(message)
 
     if not video_url:
-        return await msg.edit("❌ Gagal mengunggah video!")
+        return await msg.edit("<blockquote>❌ Gagal mengunggah video!</blockquote>")
 
-    await msg.edit("🎥 Membuat Quotes Video...")
+    await msg.edit("<blockquote>🎥 Membuat Quotes Video...</blockquote>")
     
     api_url = f"https://api.botcahx.eu.org/api/maker/quotesvideo?url={video_url}&text={query}&apikey=moire"
     res = requests.get(api_url)
@@ -65,7 +65,7 @@ async def quotesvideo_handler(client, message: Message):
         if "result" in data:
             video_result_url = data["result"]
             return await message.reply_video(video_result_url, caption="✅ Quotes Video berhasil dibuat!")
-        return await msg.edit("❌ Gagal membuat quotes video.")
+        return await msg.edit("<blockquote>❌ Gagal membuat quotes video.</blockquote>")
     
-    return await msg.edit(f"❌ Gagal mendapatkan hasil (Status: {res.status_code})")
+    return await msg.edit(f"<blockquote>❌ Gagal mendapatkan hasil (Status: {res.status_code})</blockquote>")
             
